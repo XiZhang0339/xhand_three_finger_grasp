@@ -1,21 +1,21 @@
-# XHAND1 MuJoCo 模型（左/右手，5×120 触觉）
+# XHAND1 MuJoCo 复现工程（左/右手，5×120 触觉）
 
-这个目录是从 `Xhand1交付资料-带触觉` 非破坏性生成的 MuJoCo 工程。源压缩包、PDF、JSON 和 SDK 都没有被修改或删除。
+这是我整理出来的一套 XHAND1 MuJoCo 复现结果，目标是把双手模型、触觉和验证流程都放在一个地方，方便直接运行和重复生成。
 
-最终模型以正式 URDF v1.3 为结构与几何源，而不是交付包中 2025-02 的右手触觉初版。
+模型结构和几何以正式 URDF v1.3 为准。
 
 ## 环境准备
 
-这个仓库不是一个独立的 Python 项目，它默认依赖父目录 `mujoco` 里的运行环境。
+这个工程默认依赖 `mujoco` 工作区里的运行环境，不单独维护一套虚拟环境。
 
-推荐的环境是：
+推荐环境：
 
 - Linux
 - MuJoCo Python 包
 - `numpy`
 - 父目录 `mujoco` 中的 conda 环境 `mujoco-examples`
 
-父目录已经提供了激活脚本，脚本会读取当前工作目录，所以要先进入 `mujoco` 根目录再激活：
+先进入 `mujoco` 根目录，再激活环境：
 
 ```bash
 cd /home/jingchen/projects/mujoco
@@ -23,14 +23,14 @@ source ./activate_mujoco.sh
 cd xhand1
 ```
 
-如果你是第一次在这台机器上装 GitHub CLI，可先执行：
+如果还没装 GitHub CLI，可以先装：
 
 ```bash
 sudo apt install gh
 gh auth login
 ```
 
-如果只想验证模型，不需要额外安装这个仓库自己的依赖；只要父环境里的 `mujoco` 和 `numpy` 可用即可。
+只要父环境里的 `mujoco` 和 `numpy` 可用，模型验证和演示就能跑。
 
 ## 快速运行
 
@@ -83,10 +83,10 @@ python demo_control.py --side right --pose pinch --headless --seconds 2.5
 
 ## 复现流程
 
-如果你想从原始交付资料重新生成本仓库的所有 MuJoCo 产物，按下面顺序执行：
+如果你想从头重建这套结果，按下面顺序来：
 
-1. 把原始交付包 `Xhand1交付资料-带触觉` 放在 `mujoco` 根目录同级，保持默认目录结构不变。
-2. 激活父目录环境：
+1. 把模型源资料放到约定位置，保持目录结构一致。
+2. 激活工作区环境：
 
 ```bash
 cd /home/jingchen/projects/mujoco
@@ -100,7 +100,7 @@ cd xhand1
 python convert_xhand.py
 ```
 
-4. 运行自动验收，确认 mesh、关节、执行器、触觉和接触都正常：
+4. 跑自动验收，确认 mesh、关节、执行器、触觉和接触都正常：
 
 ```bash
 python verify_xhand.py
@@ -119,7 +119,7 @@ python demo_control.py --side left
 python demo_control.py --side right --pose pinch --headless --seconds 2.5
 ```
 
-当前仓库里已经包含了转换后的结果文件，所以一般情况下你只需要激活环境并运行 `verify_xhand.py` / `demo_control.py`，不必重新转换。
+仓库里已经带了转换好的结果文件，通常只需要激活环境并运行 `verify_xhand.py` 或 `demo_control.py`。
 
 ## 目录结构
 
