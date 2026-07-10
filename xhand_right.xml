@@ -1,0 +1,1502 @@
+<mujoco model="xhand1_right">
+  <compiler angle="radian" meshdir="assets/right" autolimits="true" balanceinertia="true" inertiafromgeom="false" fusestatic="false" />
+  <option timestep="0.001" integrator="implicitfast" cone="elliptic" impratio="10" />
+  <size memory="128M" />
+  <default>
+    <default class="xhand_visual">
+      <geom type="mesh" contype="0" conaffinity="0" group="2" mass="0" />
+    </default>
+    <default class="xhand_collision">
+      <geom type="mesh" contype="1" conaffinity="1" condim="4" friction="1 0.005 0.0001" solref="0.008 1" solimp="0.9 0.95 0.001" group="3" rgba="0.2 0.7 0.2 0.18" mass="0" />
+    </default>
+    <default class="xhand_taxel">
+      <site type="sphere" size="0.0025" group="4" rgba="0.1 1 0.2 0.28" />
+    </default>
+    <default class="xhand_joint">
+      <joint damping="0.02" armature="0.0002" frictionloss="0.002" />
+    </default>
+  </default>
+  <asset>
+    <mesh name="right_right_hand_back_link" file="right_hand_back_link.STL" />
+    <mesh name="right_right_hand_ee_link" file="right_hand_ee_link.STL" />
+    <mesh name="right_right_hand_index_bend_link" file="right_hand_index_bend_link.STL" />
+    <mesh name="right_right_hand_index_rota_link1" file="right_hand_index_rota_link1.STL" />
+    <mesh name="right_right_hand_index_rota_link2" file="right_hand_index_rota_link2.STL" />
+    <mesh name="right_right_hand_index_rota_tip" file="right_hand_index_rota_tip.STL" />
+    <mesh name="right_right_hand_index_rotaback_link1" file="right_hand_index_rotaback_link1.STL" />
+    <mesh name="right_right_hand_index_rotaback_link2" file="right_hand_index_rotaback_link2.STL" />
+    <mesh name="right_right_hand_link" file="right_hand_link.STL" />
+    <mesh name="right_right_hand_mid_link1" file="right_hand_mid_link1.STL" />
+    <mesh name="right_right_hand_mid_link2" file="right_hand_mid_link2.STL" />
+    <mesh name="right_right_hand_mid_tip" file="right_hand_mid_tip.STL" />
+    <mesh name="right_right_hand_midback_link1" file="right_hand_midback_link1.STL" />
+    <mesh name="right_right_hand_midback_link2" file="right_hand_midback_link2.STL" />
+    <mesh name="right_right_hand_pinky_link1" file="right_hand_pinky_link1.STL" />
+    <mesh name="right_right_hand_pinky_link2" file="right_hand_pinky_link2.STL" />
+    <mesh name="right_right_hand_pinky_tip" file="right_hand_pinky_tip.STL" />
+    <mesh name="right_right_hand_pinkyback_link1" file="right_hand_pinkyback_link1.STL" />
+    <mesh name="right_right_hand_pinkyback_link2" file="right_hand_pinkyback_link2.STL" />
+    <mesh name="right_right_hand_ring_link1" file="right_hand_ring_link1.STL" />
+    <mesh name="right_right_hand_ring_link2" file="right_hand_ring_link2.STL" />
+    <mesh name="right_right_hand_ring_tip" file="right_hand_ring_tip.STL" />
+    <mesh name="right_right_hand_ringback_link1" file="right_hand_ringback_link1.STL" />
+    <mesh name="right_right_hand_ringback_link2" file="right_hand_ringback_link2.STL" />
+    <mesh name="right_right_hand_thumb_bend_link" file="right_hand_thumb_bend_link.STL" />
+    <mesh name="right_right_hand_thumb_rota_link1" file="right_hand_thumb_rota_link1.STL" />
+    <mesh name="right_right_hand_thumb_rota_link2" file="right_hand_thumb_rota_link2.STL" />
+    <mesh name="right_right_hand_thumb_rota_tip" file="right_hand_thumb_rota_tip.STL" />
+    <mesh name="right_right_hand_thumb_rotaback_link1" file="right_hand_thumb_rotaback_link1.STL" />
+    <mesh name="right_right_hand_thumb_rotaback_link2" file="right_hand_thumb_rotaback_link2.STL" />
+  </asset>
+  <worldbody>
+    <body name="right_hand_link">
+      <inertial pos="0.01003512634 -0.003668350564 0.05826952129" mass="0.53851506" fullinertia="0.00064186 0.00046434 0.00027538 2e-08 -2.17e-06 5.134e-05" />
+      <geom name="right_hand_link_visual_1" class="xhand_visual" mesh="right_right_hand_link" rgba="0.055 0.055 0.063 1.0" />
+      <geom name="right_hand_link_collision_1" class="xhand_collision" mesh="right_right_hand_link" />
+      <body name="right_hand_ee_link" pos="0 0 0.065">
+        <geom name="right_hand_ee_link_visual_1" class="xhand_visual" mesh="right_right_hand_ee_link" rgba="0.055 0.055 0.063 1.0" />
+        <geom name="right_hand_ee_link_collision_1" class="xhand_collision" mesh="right_right_hand_ee_link" />
+      </body>
+      <body name="right_hand_back_link" pos="0 0 0.065">
+        <geom name="right_hand_back_link_visual_1" class="xhand_visual" mesh="right_right_hand_back_link" rgba="0.941 0.941 0.941 1.0" />
+        <geom name="right_hand_back_link_collision_1" class="xhand_collision" mesh="right_right_hand_back_link" />
+      </body>
+      <body name="right_hand_thumb_bend_link" pos="0.0095 0.0228 0.0305">
+        <inertial pos="-0.001165344891 0.01443587999 5.406651832e-05" mass="0.01151453" fullinertia="1.55e-06 6.2e-07 1.57e-06 -3e-08 1e-11 7e-08" />
+        <joint name="right_hand_thumb_bend_joint" class="xhand_joint" type="hinge" axis="0 0 -1" range="0 1.832" actuatorfrcrange="-1.1 1.1" />
+        <geom name="right_hand_thumb_bend_link_visual_1" class="xhand_visual" mesh="right_right_hand_thumb_bend_link" rgba="0.055 0.055 0.063 1.0" />
+        <geom name="right_hand_thumb_bend_link_collision_1" class="xhand_collision" mesh="right_right_hand_thumb_bend_link" />
+        <body name="right_hand_thumb_rota_link1" pos="0.0083177 0.028599 -0.00178" euler="0 0.2618 -0.0407">
+          <inertial pos="-0.0003617650527 0.02876814856 0.001339296849" mass="0.1322853" fullinertia="3.665e-05 1.694e-05 4.358e-05 -7.88e-06 1.98e-06 1.85e-06" />
+          <joint name="right_hand_thumb_rota_joint1" class="xhand_joint" type="hinge" axis="1 0 0" range="-0.698 1.57" actuatorfrcrange="-1.1 1.1" />
+          <geom name="right_hand_thumb_rota_link1_visual_1" class="xhand_visual" mesh="right_right_hand_thumb_rota_link1" rgba="0.055 0.055 0.063 1.0" />
+          <geom name="right_hand_thumb_rota_link1_collision_1" class="xhand_collision" mesh="right_right_hand_thumb_rota_link1" />
+          <body name="right_hand_thumb_rotaback_link1" pos="0 0.0553 0">
+            <geom name="right_hand_thumb_rotaback_link1_visual_1" class="xhand_visual" mesh="right_right_hand_thumb_rotaback_link1" rgba="0.941 0.941 0.941 1.0" />
+            <geom name="right_hand_thumb_rotaback_link1_collision_1" class="xhand_collision" mesh="right_right_hand_thumb_rotaback_link1" />
+          </body>
+          <body name="right_hand_thumb_rota_link2" pos="0 0.0553 0">
+            <inertial pos="-0.0008816042811 0.0225339955 0.0006145506445" mass="0.03516871" fullinertia="7.79e-06 3.5e-06 8.96e-06 -2e-08 3.4e-07 -1.8e-07" />
+            <joint name="right_hand_thumb_rota_joint2" class="xhand_joint" type="hinge" axis="1 0 0" range="0 1.57" actuatorfrcrange="-0.4 0.4" />
+            <geom name="right_hand_thumb_rota_link2_visual_1" class="xhand_visual" mesh="right_right_hand_thumb_rota_link2" rgba="0.055 0.055 0.063 1.0" />
+            <geom name="right_hand_thumb_rota_link2_collision_1" class="xhand_collision" mesh="right_right_hand_thumb_rota_link2" />
+            <site name="right_tactile_thumb_001_site" class="xhand_taxel" pos="-0.01488 0.01984 -0.00134" />
+            <site name="right_tactile_thumb_002_site" class="xhand_taxel" pos="-0.015 0.02185 -0.00148" />
+            <site name="right_tactile_thumb_003_site" class="xhand_taxel" pos="-0.01505 0.02385 -0.00161" />
+            <site name="right_tactile_thumb_004_site" class="xhand_taxel" pos="-0.01505 0.02586 -0.00175" />
+            <site name="right_tactile_thumb_005_site" class="xhand_taxel" pos="-0.01498 0.02787 -0.0019" />
+            <site name="right_tactile_thumb_006_site" class="xhand_taxel" pos="-0.01486 0.02987 -0.00204" />
+            <site name="right_tactile_thumb_007_site" class="xhand_taxel" pos="-0.01466 0.03187 -0.00219" />
+            <site name="right_tactile_thumb_008_site" class="xhand_taxel" pos="-0.01439 0.03386 -0.00235" />
+            <site name="right_tactile_thumb_009_site" class="xhand_taxel" pos="-0.01405 0.03584 -0.0025" />
+            <site name="right_tactile_thumb_010_site" class="xhand_taxel" pos="-0.01361 0.0378 -0.00266" />
+            <site name="right_tactile_thumb_011_site" class="xhand_taxel" pos="-0.01309 0.03974 -0.00282" />
+            <site name="right_tactile_thumb_012_site" class="xhand_taxel" pos="-0.01245 0.04164 -0.00291" />
+            <site name="right_tactile_thumb_013_site" class="xhand_taxel" pos="-0.0139 0.02006 0.00359" />
+            <site name="right_tactile_thumb_014_site" class="xhand_taxel" pos="-0.01403 0.02257 0.00344" />
+            <site name="right_tactile_thumb_015_site" class="xhand_taxel" pos="-0.01408 0.02508 0.00323" />
+            <site name="right_tactile_thumb_016_site" class="xhand_taxel" pos="-0.01406 0.0276 0.00295" />
+            <site name="right_tactile_thumb_017_site" class="xhand_taxel" pos="-0.01395 0.0301 0.00261" />
+            <site name="right_tactile_thumb_018_site" class="xhand_taxel" pos="-0.01374 0.03259 0.0022" />
+            <site name="right_tactile_thumb_019_site" class="xhand_taxel" pos="-0.01342 0.03505 0.0017" />
+            <site name="right_tactile_thumb_020_site" class="xhand_taxel" pos="-0.01301 0.03745 0.00111" />
+            <site name="right_tactile_thumb_021_site" class="xhand_taxel" pos="-0.01251 0.03976 0.00039" />
+            <site name="right_tactile_thumb_022_site" class="xhand_taxel" pos="-0.01193 0.04193 -0.00053" />
+            <site name="right_tactile_thumb_023_site" class="xhand_taxel" pos="-0.01123 0.04391 -0.00158" />
+            <site name="right_tactile_thumb_024_site" class="xhand_taxel" pos="-0.01035 0.04572 -0.0026" />
+            <site name="right_tactile_thumb_025_site" class="xhand_taxel" pos="-0.01046 0.02047 0.00831" />
+            <site name="right_tactile_thumb_026_site" class="xhand_taxel" pos="-0.01052 0.02339 0.00812" />
+            <site name="right_tactile_thumb_027_site" class="xhand_taxel" pos="-0.01054 0.0263 0.00784" />
+            <site name="right_tactile_thumb_028_site" class="xhand_taxel" pos="-0.01052 0.02921 0.00747" />
+            <site name="right_tactile_thumb_029_site" class="xhand_taxel" pos="-0.01045 0.03211 0.00698" />
+            <site name="right_tactile_thumb_030_site" class="xhand_taxel" pos="-0.01032 0.03498 0.00637" />
+            <site name="right_tactile_thumb_031_site" class="xhand_taxel" pos="-0.01015 0.03782 0.0056" />
+            <site name="right_tactile_thumb_032_site" class="xhand_taxel" pos="-0.00991 0.04061 0.00463" />
+            <site name="right_tactile_thumb_033_site" class="xhand_taxel" pos="-0.00952 0.04334 0.00335" />
+            <site name="right_tactile_thumb_034_site" class="xhand_taxel" pos="-0.00888 0.04581 0.0016" />
+            <site name="right_tactile_thumb_035_site" class="xhand_taxel" pos="-0.00787 0.04778 -0.00042" />
+            <site name="right_tactile_thumb_036_site" class="xhand_taxel" pos="-0.00655 0.0493 -0.00241" />
+            <site name="right_tactile_thumb_037_site" class="xhand_taxel" pos="-0.00674 0.0207 0.01061" />
+            <site name="right_tactile_thumb_038_site" class="xhand_taxel" pos="-0.00675 0.02394 0.01037" />
+            <site name="right_tactile_thumb_039_site" class="xhand_taxel" pos="-0.00676 0.02718 0.01002" />
+            <site name="right_tactile_thumb_040_site" class="xhand_taxel" pos="-0.00675 0.0304 0.00957" />
+            <site name="right_tactile_thumb_041_site" class="xhand_taxel" pos="-0.0067 0.0336 0.00899" />
+            <site name="right_tactile_thumb_042_site" class="xhand_taxel" pos="-0.0066 0.03677 0.00829" />
+            <site name="right_tactile_thumb_043_site" class="xhand_taxel" pos="-0.00648 0.0399 0.00741" />
+            <site name="right_tactile_thumb_044_site" class="xhand_taxel" pos="-0.00626 0.04295 0.00629" />
+            <site name="right_tactile_thumb_045_site" class="xhand_taxel" pos="-0.00579 0.04576 0.00474" />
+            <site name="right_tactile_thumb_046_site" class="xhand_taxel" pos="-0.00505 0.04807 0.0026" />
+            <site name="right_tactile_thumb_047_site" class="xhand_taxel" pos="-0.00395 0.04969 1e-05" />
+            <site name="right_tactile_thumb_048_site" class="xhand_taxel" pos="-0.0026 0.05075 -0.00275" />
+            <site name="right_tactile_thumb_049_site" class="xhand_taxel" pos="-0.00223 0.02073 0.01131" />
+            <site name="right_tactile_thumb_050_site" class="xhand_taxel" pos="-0.00223 0.02399 0.01108" />
+            <site name="right_tactile_thumb_051_site" class="xhand_taxel" pos="-0.00224 0.02725 0.01075" />
+            <site name="right_tactile_thumb_052_site" class="xhand_taxel" pos="-0.00224 0.0305 0.01032" />
+            <site name="right_tactile_thumb_053_site" class="xhand_taxel" pos="-0.00222 0.03373 0.00976" />
+            <site name="right_tactile_thumb_054_site" class="xhand_taxel" pos="-0.00219 0.03694 0.00908" />
+            <site name="right_tactile_thumb_055_site" class="xhand_taxel" pos="-0.00216 0.04013 0.00825" />
+            <site name="right_tactile_thumb_056_site" class="xhand_taxel" pos="-0.00211 0.04329 0.00716" />
+            <site name="right_tactile_thumb_057_site" class="xhand_taxel" pos="-0.002 0.04632 0.00549" />
+            <site name="right_tactile_thumb_058_site" class="xhand_taxel" pos="-0.00172 0.04865 0.00298" />
+            <site name="right_tactile_thumb_059_site" class="xhand_taxel" pos="-0.00132 0.05005 0.00015" />
+            <site name="right_tactile_thumb_060_site" class="xhand_taxel" pos="-0.00086 0.05087 -0.00271" />
+            <site name="right_tactile_thumb_061_site" class="xhand_taxel" pos="0.00223 0.02073 0.01131" />
+            <site name="right_tactile_thumb_062_site" class="xhand_taxel" pos="0.00223 0.02399 0.01108" />
+            <site name="right_tactile_thumb_063_site" class="xhand_taxel" pos="0.00224 0.02725 0.01075" />
+            <site name="right_tactile_thumb_064_site" class="xhand_taxel" pos="0.00224 0.0305 0.01032" />
+            <site name="right_tactile_thumb_065_site" class="xhand_taxel" pos="0.00222 0.03373 0.00976" />
+            <site name="right_tactile_thumb_066_site" class="xhand_taxel" pos="0.00219 0.03694 0.00908" />
+            <site name="right_tactile_thumb_067_site" class="xhand_taxel" pos="0.00216 0.04013 0.00825" />
+            <site name="right_tactile_thumb_068_site" class="xhand_taxel" pos="0.00211 0.04329 0.00716" />
+            <site name="right_tactile_thumb_069_site" class="xhand_taxel" pos="0.002 0.04632 0.00549" />
+            <site name="right_tactile_thumb_070_site" class="xhand_taxel" pos="0.00172 0.04865 0.00298" />
+            <site name="right_tactile_thumb_071_site" class="xhand_taxel" pos="0.00132 0.05005 0.00015" />
+            <site name="right_tactile_thumb_072_site" class="xhand_taxel" pos="0.00086 0.05087 -0.00271" />
+            <site name="right_tactile_thumb_073_site" class="xhand_taxel" pos="0.00674 0.0207 0.01061" />
+            <site name="right_tactile_thumb_074_site" class="xhand_taxel" pos="0.00675 0.02394 0.01037" />
+            <site name="right_tactile_thumb_075_site" class="xhand_taxel" pos="0.00676 0.02718 0.01002" />
+            <site name="right_tactile_thumb_076_site" class="xhand_taxel" pos="0.00675 0.0304 0.00957" />
+            <site name="right_tactile_thumb_077_site" class="xhand_taxel" pos="0.0067 0.0336 0.00899" />
+            <site name="right_tactile_thumb_078_site" class="xhand_taxel" pos="0.0066 0.03677 0.00829" />
+            <site name="right_tactile_thumb_079_site" class="xhand_taxel" pos="0.00648 0.0399 0.00741" />
+            <site name="right_tactile_thumb_080_site" class="xhand_taxel" pos="0.00626 0.04295 0.00629" />
+            <site name="right_tactile_thumb_081_site" class="xhand_taxel" pos="0.00579 0.04576 0.00474" />
+            <site name="right_tactile_thumb_082_site" class="xhand_taxel" pos="0.00505 0.04807 0.0026" />
+            <site name="right_tactile_thumb_083_site" class="xhand_taxel" pos="0.00395 0.04969 1e-05" />
+            <site name="right_tactile_thumb_084_site" class="xhand_taxel" pos="0.0026 0.05075 -0.00275" />
+            <site name="right_tactile_thumb_085_site" class="xhand_taxel" pos="0.01046 0.02047 0.00831" />
+            <site name="right_tactile_thumb_086_site" class="xhand_taxel" pos="0.01052 0.02339 0.00812" />
+            <site name="right_tactile_thumb_087_site" class="xhand_taxel" pos="0.01054 0.0263 0.00784" />
+            <site name="right_tactile_thumb_088_site" class="xhand_taxel" pos="0.01052 0.02921 0.00747" />
+            <site name="right_tactile_thumb_089_site" class="xhand_taxel" pos="0.01045 0.03211 0.00698" />
+            <site name="right_tactile_thumb_090_site" class="xhand_taxel" pos="0.01032 0.03498 0.00637" />
+            <site name="right_tactile_thumb_091_site" class="xhand_taxel" pos="0.01015 0.03782 0.0056" />
+            <site name="right_tactile_thumb_092_site" class="xhand_taxel" pos="0.00991 0.04061 0.00463" />
+            <site name="right_tactile_thumb_093_site" class="xhand_taxel" pos="0.00952 0.04334 0.00335" />
+            <site name="right_tactile_thumb_094_site" class="xhand_taxel" pos="0.00888 0.04581 0.0016" />
+            <site name="right_tactile_thumb_095_site" class="xhand_taxel" pos="0.00787 0.04778 -0.00042" />
+            <site name="right_tactile_thumb_096_site" class="xhand_taxel" pos="0.00655 0.0493 -0.00241" />
+            <site name="right_tactile_thumb_097_site" class="xhand_taxel" pos="0.0139 0.02006 0.00359" />
+            <site name="right_tactile_thumb_098_site" class="xhand_taxel" pos="0.01403 0.02257 0.00344" />
+            <site name="right_tactile_thumb_099_site" class="xhand_taxel" pos="0.01408 0.02508 0.00323" />
+            <site name="right_tactile_thumb_100_site" class="xhand_taxel" pos="0.01406 0.0276 0.00295" />
+            <site name="right_tactile_thumb_101_site" class="xhand_taxel" pos="0.01395 0.0301 0.00261" />
+            <site name="right_tactile_thumb_102_site" class="xhand_taxel" pos="0.01374 0.03259 0.0022" />
+            <site name="right_tactile_thumb_103_site" class="xhand_taxel" pos="0.01342 0.03505 0.0017" />
+            <site name="right_tactile_thumb_104_site" class="xhand_taxel" pos="0.01301 0.03745 0.00111" />
+            <site name="right_tactile_thumb_105_site" class="xhand_taxel" pos="0.01251 0.03976 0.00039" />
+            <site name="right_tactile_thumb_106_site" class="xhand_taxel" pos="0.01193 0.04193 -0.00053" />
+            <site name="right_tactile_thumb_107_site" class="xhand_taxel" pos="0.01123 0.04391 -0.00158" />
+            <site name="right_tactile_thumb_108_site" class="xhand_taxel" pos="0.01035 0.04572 -0.0026" />
+            <site name="right_tactile_thumb_109_site" class="xhand_taxel" pos="0.01488 0.01984 -0.00134" />
+            <site name="right_tactile_thumb_110_site" class="xhand_taxel" pos="0.015 0.02185 -0.00148" />
+            <site name="right_tactile_thumb_111_site" class="xhand_taxel" pos="0.01505 0.02385 -0.00161" />
+            <site name="right_tactile_thumb_112_site" class="xhand_taxel" pos="0.01505 0.02586 -0.00175" />
+            <site name="right_tactile_thumb_113_site" class="xhand_taxel" pos="0.01498 0.02787 -0.0019" />
+            <site name="right_tactile_thumb_114_site" class="xhand_taxel" pos="0.01486 0.02987 -0.00204" />
+            <site name="right_tactile_thumb_115_site" class="xhand_taxel" pos="0.01466 0.03187 -0.00219" />
+            <site name="right_tactile_thumb_116_site" class="xhand_taxel" pos="0.01439 0.03386 -0.00235" />
+            <site name="right_tactile_thumb_117_site" class="xhand_taxel" pos="0.01405 0.03584 -0.0025" />
+            <site name="right_tactile_thumb_118_site" class="xhand_taxel" pos="0.01361 0.0378 -0.00266" />
+            <site name="right_tactile_thumb_119_site" class="xhand_taxel" pos="0.01309 0.03974 -0.00282" />
+            <site name="right_tactile_thumb_120_site" class="xhand_taxel" pos="0.01245 0.04164 -0.00291" />
+            <body name="right_hand_thumb_rotaback_link2" pos="0 0.05022764994 0">
+              <geom name="right_hand_thumb_rotaback_link2_visual_1" class="xhand_visual" mesh="right_right_hand_thumb_rotaback_link2" rgba="0.941 0.941 0.941 1.0" />
+              <geom name="right_hand_thumb_rotaback_link2_collision_1" class="xhand_collision" mesh="right_right_hand_thumb_rotaback_link2" />
+            </body>
+            <body name="right_hand_thumb_rota_tip" pos="0 0.05022764994 0">
+              <geom name="right_hand_thumb_rota_tip_visual_1" class="xhand_visual" mesh="right_right_hand_thumb_rota_tip" rgba="0.055 0.055 0.063 1.0" />
+              <geom name="right_hand_thumb_rota_tip_collision_1" class="xhand_collision" mesh="right_right_hand_thumb_rota_tip" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="right_hand_index_bend_link" pos="0.0065 0.0265 0.0899">
+        <inertial pos="-0.0007158511646 0.0001189975588 0.01119030149" mass="0.068721" fullinertia="1.643e-05 1.707e-05 3.43e-06 1e-11 1.3e-07 -1.1e-07" />
+        <joint name="right_hand_index_bend_joint" class="xhand_joint" type="hinge" axis="-1 0 0" range="-0.174 0.174" actuatorfrcrange="-0.4 0.4" />
+        <geom name="right_hand_index_bend_link_visual_1" class="xhand_visual" mesh="right_right_hand_index_bend_link" rgba="0.055 0.055 0.063 1.0" />
+        <geom name="right_hand_index_bend_link_collision_1" class="xhand_collision" mesh="right_right_hand_index_bend_link" />
+        <body name="right_hand_index_rota_link1" pos="0 0 0.0178">
+          <inertial pos="0.000632930513 0.0001330081066 0.03558687199" mass="0.06298297" fullinertia="1.686e-05 1.738e-05 3.2e-06 1e-11 -1.9e-07 -2.8e-07" />
+          <joint name="right_hand_index_joint1" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-1.1 1.1" />
+          <geom name="right_hand_index_rota_link1_visual_1" class="xhand_visual" mesh="right_right_hand_index_rota_link1" rgba="0.055 0.055 0.063 1" />
+          <geom name="right_hand_index_rota_link1_collision_1" class="xhand_collision" mesh="right_right_hand_index_rota_link1" />
+          <body name="right_hand_index_rotaback_link1" pos="0 0 0.0558">
+            <geom name="right_hand_index_rotaback_link1_visual_1" class="xhand_visual" mesh="right_right_hand_index_rotaback_link1" rgba="0.941 0.941 0.941 1" />
+            <geom name="right_hand_index_rotaback_link1_collision_1" class="xhand_collision" mesh="right_right_hand_index_rotaback_link1" />
+          </body>
+          <body name="right_hand_index_rota_link2" pos="0 0 0.0558">
+            <inertial pos="0.001199051902 -0.000248361662 0.02137898545" mass="0.01582395" fullinertia="2.83e-06 2.77e-06 8.5e-07 1e-11 -7e-08 -1.2e-07" />
+            <joint name="right_hand_index_joint2" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-0.4 0.4" />
+            <geom name="right_hand_index_rota_link2_visual_1" class="xhand_visual" mesh="right_right_hand_index_rota_link2" rgba="0.055 0.055 0.063 1" />
+            <geom name="right_hand_index_rota_link2_collision_1" class="xhand_collision" mesh="right_right_hand_index_rota_link2" />
+            <site name="right_tactile_index_001_site" class="xhand_taxel" pos="0.0004 -0.00832 0.01809" />
+            <site name="right_tactile_index_002_site" class="xhand_taxel" pos="0.00024 -0.00832 0.02013" />
+            <site name="right_tactile_index_003_site" class="xhand_taxel" pos="9e-05 -0.00831 0.02217" />
+            <site name="right_tactile_index_004_site" class="xhand_taxel" pos="-7e-05 -0.00829 0.02421" />
+            <site name="right_tactile_index_005_site" class="xhand_taxel" pos="-0.00022 -0.00825 0.02625" />
+            <site name="right_tactile_index_006_site" class="xhand_taxel" pos="-0.00037 -0.00817 0.02829" />
+            <site name="right_tactile_index_007_site" class="xhand_taxel" pos="-0.00052 -0.00806 0.03032" />
+            <site name="right_tactile_index_008_site" class="xhand_taxel" pos="-0.00066 -0.00789 0.03236" />
+            <site name="right_tactile_index_009_site" class="xhand_taxel" pos="-0.00079 -0.00765 0.03438" />
+            <site name="right_tactile_index_010_site" class="xhand_taxel" pos="-0.00092 -0.00725 0.03639" />
+            <site name="right_tactile_index_011_site" class="xhand_taxel" pos="-0.00105 -0.00665 0.03833" />
+            <site name="right_tactile_index_012_site" class="xhand_taxel" pos="-0.0012 -0.00566 0.04011" />
+            <site name="right_tactile_index_013_site" class="xhand_taxel" pos="0.00417 -0.00831 0.01841" />
+            <site name="right_tactile_index_014_site" class="xhand_taxel" pos="0.00398 -0.0083 0.02058" />
+            <site name="right_tactile_index_015_site" class="xhand_taxel" pos="0.00379 -0.00829 0.02277" />
+            <site name="right_tactile_index_016_site" class="xhand_taxel" pos="0.00358 -0.00824 0.02496" />
+            <site name="right_tactile_index_017_site" class="xhand_taxel" pos="0.00336 -0.00817 0.02713" />
+            <site name="right_tactile_index_018_site" class="xhand_taxel" pos="0.0031 -0.00807 0.02932" />
+            <site name="right_tactile_index_019_site" class="xhand_taxel" pos="0.00279 -0.0079 0.03149" />
+            <site name="right_tactile_index_020_site" class="xhand_taxel" pos="0.00238 -0.00766 0.03363" />
+            <site name="right_tactile_index_021_site" class="xhand_taxel" pos="0.00187 -0.00732 0.03572" />
+            <site name="right_tactile_index_022_site" class="xhand_taxel" pos="0.00124 -0.00678 0.03771" />
+            <site name="right_tactile_index_023_site" class="xhand_taxel" pos="0.00049 -0.00595 0.03948" />
+            <site name="right_tactile_index_024_site" class="xhand_taxel" pos="-0.00034 -0.00482 0.04088" />
+            <site name="right_tactile_index_025_site" class="xhand_taxel" pos="0.00912 -0.00646 0.01876" />
+            <site name="right_tactile_index_026_site" class="xhand_taxel" pos="0.00892 -0.00654 0.02109" />
+            <site name="right_tactile_index_027_site" class="xhand_taxel" pos="0.00866 -0.00663 0.02342" />
+            <site name="right_tactile_index_028_site" class="xhand_taxel" pos="0.00834 -0.00669 0.02577" />
+            <site name="right_tactile_index_029_site" class="xhand_taxel" pos="0.00794 -0.00674 0.02809" />
+            <site name="right_tactile_index_030_site" class="xhand_taxel" pos="0.00744 -0.00677 0.0304" />
+            <site name="right_tactile_index_031_site" class="xhand_taxel" pos="0.00679 -0.00677 0.03271" />
+            <site name="right_tactile_index_032_site" class="xhand_taxel" pos="0.00589 -0.0067 0.03495" />
+            <site name="right_tactile_index_033_site" class="xhand_taxel" pos="0.00481 -0.00638 0.03714" />
+            <site name="right_tactile_index_034_site" class="xhand_taxel" pos="0.00351 -0.00573 0.03905" />
+            <site name="right_tactile_index_035_site" class="xhand_taxel" pos="0.00204 -0.00482 0.04049" />
+            <site name="right_tactile_index_036_site" class="xhand_taxel" pos="0.00049 -0.00378 0.04147" />
+            <site name="right_tactile_index_037_site" class="xhand_taxel" pos="0.01059 -0.00391 0.01893" />
+            <site name="right_tactile_index_038_site" class="xhand_taxel" pos="0.01044 -0.00396 0.02135" />
+            <site name="right_tactile_index_039_site" class="xhand_taxel" pos="0.01024 -0.004 0.02376" />
+            <site name="right_tactile_index_040_site" class="xhand_taxel" pos="0.01 -0.00404 0.02617" />
+            <site name="right_tactile_index_041_site" class="xhand_taxel" pos="0.00971 -0.00411 0.02858" />
+            <site name="right_tactile_index_042_site" class="xhand_taxel" pos="0.00933 -0.00418 0.03097" />
+            <site name="right_tactile_index_043_site" class="xhand_taxel" pos="0.00878 -0.00423 0.03332" />
+            <site name="right_tactile_index_044_site" class="xhand_taxel" pos="0.00795 -0.00435 0.03559" />
+            <site name="right_tactile_index_045_site" class="xhand_taxel" pos="0.00682 -0.00432 0.03773" />
+            <site name="right_tactile_index_046_site" class="xhand_taxel" pos="0.00529 -0.00403 0.03958" />
+            <site name="right_tactile_index_047_site" class="xhand_taxel" pos="0.0034 -0.00346 0.04096" />
+            <site name="right_tactile_index_048_site" class="xhand_taxel" pos="0.00128 -0.00268 0.04181" />
+            <site name="right_tactile_index_049_site" class="xhand_taxel" pos="0.01094 -0.0013 0.01894" />
+            <site name="right_tactile_index_050_site" class="xhand_taxel" pos="0.01083 -0.00132 0.02138" />
+            <site name="right_tactile_index_051_site" class="xhand_taxel" pos="0.01064 -0.00133 0.0238" />
+            <site name="right_tactile_index_052_site" class="xhand_taxel" pos="0.01044 -0.00135 0.02621" />
+            <site name="right_tactile_index_053_site" class="xhand_taxel" pos="0.0102 -0.00137 0.02863" />
+            <site name="right_tactile_index_054_site" class="xhand_taxel" pos="0.00988 -0.0014 0.03106" />
+            <site name="right_tactile_index_055_site" class="xhand_taxel" pos="0.00942 -0.00143 0.03348" />
+            <site name="right_tactile_index_056_site" class="xhand_taxel" pos="0.00869 -0.0015 0.03588" />
+            <site name="right_tactile_index_057_site" class="xhand_taxel" pos="0.00751 -0.00149 0.03818" />
+            <site name="right_tactile_index_058_site" class="xhand_taxel" pos="0.00579 -0.00141 0.04016" />
+            <site name="right_tactile_index_059_site" class="xhand_taxel" pos="0.00363 -0.00119 0.04147" />
+            <site name="right_tactile_index_060_site" class="xhand_taxel" pos="0.00135 -0.00089 0.04208" />
+            <site name="right_tactile_index_061_site" class="xhand_taxel" pos="0.01094 0.0013 0.01894" />
+            <site name="right_tactile_index_062_site" class="xhand_taxel" pos="0.01083 0.00132 0.02138" />
+            <site name="right_tactile_index_063_site" class="xhand_taxel" pos="0.01064 0.00133 0.0238" />
+            <site name="right_tactile_index_064_site" class="xhand_taxel" pos="0.01044 0.00135 0.02621" />
+            <site name="right_tactile_index_065_site" class="xhand_taxel" pos="0.0102 0.00137 0.02863" />
+            <site name="right_tactile_index_066_site" class="xhand_taxel" pos="0.00988 0.0014 0.03106" />
+            <site name="right_tactile_index_067_site" class="xhand_taxel" pos="0.00942 0.00143 0.03348" />
+            <site name="right_tactile_index_068_site" class="xhand_taxel" pos="0.00869 0.0015 0.03588" />
+            <site name="right_tactile_index_069_site" class="xhand_taxel" pos="0.00751 0.00149 0.03818" />
+            <site name="right_tactile_index_070_site" class="xhand_taxel" pos="0.00579 0.00141 0.04016" />
+            <site name="right_tactile_index_071_site" class="xhand_taxel" pos="0.00363 0.00119 0.04147" />
+            <site name="right_tactile_index_072_site" class="xhand_taxel" pos="0.00135 0.00089 0.04208" />
+            <site name="right_tactile_index_073_site" class="xhand_taxel" pos="0.01059 0.00391 0.01893" />
+            <site name="right_tactile_index_074_site" class="xhand_taxel" pos="0.01044 0.00396 0.02135" />
+            <site name="right_tactile_index_075_site" class="xhand_taxel" pos="0.01024 0.004 0.02376" />
+            <site name="right_tactile_index_076_site" class="xhand_taxel" pos="0.01 0.00404 0.02617" />
+            <site name="right_tactile_index_077_site" class="xhand_taxel" pos="0.00971 0.00411 0.02858" />
+            <site name="right_tactile_index_078_site" class="xhand_taxel" pos="0.00933 0.00418 0.03097" />
+            <site name="right_tactile_index_079_site" class="xhand_taxel" pos="0.00878 0.00423 0.03332" />
+            <site name="right_tactile_index_080_site" class="xhand_taxel" pos="0.00795 0.00435 0.03559" />
+            <site name="right_tactile_index_081_site" class="xhand_taxel" pos="0.00682 0.00432 0.03773" />
+            <site name="right_tactile_index_082_site" class="xhand_taxel" pos="0.00529 0.00403 0.03958" />
+            <site name="right_tactile_index_083_site" class="xhand_taxel" pos="0.0034 0.00346 0.04096" />
+            <site name="right_tactile_index_084_site" class="xhand_taxel" pos="0.00128 0.00268 0.04181" />
+            <site name="right_tactile_index_085_site" class="xhand_taxel" pos="0.00912 0.00646 0.01876" />
+            <site name="right_tactile_index_086_site" class="xhand_taxel" pos="0.00892 0.00654 0.02109" />
+            <site name="right_tactile_index_087_site" class="xhand_taxel" pos="0.00866 0.00663 0.02342" />
+            <site name="right_tactile_index_088_site" class="xhand_taxel" pos="0.00834 0.00669 0.02577" />
+            <site name="right_tactile_index_089_site" class="xhand_taxel" pos="0.00794 0.00674 0.02809" />
+            <site name="right_tactile_index_090_site" class="xhand_taxel" pos="0.00744 0.00677 0.0304" />
+            <site name="right_tactile_index_091_site" class="xhand_taxel" pos="0.00679 0.00677 0.03271" />
+            <site name="right_tactile_index_092_site" class="xhand_taxel" pos="0.00589 0.0067 0.03495" />
+            <site name="right_tactile_index_093_site" class="xhand_taxel" pos="0.00481 0.00638 0.03714" />
+            <site name="right_tactile_index_094_site" class="xhand_taxel" pos="0.00351 0.00573 0.03905" />
+            <site name="right_tactile_index_095_site" class="xhand_taxel" pos="0.00204 0.00482 0.04049" />
+            <site name="right_tactile_index_096_site" class="xhand_taxel" pos="0.00049 0.00378 0.04147" />
+            <site name="right_tactile_index_097_site" class="xhand_taxel" pos="0.00417 0.00831 0.01841" />
+            <site name="right_tactile_index_098_site" class="xhand_taxel" pos="0.00398 0.0083 0.02058" />
+            <site name="right_tactile_index_099_site" class="xhand_taxel" pos="0.00379 0.00829 0.02277" />
+            <site name="right_tactile_index_100_site" class="xhand_taxel" pos="0.00358 0.00824 0.02496" />
+            <site name="right_tactile_index_101_site" class="xhand_taxel" pos="0.00336 0.00817 0.02713" />
+            <site name="right_tactile_index_102_site" class="xhand_taxel" pos="0.0031 0.00807 0.02932" />
+            <site name="right_tactile_index_103_site" class="xhand_taxel" pos="0.00279 0.0079 0.03149" />
+            <site name="right_tactile_index_104_site" class="xhand_taxel" pos="0.00238 0.00766 0.03363" />
+            <site name="right_tactile_index_105_site" class="xhand_taxel" pos="0.00187 0.00732 0.03572" />
+            <site name="right_tactile_index_106_site" class="xhand_taxel" pos="0.00124 0.00678 0.03771" />
+            <site name="right_tactile_index_107_site" class="xhand_taxel" pos="0.00049 0.00595 0.03948" />
+            <site name="right_tactile_index_108_site" class="xhand_taxel" pos="-0.00034 0.00482 0.04088" />
+            <site name="right_tactile_index_109_site" class="xhand_taxel" pos="0.0004 0.00832 0.01809" />
+            <site name="right_tactile_index_110_site" class="xhand_taxel" pos="0.00024 0.00832 0.02013" />
+            <site name="right_tactile_index_111_site" class="xhand_taxel" pos="9e-05 0.00831 0.02217" />
+            <site name="right_tactile_index_112_site" class="xhand_taxel" pos="-7e-05 0.00829 0.02421" />
+            <site name="right_tactile_index_113_site" class="xhand_taxel" pos="-0.00022 0.00825 0.02625" />
+            <site name="right_tactile_index_114_site" class="xhand_taxel" pos="-0.00037 0.00817 0.02829" />
+            <site name="right_tactile_index_115_site" class="xhand_taxel" pos="-0.00052 0.00806 0.03032" />
+            <site name="right_tactile_index_116_site" class="xhand_taxel" pos="-0.00066 0.00789 0.03236" />
+            <site name="right_tactile_index_117_site" class="xhand_taxel" pos="-0.00079 0.00765 0.03438" />
+            <site name="right_tactile_index_118_site" class="xhand_taxel" pos="-0.00092 0.00725 0.03639" />
+            <site name="right_tactile_index_119_site" class="xhand_taxel" pos="-0.00105 0.00665 0.03833" />
+            <site name="right_tactile_index_120_site" class="xhand_taxel" pos="-0.0012 0.00566 0.04011" />
+            <body name="right_hand_index_rotaback_link2" pos="0 0 0.04224829241">
+              <geom name="right_hand_index_rotaback_link2_visual_1" class="xhand_visual" mesh="right_right_hand_index_rotaback_link2" rgba="0.941 0.941 0.941 1" />
+              <geom name="right_hand_index_rotaback_link2_collision_1" class="xhand_collision" mesh="right_right_hand_index_rotaback_link2" />
+            </body>
+            <body name="right_hand_index_rota_tip" pos="0 0 0.04224829241">
+              <geom name="right_hand_index_rota_tip_visual_1" class="xhand_visual" mesh="right_right_hand_index_rota_tip" rgba="0.055 0.055 0.063 1" />
+              <geom name="right_hand_index_rota_tip_collision_1" class="xhand_collision" mesh="right_right_hand_index_rota_tip" />
+            </body>
+          </body>
+        </body>
+      </body>
+      <body name="right_hand_mid_link1" pos="0.0065 0.004 0.1082">
+        <inertial pos="0.0005304175921 3.580490837e-05 0.03327846712" mass="0.06298297" fullinertia="1.681e-05 1.738e-05 3.25e-06 1e-11 -8.7e-07 -2.8e-07" />
+        <joint name="right_hand_mid_joint1" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-1.1 1.1" />
+        <geom name="right_hand_mid_link1_visual_1" class="xhand_visual" mesh="right_right_hand_mid_link1" rgba="0.055 0.055 0.063 1" />
+        <geom name="right_hand_mid_link1_collision_1" class="xhand_collision" mesh="right_right_hand_mid_link1" />
+        <body name="right_hand_midback_link1" pos="0 0 0.0558">
+          <geom name="right_hand_midback_link1_visual_1" class="xhand_visual" mesh="right_right_hand_midback_link1" rgba="0.941 0.941 0.941 1" />
+          <geom name="right_hand_midback_link1_collision_1" class="xhand_collision" mesh="right_right_hand_midback_link1" />
+        </body>
+        <body name="right_hand_mid_link2" pos="0 0 0.0558">
+          <inertial pos="0.001199051902 -0.000248361662 0.02137898545" mass="0.01582395" fullinertia="2.87e-06 2.83e-06 8.7e-07 -1e-08 -1.9e-07 -1.2e-07" />
+          <joint name="right_hand_mid_joint2" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-0.4 0.4" />
+          <geom name="right_hand_mid_link2_visual_1" class="xhand_visual" mesh="right_right_hand_mid_link2" rgba="0.055 0.055 0.063 1" />
+          <geom name="right_hand_mid_link2_collision_1" class="xhand_collision" mesh="right_right_hand_mid_link2" />
+          <site name="right_tactile_mid_001_site" class="xhand_taxel" pos="0.0004 -0.00832 0.01809" />
+          <site name="right_tactile_mid_002_site" class="xhand_taxel" pos="0.00024 -0.00832 0.02013" />
+          <site name="right_tactile_mid_003_site" class="xhand_taxel" pos="9e-05 -0.00831 0.02217" />
+          <site name="right_tactile_mid_004_site" class="xhand_taxel" pos="-7e-05 -0.00829 0.02421" />
+          <site name="right_tactile_mid_005_site" class="xhand_taxel" pos="-0.00022 -0.00825 0.02625" />
+          <site name="right_tactile_mid_006_site" class="xhand_taxel" pos="-0.00037 -0.00817 0.02829" />
+          <site name="right_tactile_mid_007_site" class="xhand_taxel" pos="-0.00052 -0.00806 0.03032" />
+          <site name="right_tactile_mid_008_site" class="xhand_taxel" pos="-0.00066 -0.00789 0.03236" />
+          <site name="right_tactile_mid_009_site" class="xhand_taxel" pos="-0.00079 -0.00765 0.03438" />
+          <site name="right_tactile_mid_010_site" class="xhand_taxel" pos="-0.00092 -0.00725 0.03639" />
+          <site name="right_tactile_mid_011_site" class="xhand_taxel" pos="-0.00105 -0.00665 0.03833" />
+          <site name="right_tactile_mid_012_site" class="xhand_taxel" pos="-0.0012 -0.00566 0.04011" />
+          <site name="right_tactile_mid_013_site" class="xhand_taxel" pos="0.00417 -0.00831 0.01841" />
+          <site name="right_tactile_mid_014_site" class="xhand_taxel" pos="0.00398 -0.0083 0.02058" />
+          <site name="right_tactile_mid_015_site" class="xhand_taxel" pos="0.00379 -0.00829 0.02277" />
+          <site name="right_tactile_mid_016_site" class="xhand_taxel" pos="0.00358 -0.00824 0.02496" />
+          <site name="right_tactile_mid_017_site" class="xhand_taxel" pos="0.00336 -0.00817 0.02713" />
+          <site name="right_tactile_mid_018_site" class="xhand_taxel" pos="0.0031 -0.00807 0.02932" />
+          <site name="right_tactile_mid_019_site" class="xhand_taxel" pos="0.00279 -0.0079 0.03149" />
+          <site name="right_tactile_mid_020_site" class="xhand_taxel" pos="0.00238 -0.00766 0.03363" />
+          <site name="right_tactile_mid_021_site" class="xhand_taxel" pos="0.00187 -0.00732 0.03572" />
+          <site name="right_tactile_mid_022_site" class="xhand_taxel" pos="0.00124 -0.00678 0.03771" />
+          <site name="right_tactile_mid_023_site" class="xhand_taxel" pos="0.00049 -0.00595 0.03948" />
+          <site name="right_tactile_mid_024_site" class="xhand_taxel" pos="-0.00034 -0.00482 0.04088" />
+          <site name="right_tactile_mid_025_site" class="xhand_taxel" pos="0.00912 -0.00646 0.01876" />
+          <site name="right_tactile_mid_026_site" class="xhand_taxel" pos="0.00892 -0.00654 0.02109" />
+          <site name="right_tactile_mid_027_site" class="xhand_taxel" pos="0.00866 -0.00663 0.02342" />
+          <site name="right_tactile_mid_028_site" class="xhand_taxel" pos="0.00834 -0.00669 0.02577" />
+          <site name="right_tactile_mid_029_site" class="xhand_taxel" pos="0.00794 -0.00674 0.02809" />
+          <site name="right_tactile_mid_030_site" class="xhand_taxel" pos="0.00744 -0.00677 0.0304" />
+          <site name="right_tactile_mid_031_site" class="xhand_taxel" pos="0.00679 -0.00677 0.03271" />
+          <site name="right_tactile_mid_032_site" class="xhand_taxel" pos="0.00589 -0.0067 0.03495" />
+          <site name="right_tactile_mid_033_site" class="xhand_taxel" pos="0.00481 -0.00638 0.03714" />
+          <site name="right_tactile_mid_034_site" class="xhand_taxel" pos="0.00351 -0.00573 0.03905" />
+          <site name="right_tactile_mid_035_site" class="xhand_taxel" pos="0.00204 -0.00482 0.04049" />
+          <site name="right_tactile_mid_036_site" class="xhand_taxel" pos="0.00049 -0.00378 0.04147" />
+          <site name="right_tactile_mid_037_site" class="xhand_taxel" pos="0.01059 -0.00391 0.01893" />
+          <site name="right_tactile_mid_038_site" class="xhand_taxel" pos="0.01044 -0.00396 0.02135" />
+          <site name="right_tactile_mid_039_site" class="xhand_taxel" pos="0.01024 -0.004 0.02376" />
+          <site name="right_tactile_mid_040_site" class="xhand_taxel" pos="0.01 -0.00404 0.02617" />
+          <site name="right_tactile_mid_041_site" class="xhand_taxel" pos="0.00971 -0.00411 0.02858" />
+          <site name="right_tactile_mid_042_site" class="xhand_taxel" pos="0.00933 -0.00418 0.03097" />
+          <site name="right_tactile_mid_043_site" class="xhand_taxel" pos="0.00878 -0.00423 0.03332" />
+          <site name="right_tactile_mid_044_site" class="xhand_taxel" pos="0.00795 -0.00435 0.03559" />
+          <site name="right_tactile_mid_045_site" class="xhand_taxel" pos="0.00682 -0.00432 0.03773" />
+          <site name="right_tactile_mid_046_site" class="xhand_taxel" pos="0.00529 -0.00403 0.03958" />
+          <site name="right_tactile_mid_047_site" class="xhand_taxel" pos="0.0034 -0.00346 0.04096" />
+          <site name="right_tactile_mid_048_site" class="xhand_taxel" pos="0.00128 -0.00268 0.04181" />
+          <site name="right_tactile_mid_049_site" class="xhand_taxel" pos="0.01094 -0.0013 0.01894" />
+          <site name="right_tactile_mid_050_site" class="xhand_taxel" pos="0.01083 -0.00132 0.02138" />
+          <site name="right_tactile_mid_051_site" class="xhand_taxel" pos="0.01064 -0.00133 0.0238" />
+          <site name="right_tactile_mid_052_site" class="xhand_taxel" pos="0.01044 -0.00135 0.02621" />
+          <site name="right_tactile_mid_053_site" class="xhand_taxel" pos="0.0102 -0.00137 0.02863" />
+          <site name="right_tactile_mid_054_site" class="xhand_taxel" pos="0.00988 -0.0014 0.03106" />
+          <site name="right_tactile_mid_055_site" class="xhand_taxel" pos="0.00942 -0.00143 0.03348" />
+          <site name="right_tactile_mid_056_site" class="xhand_taxel" pos="0.00869 -0.0015 0.03588" />
+          <site name="right_tactile_mid_057_site" class="xhand_taxel" pos="0.00751 -0.00149 0.03818" />
+          <site name="right_tactile_mid_058_site" class="xhand_taxel" pos="0.00579 -0.00141 0.04016" />
+          <site name="right_tactile_mid_059_site" class="xhand_taxel" pos="0.00363 -0.00119 0.04147" />
+          <site name="right_tactile_mid_060_site" class="xhand_taxel" pos="0.00135 -0.00089 0.04208" />
+          <site name="right_tactile_mid_061_site" class="xhand_taxel" pos="0.01094 0.0013 0.01894" />
+          <site name="right_tactile_mid_062_site" class="xhand_taxel" pos="0.01083 0.00132 0.02138" />
+          <site name="right_tactile_mid_063_site" class="xhand_taxel" pos="0.01064 0.00133 0.0238" />
+          <site name="right_tactile_mid_064_site" class="xhand_taxel" pos="0.01044 0.00135 0.02621" />
+          <site name="right_tactile_mid_065_site" class="xhand_taxel" pos="0.0102 0.00137 0.02863" />
+          <site name="right_tactile_mid_066_site" class="xhand_taxel" pos="0.00988 0.0014 0.03106" />
+          <site name="right_tactile_mid_067_site" class="xhand_taxel" pos="0.00942 0.00143 0.03348" />
+          <site name="right_tactile_mid_068_site" class="xhand_taxel" pos="0.00869 0.0015 0.03588" />
+          <site name="right_tactile_mid_069_site" class="xhand_taxel" pos="0.00751 0.00149 0.03818" />
+          <site name="right_tactile_mid_070_site" class="xhand_taxel" pos="0.00579 0.00141 0.04016" />
+          <site name="right_tactile_mid_071_site" class="xhand_taxel" pos="0.00363 0.00119 0.04147" />
+          <site name="right_tactile_mid_072_site" class="xhand_taxel" pos="0.00135 0.00089 0.04208" />
+          <site name="right_tactile_mid_073_site" class="xhand_taxel" pos="0.01059 0.00391 0.01893" />
+          <site name="right_tactile_mid_074_site" class="xhand_taxel" pos="0.01044 0.00396 0.02135" />
+          <site name="right_tactile_mid_075_site" class="xhand_taxel" pos="0.01024 0.004 0.02376" />
+          <site name="right_tactile_mid_076_site" class="xhand_taxel" pos="0.01 0.00404 0.02617" />
+          <site name="right_tactile_mid_077_site" class="xhand_taxel" pos="0.00971 0.00411 0.02858" />
+          <site name="right_tactile_mid_078_site" class="xhand_taxel" pos="0.00933 0.00418 0.03097" />
+          <site name="right_tactile_mid_079_site" class="xhand_taxel" pos="0.00878 0.00423 0.03332" />
+          <site name="right_tactile_mid_080_site" class="xhand_taxel" pos="0.00795 0.00435 0.03559" />
+          <site name="right_tactile_mid_081_site" class="xhand_taxel" pos="0.00682 0.00432 0.03773" />
+          <site name="right_tactile_mid_082_site" class="xhand_taxel" pos="0.00529 0.00403 0.03958" />
+          <site name="right_tactile_mid_083_site" class="xhand_taxel" pos="0.0034 0.00346 0.04096" />
+          <site name="right_tactile_mid_084_site" class="xhand_taxel" pos="0.00128 0.00268 0.04181" />
+          <site name="right_tactile_mid_085_site" class="xhand_taxel" pos="0.00912 0.00646 0.01876" />
+          <site name="right_tactile_mid_086_site" class="xhand_taxel" pos="0.00892 0.00654 0.02109" />
+          <site name="right_tactile_mid_087_site" class="xhand_taxel" pos="0.00866 0.00663 0.02342" />
+          <site name="right_tactile_mid_088_site" class="xhand_taxel" pos="0.00834 0.00669 0.02577" />
+          <site name="right_tactile_mid_089_site" class="xhand_taxel" pos="0.00794 0.00674 0.02809" />
+          <site name="right_tactile_mid_090_site" class="xhand_taxel" pos="0.00744 0.00677 0.0304" />
+          <site name="right_tactile_mid_091_site" class="xhand_taxel" pos="0.00679 0.00677 0.03271" />
+          <site name="right_tactile_mid_092_site" class="xhand_taxel" pos="0.00589 0.0067 0.03495" />
+          <site name="right_tactile_mid_093_site" class="xhand_taxel" pos="0.00481 0.00638 0.03714" />
+          <site name="right_tactile_mid_094_site" class="xhand_taxel" pos="0.00351 0.00573 0.03905" />
+          <site name="right_tactile_mid_095_site" class="xhand_taxel" pos="0.00204 0.00482 0.04049" />
+          <site name="right_tactile_mid_096_site" class="xhand_taxel" pos="0.00049 0.00378 0.04147" />
+          <site name="right_tactile_mid_097_site" class="xhand_taxel" pos="0.00417 0.00831 0.01841" />
+          <site name="right_tactile_mid_098_site" class="xhand_taxel" pos="0.00398 0.0083 0.02058" />
+          <site name="right_tactile_mid_099_site" class="xhand_taxel" pos="0.00379 0.00829 0.02277" />
+          <site name="right_tactile_mid_100_site" class="xhand_taxel" pos="0.00358 0.00824 0.02496" />
+          <site name="right_tactile_mid_101_site" class="xhand_taxel" pos="0.00336 0.00817 0.02713" />
+          <site name="right_tactile_mid_102_site" class="xhand_taxel" pos="0.0031 0.00807 0.02932" />
+          <site name="right_tactile_mid_103_site" class="xhand_taxel" pos="0.00279 0.0079 0.03149" />
+          <site name="right_tactile_mid_104_site" class="xhand_taxel" pos="0.00238 0.00766 0.03363" />
+          <site name="right_tactile_mid_105_site" class="xhand_taxel" pos="0.00187 0.00732 0.03572" />
+          <site name="right_tactile_mid_106_site" class="xhand_taxel" pos="0.00124 0.00678 0.03771" />
+          <site name="right_tactile_mid_107_site" class="xhand_taxel" pos="0.00049 0.00595 0.03948" />
+          <site name="right_tactile_mid_108_site" class="xhand_taxel" pos="-0.00034 0.00482 0.04088" />
+          <site name="right_tactile_mid_109_site" class="xhand_taxel" pos="0.0004 0.00832 0.01809" />
+          <site name="right_tactile_mid_110_site" class="xhand_taxel" pos="0.00024 0.00832 0.02013" />
+          <site name="right_tactile_mid_111_site" class="xhand_taxel" pos="9e-05 0.00831 0.02217" />
+          <site name="right_tactile_mid_112_site" class="xhand_taxel" pos="-7e-05 0.00829 0.02421" />
+          <site name="right_tactile_mid_113_site" class="xhand_taxel" pos="-0.00022 0.00825 0.02625" />
+          <site name="right_tactile_mid_114_site" class="xhand_taxel" pos="-0.00037 0.00817 0.02829" />
+          <site name="right_tactile_mid_115_site" class="xhand_taxel" pos="-0.00052 0.00806 0.03032" />
+          <site name="right_tactile_mid_116_site" class="xhand_taxel" pos="-0.00066 0.00789 0.03236" />
+          <site name="right_tactile_mid_117_site" class="xhand_taxel" pos="-0.00079 0.00765 0.03438" />
+          <site name="right_tactile_mid_118_site" class="xhand_taxel" pos="-0.00092 0.00725 0.03639" />
+          <site name="right_tactile_mid_119_site" class="xhand_taxel" pos="-0.00105 0.00665 0.03833" />
+          <site name="right_tactile_mid_120_site" class="xhand_taxel" pos="-0.0012 0.00566 0.04011" />
+          <body name="right_hand_midback_link2" pos="0 0 0.04224829241">
+            <geom name="right_hand_midback_link2_visual_1" class="xhand_visual" mesh="right_right_hand_midback_link2" rgba="0.941 0.941 0.941 1" />
+            <geom name="right_hand_midback_link2_collision_1" class="xhand_collision" mesh="right_right_hand_midback_link2" />
+          </body>
+          <body name="right_hand_mid_tip" pos="0 0 0.042248">
+            <geom name="right_hand_mid_tip_visual_1" class="xhand_visual" mesh="right_right_hand_mid_tip" rgba="0.055 0.055 0.063 1" />
+            <geom name="right_hand_mid_tip_collision_1" class="xhand_collision" mesh="right_right_hand_mid_tip" />
+          </body>
+        </body>
+      </body>
+      <body name="right_hand_ring_link1" pos="0.0065 -0.016 0.1052">
+        <inertial pos="0.0005304175921 3.580490836e-05 0.03327846712" mass="0.06298297" fullinertia="1.681e-05 1.738e-05 3.25e-06 1e-11 -8.7e-07 -2.8e-07" />
+        <joint name="right_hand_ring_joint1" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-1.1 1.1" />
+        <geom name="right_hand_ring_link1_visual_1" class="xhand_visual" mesh="right_right_hand_ring_link1" rgba="0.055 0.055 0.063 1" />
+        <geom name="right_hand_ring_link1_collision_1" class="xhand_collision" mesh="right_right_hand_ring_link1" />
+        <body name="right_hand_ringback_link1" pos="0 0 0.0558">
+          <geom name="right_hand_ringback_link1_visual_1" class="xhand_visual" mesh="right_right_hand_ringback_link1" rgba="0.941 0.941 0.941 1" />
+          <geom name="right_hand_ringback_link1_collision_1" class="xhand_collision" mesh="right_right_hand_ringback_link1" />
+        </body>
+        <body name="right_hand_ring_link2" pos="0 0 0.0558">
+          <inertial pos="0.001199051926 -0.0002483615596 0.02137898548" mass="0.01582395" fullinertia="2.87e-06 2.83e-06 8.7e-07 -1e-08 -1.9e-07 -1.2e-07" />
+          <joint name="right_hand_ring_joint2" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-0.4 0.4" />
+          <geom name="right_hand_ring_link2_visual_1" class="xhand_visual" mesh="right_right_hand_ring_link2" rgba="0.055 0.055 0.063 1" />
+          <geom name="right_hand_ring_link2_collision_1" class="xhand_collision" mesh="right_right_hand_ring_link2" />
+          <site name="right_tactile_ring_001_site" class="xhand_taxel" pos="0.0004 -0.00832 0.01809" />
+          <site name="right_tactile_ring_002_site" class="xhand_taxel" pos="0.00024 -0.00832 0.02013" />
+          <site name="right_tactile_ring_003_site" class="xhand_taxel" pos="9e-05 -0.00831 0.02217" />
+          <site name="right_tactile_ring_004_site" class="xhand_taxel" pos="-7e-05 -0.00829 0.02421" />
+          <site name="right_tactile_ring_005_site" class="xhand_taxel" pos="-0.00022 -0.00825 0.02625" />
+          <site name="right_tactile_ring_006_site" class="xhand_taxel" pos="-0.00037 -0.00817 0.02829" />
+          <site name="right_tactile_ring_007_site" class="xhand_taxel" pos="-0.00052 -0.00806 0.03032" />
+          <site name="right_tactile_ring_008_site" class="xhand_taxel" pos="-0.00066 -0.00789 0.03236" />
+          <site name="right_tactile_ring_009_site" class="xhand_taxel" pos="-0.00079 -0.00765 0.03438" />
+          <site name="right_tactile_ring_010_site" class="xhand_taxel" pos="-0.00092 -0.00725 0.03639" />
+          <site name="right_tactile_ring_011_site" class="xhand_taxel" pos="-0.00105 -0.00665 0.03833" />
+          <site name="right_tactile_ring_012_site" class="xhand_taxel" pos="-0.0012 -0.00566 0.04011" />
+          <site name="right_tactile_ring_013_site" class="xhand_taxel" pos="0.00417 -0.00831 0.01841" />
+          <site name="right_tactile_ring_014_site" class="xhand_taxel" pos="0.00398 -0.0083 0.02058" />
+          <site name="right_tactile_ring_015_site" class="xhand_taxel" pos="0.00379 -0.00829 0.02277" />
+          <site name="right_tactile_ring_016_site" class="xhand_taxel" pos="0.00358 -0.00824 0.02496" />
+          <site name="right_tactile_ring_017_site" class="xhand_taxel" pos="0.00336 -0.00817 0.02713" />
+          <site name="right_tactile_ring_018_site" class="xhand_taxel" pos="0.0031 -0.00807 0.02932" />
+          <site name="right_tactile_ring_019_site" class="xhand_taxel" pos="0.00279 -0.0079 0.03149" />
+          <site name="right_tactile_ring_020_site" class="xhand_taxel" pos="0.00238 -0.00766 0.03363" />
+          <site name="right_tactile_ring_021_site" class="xhand_taxel" pos="0.00187 -0.00732 0.03572" />
+          <site name="right_tactile_ring_022_site" class="xhand_taxel" pos="0.00124 -0.00678 0.03771" />
+          <site name="right_tactile_ring_023_site" class="xhand_taxel" pos="0.00049 -0.00595 0.03948" />
+          <site name="right_tactile_ring_024_site" class="xhand_taxel" pos="-0.00034 -0.00482 0.04088" />
+          <site name="right_tactile_ring_025_site" class="xhand_taxel" pos="0.00912 -0.00646 0.01876" />
+          <site name="right_tactile_ring_026_site" class="xhand_taxel" pos="0.00892 -0.00654 0.02109" />
+          <site name="right_tactile_ring_027_site" class="xhand_taxel" pos="0.00866 -0.00663 0.02342" />
+          <site name="right_tactile_ring_028_site" class="xhand_taxel" pos="0.00834 -0.00669 0.02577" />
+          <site name="right_tactile_ring_029_site" class="xhand_taxel" pos="0.00794 -0.00674 0.02809" />
+          <site name="right_tactile_ring_030_site" class="xhand_taxel" pos="0.00744 -0.00677 0.0304" />
+          <site name="right_tactile_ring_031_site" class="xhand_taxel" pos="0.00679 -0.00677 0.03271" />
+          <site name="right_tactile_ring_032_site" class="xhand_taxel" pos="0.00589 -0.0067 0.03495" />
+          <site name="right_tactile_ring_033_site" class="xhand_taxel" pos="0.00481 -0.00638 0.03714" />
+          <site name="right_tactile_ring_034_site" class="xhand_taxel" pos="0.00351 -0.00573 0.03905" />
+          <site name="right_tactile_ring_035_site" class="xhand_taxel" pos="0.00204 -0.00482 0.04049" />
+          <site name="right_tactile_ring_036_site" class="xhand_taxel" pos="0.00049 -0.00378 0.04147" />
+          <site name="right_tactile_ring_037_site" class="xhand_taxel" pos="0.01059 -0.00391 0.01893" />
+          <site name="right_tactile_ring_038_site" class="xhand_taxel" pos="0.01044 -0.00396 0.02135" />
+          <site name="right_tactile_ring_039_site" class="xhand_taxel" pos="0.01024 -0.004 0.02376" />
+          <site name="right_tactile_ring_040_site" class="xhand_taxel" pos="0.01 -0.00404 0.02617" />
+          <site name="right_tactile_ring_041_site" class="xhand_taxel" pos="0.00971 -0.00411 0.02858" />
+          <site name="right_tactile_ring_042_site" class="xhand_taxel" pos="0.00933 -0.00418 0.03097" />
+          <site name="right_tactile_ring_043_site" class="xhand_taxel" pos="0.00878 -0.00423 0.03332" />
+          <site name="right_tactile_ring_044_site" class="xhand_taxel" pos="0.00795 -0.00435 0.03559" />
+          <site name="right_tactile_ring_045_site" class="xhand_taxel" pos="0.00682 -0.00432 0.03773" />
+          <site name="right_tactile_ring_046_site" class="xhand_taxel" pos="0.00529 -0.00403 0.03958" />
+          <site name="right_tactile_ring_047_site" class="xhand_taxel" pos="0.0034 -0.00346 0.04096" />
+          <site name="right_tactile_ring_048_site" class="xhand_taxel" pos="0.00128 -0.00268 0.04181" />
+          <site name="right_tactile_ring_049_site" class="xhand_taxel" pos="0.01094 -0.0013 0.01894" />
+          <site name="right_tactile_ring_050_site" class="xhand_taxel" pos="0.01083 -0.00132 0.02138" />
+          <site name="right_tactile_ring_051_site" class="xhand_taxel" pos="0.01064 -0.00133 0.0238" />
+          <site name="right_tactile_ring_052_site" class="xhand_taxel" pos="0.01044 -0.00135 0.02621" />
+          <site name="right_tactile_ring_053_site" class="xhand_taxel" pos="0.0102 -0.00137 0.02863" />
+          <site name="right_tactile_ring_054_site" class="xhand_taxel" pos="0.00988 -0.0014 0.03106" />
+          <site name="right_tactile_ring_055_site" class="xhand_taxel" pos="0.00942 -0.00143 0.03348" />
+          <site name="right_tactile_ring_056_site" class="xhand_taxel" pos="0.00869 -0.0015 0.03588" />
+          <site name="right_tactile_ring_057_site" class="xhand_taxel" pos="0.00751 -0.00149 0.03818" />
+          <site name="right_tactile_ring_058_site" class="xhand_taxel" pos="0.00579 -0.00141 0.04016" />
+          <site name="right_tactile_ring_059_site" class="xhand_taxel" pos="0.00363 -0.00119 0.04147" />
+          <site name="right_tactile_ring_060_site" class="xhand_taxel" pos="0.00135 -0.00089 0.04208" />
+          <site name="right_tactile_ring_061_site" class="xhand_taxel" pos="0.01094 0.0013 0.01894" />
+          <site name="right_tactile_ring_062_site" class="xhand_taxel" pos="0.01083 0.00132 0.02138" />
+          <site name="right_tactile_ring_063_site" class="xhand_taxel" pos="0.01064 0.00133 0.0238" />
+          <site name="right_tactile_ring_064_site" class="xhand_taxel" pos="0.01044 0.00135 0.02621" />
+          <site name="right_tactile_ring_065_site" class="xhand_taxel" pos="0.0102 0.00137 0.02863" />
+          <site name="right_tactile_ring_066_site" class="xhand_taxel" pos="0.00988 0.0014 0.03106" />
+          <site name="right_tactile_ring_067_site" class="xhand_taxel" pos="0.00942 0.00143 0.03348" />
+          <site name="right_tactile_ring_068_site" class="xhand_taxel" pos="0.00869 0.0015 0.03588" />
+          <site name="right_tactile_ring_069_site" class="xhand_taxel" pos="0.00751 0.00149 0.03818" />
+          <site name="right_tactile_ring_070_site" class="xhand_taxel" pos="0.00579 0.00141 0.04016" />
+          <site name="right_tactile_ring_071_site" class="xhand_taxel" pos="0.00363 0.00119 0.04147" />
+          <site name="right_tactile_ring_072_site" class="xhand_taxel" pos="0.00135 0.00089 0.04208" />
+          <site name="right_tactile_ring_073_site" class="xhand_taxel" pos="0.01059 0.00391 0.01893" />
+          <site name="right_tactile_ring_074_site" class="xhand_taxel" pos="0.01044 0.00396 0.02135" />
+          <site name="right_tactile_ring_075_site" class="xhand_taxel" pos="0.01024 0.004 0.02376" />
+          <site name="right_tactile_ring_076_site" class="xhand_taxel" pos="0.01 0.00404 0.02617" />
+          <site name="right_tactile_ring_077_site" class="xhand_taxel" pos="0.00971 0.00411 0.02858" />
+          <site name="right_tactile_ring_078_site" class="xhand_taxel" pos="0.00933 0.00418 0.03097" />
+          <site name="right_tactile_ring_079_site" class="xhand_taxel" pos="0.00878 0.00423 0.03332" />
+          <site name="right_tactile_ring_080_site" class="xhand_taxel" pos="0.00795 0.00435 0.03559" />
+          <site name="right_tactile_ring_081_site" class="xhand_taxel" pos="0.00682 0.00432 0.03773" />
+          <site name="right_tactile_ring_082_site" class="xhand_taxel" pos="0.00529 0.00403 0.03958" />
+          <site name="right_tactile_ring_083_site" class="xhand_taxel" pos="0.0034 0.00346 0.04096" />
+          <site name="right_tactile_ring_084_site" class="xhand_taxel" pos="0.00128 0.00268 0.04181" />
+          <site name="right_tactile_ring_085_site" class="xhand_taxel" pos="0.00912 0.00646 0.01876" />
+          <site name="right_tactile_ring_086_site" class="xhand_taxel" pos="0.00892 0.00654 0.02109" />
+          <site name="right_tactile_ring_087_site" class="xhand_taxel" pos="0.00866 0.00663 0.02342" />
+          <site name="right_tactile_ring_088_site" class="xhand_taxel" pos="0.00834 0.00669 0.02577" />
+          <site name="right_tactile_ring_089_site" class="xhand_taxel" pos="0.00794 0.00674 0.02809" />
+          <site name="right_tactile_ring_090_site" class="xhand_taxel" pos="0.00744 0.00677 0.0304" />
+          <site name="right_tactile_ring_091_site" class="xhand_taxel" pos="0.00679 0.00677 0.03271" />
+          <site name="right_tactile_ring_092_site" class="xhand_taxel" pos="0.00589 0.0067 0.03495" />
+          <site name="right_tactile_ring_093_site" class="xhand_taxel" pos="0.00481 0.00638 0.03714" />
+          <site name="right_tactile_ring_094_site" class="xhand_taxel" pos="0.00351 0.00573 0.03905" />
+          <site name="right_tactile_ring_095_site" class="xhand_taxel" pos="0.00204 0.00482 0.04049" />
+          <site name="right_tactile_ring_096_site" class="xhand_taxel" pos="0.00049 0.00378 0.04147" />
+          <site name="right_tactile_ring_097_site" class="xhand_taxel" pos="0.00417 0.00831 0.01841" />
+          <site name="right_tactile_ring_098_site" class="xhand_taxel" pos="0.00398 0.0083 0.02058" />
+          <site name="right_tactile_ring_099_site" class="xhand_taxel" pos="0.00379 0.00829 0.02277" />
+          <site name="right_tactile_ring_100_site" class="xhand_taxel" pos="0.00358 0.00824 0.02496" />
+          <site name="right_tactile_ring_101_site" class="xhand_taxel" pos="0.00336 0.00817 0.02713" />
+          <site name="right_tactile_ring_102_site" class="xhand_taxel" pos="0.0031 0.00807 0.02932" />
+          <site name="right_tactile_ring_103_site" class="xhand_taxel" pos="0.00279 0.0079 0.03149" />
+          <site name="right_tactile_ring_104_site" class="xhand_taxel" pos="0.00238 0.00766 0.03363" />
+          <site name="right_tactile_ring_105_site" class="xhand_taxel" pos="0.00187 0.00732 0.03572" />
+          <site name="right_tactile_ring_106_site" class="xhand_taxel" pos="0.00124 0.00678 0.03771" />
+          <site name="right_tactile_ring_107_site" class="xhand_taxel" pos="0.00049 0.00595 0.03948" />
+          <site name="right_tactile_ring_108_site" class="xhand_taxel" pos="-0.00034 0.00482 0.04088" />
+          <site name="right_tactile_ring_109_site" class="xhand_taxel" pos="0.0004 0.00832 0.01809" />
+          <site name="right_tactile_ring_110_site" class="xhand_taxel" pos="0.00024 0.00832 0.02013" />
+          <site name="right_tactile_ring_111_site" class="xhand_taxel" pos="9e-05 0.00831 0.02217" />
+          <site name="right_tactile_ring_112_site" class="xhand_taxel" pos="-7e-05 0.00829 0.02421" />
+          <site name="right_tactile_ring_113_site" class="xhand_taxel" pos="-0.00022 0.00825 0.02625" />
+          <site name="right_tactile_ring_114_site" class="xhand_taxel" pos="-0.00037 0.00817 0.02829" />
+          <site name="right_tactile_ring_115_site" class="xhand_taxel" pos="-0.00052 0.00806 0.03032" />
+          <site name="right_tactile_ring_116_site" class="xhand_taxel" pos="-0.00066 0.00789 0.03236" />
+          <site name="right_tactile_ring_117_site" class="xhand_taxel" pos="-0.00079 0.00765 0.03438" />
+          <site name="right_tactile_ring_118_site" class="xhand_taxel" pos="-0.00092 0.00725 0.03639" />
+          <site name="right_tactile_ring_119_site" class="xhand_taxel" pos="-0.00105 0.00665 0.03833" />
+          <site name="right_tactile_ring_120_site" class="xhand_taxel" pos="-0.0012 0.00566 0.04011" />
+          <body name="right_hand_ringback_link2" pos="0 0 0.04224829241">
+            <geom name="right_hand_ringback_link2_visual_1" class="xhand_visual" mesh="right_right_hand_ringback_link2" rgba="0.941 0.941 0.941 1" />
+            <geom name="right_hand_ringback_link2_collision_1" class="xhand_collision" mesh="right_right_hand_ringback_link2" />
+          </body>
+          <body name="right_hand_ring_tip" pos="0 0 0.04224829241">
+            <geom name="right_hand_ring_tip_visual_1" class="xhand_visual" mesh="right_right_hand_ring_tip" rgba="0.055 0.055 0.063 1" />
+            <geom name="right_hand_ring_tip_collision_1" class="xhand_collision" mesh="right_right_hand_ring_tip" />
+          </body>
+        </body>
+      </body>
+      <body name="right_hand_pinky_link1" pos="0.0065 -0.036 0.1022">
+        <inertial pos="0.0005304175921 3.580490836e-05 0.03327846712" mass="0.06298297" fullinertia="1.681e-05 1.738e-05 3.25e-06 1e-11 -8.7e-07 -2.8e-07" />
+        <joint name="right_hand_pinky_joint1" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-1.1 1.1" />
+        <geom name="right_hand_pinky_link1_visual_1" class="xhand_visual" mesh="right_right_hand_pinky_link1" rgba="0.055 0.055 0.063 1" />
+        <geom name="right_hand_pinky_link1_collision_1" class="xhand_collision" mesh="right_right_hand_pinky_link1" />
+        <body name="right_hand_pinkyback_link1" pos="0 0 0.0558">
+          <geom name="right_hand_pinkyback_link1_visual_1" class="xhand_visual" mesh="right_right_hand_pinkyback_link1" rgba="0.941 0.941 0.941 1" />
+          <geom name="right_hand_pinkyback_link1_collision_1" class="xhand_collision" mesh="right_right_hand_pinkyback_link1" />
+        </body>
+        <body name="right_hand_pinky_link2" pos="0 0 0.0558">
+          <inertial pos="0.001199051902 -0.000248361662 0.02137898545" mass="0.01582395" fullinertia="2.87e-06 2.83e-06 8.7e-07 -1e-08 -1.9e-07 -1.2e-07" />
+          <joint name="right_hand_pinky_joint2" class="xhand_joint" type="hinge" axis="0 1 0" range="0 1.919" actuatorfrcrange="-0.4 0.4" />
+          <geom name="right_hand_pinky_link2_visual_1" class="xhand_visual" mesh="right_right_hand_pinky_link2" rgba="0.055 0.055 0.063 1" />
+          <geom name="right_hand_pinky_link2_collision_1" class="xhand_collision" mesh="right_right_hand_pinky_link2" />
+          <site name="right_tactile_pinky_001_site" class="xhand_taxel" pos="0.0004 -0.00832 0.01809" />
+          <site name="right_tactile_pinky_002_site" class="xhand_taxel" pos="0.00024 -0.00832 0.02013" />
+          <site name="right_tactile_pinky_003_site" class="xhand_taxel" pos="9e-05 -0.00831 0.02217" />
+          <site name="right_tactile_pinky_004_site" class="xhand_taxel" pos="-7e-05 -0.00829 0.02421" />
+          <site name="right_tactile_pinky_005_site" class="xhand_taxel" pos="-0.00022 -0.00825 0.02625" />
+          <site name="right_tactile_pinky_006_site" class="xhand_taxel" pos="-0.00037 -0.00817 0.02829" />
+          <site name="right_tactile_pinky_007_site" class="xhand_taxel" pos="-0.00052 -0.00806 0.03032" />
+          <site name="right_tactile_pinky_008_site" class="xhand_taxel" pos="-0.00066 -0.00789 0.03236" />
+          <site name="right_tactile_pinky_009_site" class="xhand_taxel" pos="-0.00079 -0.00765 0.03438" />
+          <site name="right_tactile_pinky_010_site" class="xhand_taxel" pos="-0.00092 -0.00725 0.03639" />
+          <site name="right_tactile_pinky_011_site" class="xhand_taxel" pos="-0.00105 -0.00665 0.03833" />
+          <site name="right_tactile_pinky_012_site" class="xhand_taxel" pos="-0.0012 -0.00566 0.04011" />
+          <site name="right_tactile_pinky_013_site" class="xhand_taxel" pos="0.00417 -0.00831 0.01841" />
+          <site name="right_tactile_pinky_014_site" class="xhand_taxel" pos="0.00398 -0.0083 0.02058" />
+          <site name="right_tactile_pinky_015_site" class="xhand_taxel" pos="0.00379 -0.00829 0.02277" />
+          <site name="right_tactile_pinky_016_site" class="xhand_taxel" pos="0.00358 -0.00824 0.02496" />
+          <site name="right_tactile_pinky_017_site" class="xhand_taxel" pos="0.00336 -0.00817 0.02713" />
+          <site name="right_tactile_pinky_018_site" class="xhand_taxel" pos="0.0031 -0.00807 0.02932" />
+          <site name="right_tactile_pinky_019_site" class="xhand_taxel" pos="0.00279 -0.0079 0.03149" />
+          <site name="right_tactile_pinky_020_site" class="xhand_taxel" pos="0.00238 -0.00766 0.03363" />
+          <site name="right_tactile_pinky_021_site" class="xhand_taxel" pos="0.00187 -0.00732 0.03572" />
+          <site name="right_tactile_pinky_022_site" class="xhand_taxel" pos="0.00124 -0.00678 0.03771" />
+          <site name="right_tactile_pinky_023_site" class="xhand_taxel" pos="0.00049 -0.00595 0.03948" />
+          <site name="right_tactile_pinky_024_site" class="xhand_taxel" pos="-0.00034 -0.00482 0.04088" />
+          <site name="right_tactile_pinky_025_site" class="xhand_taxel" pos="0.00912 -0.00646 0.01876" />
+          <site name="right_tactile_pinky_026_site" class="xhand_taxel" pos="0.00892 -0.00654 0.02109" />
+          <site name="right_tactile_pinky_027_site" class="xhand_taxel" pos="0.00866 -0.00663 0.02342" />
+          <site name="right_tactile_pinky_028_site" class="xhand_taxel" pos="0.00834 -0.00669 0.02577" />
+          <site name="right_tactile_pinky_029_site" class="xhand_taxel" pos="0.00794 -0.00674 0.02809" />
+          <site name="right_tactile_pinky_030_site" class="xhand_taxel" pos="0.00744 -0.00677 0.0304" />
+          <site name="right_tactile_pinky_031_site" class="xhand_taxel" pos="0.00679 -0.00677 0.03271" />
+          <site name="right_tactile_pinky_032_site" class="xhand_taxel" pos="0.00589 -0.0067 0.03495" />
+          <site name="right_tactile_pinky_033_site" class="xhand_taxel" pos="0.00481 -0.00638 0.03714" />
+          <site name="right_tactile_pinky_034_site" class="xhand_taxel" pos="0.00351 -0.00573 0.03905" />
+          <site name="right_tactile_pinky_035_site" class="xhand_taxel" pos="0.00204 -0.00482 0.04049" />
+          <site name="right_tactile_pinky_036_site" class="xhand_taxel" pos="0.00049 -0.00378 0.04147" />
+          <site name="right_tactile_pinky_037_site" class="xhand_taxel" pos="0.01059 -0.00391 0.01893" />
+          <site name="right_tactile_pinky_038_site" class="xhand_taxel" pos="0.01044 -0.00396 0.02135" />
+          <site name="right_tactile_pinky_039_site" class="xhand_taxel" pos="0.01024 -0.004 0.02376" />
+          <site name="right_tactile_pinky_040_site" class="xhand_taxel" pos="0.01 -0.00404 0.02617" />
+          <site name="right_tactile_pinky_041_site" class="xhand_taxel" pos="0.00971 -0.00411 0.02858" />
+          <site name="right_tactile_pinky_042_site" class="xhand_taxel" pos="0.00933 -0.00418 0.03097" />
+          <site name="right_tactile_pinky_043_site" class="xhand_taxel" pos="0.00878 -0.00423 0.03332" />
+          <site name="right_tactile_pinky_044_site" class="xhand_taxel" pos="0.00795 -0.00435 0.03559" />
+          <site name="right_tactile_pinky_045_site" class="xhand_taxel" pos="0.00682 -0.00432 0.03773" />
+          <site name="right_tactile_pinky_046_site" class="xhand_taxel" pos="0.00529 -0.00403 0.03958" />
+          <site name="right_tactile_pinky_047_site" class="xhand_taxel" pos="0.0034 -0.00346 0.04096" />
+          <site name="right_tactile_pinky_048_site" class="xhand_taxel" pos="0.00128 -0.00268 0.04181" />
+          <site name="right_tactile_pinky_049_site" class="xhand_taxel" pos="0.01094 -0.0013 0.01894" />
+          <site name="right_tactile_pinky_050_site" class="xhand_taxel" pos="0.01083 -0.00132 0.02138" />
+          <site name="right_tactile_pinky_051_site" class="xhand_taxel" pos="0.01064 -0.00133 0.0238" />
+          <site name="right_tactile_pinky_052_site" class="xhand_taxel" pos="0.01044 -0.00135 0.02621" />
+          <site name="right_tactile_pinky_053_site" class="xhand_taxel" pos="0.0102 -0.00137 0.02863" />
+          <site name="right_tactile_pinky_054_site" class="xhand_taxel" pos="0.00988 -0.0014 0.03106" />
+          <site name="right_tactile_pinky_055_site" class="xhand_taxel" pos="0.00942 -0.00143 0.03348" />
+          <site name="right_tactile_pinky_056_site" class="xhand_taxel" pos="0.00869 -0.0015 0.03588" />
+          <site name="right_tactile_pinky_057_site" class="xhand_taxel" pos="0.00751 -0.00149 0.03818" />
+          <site name="right_tactile_pinky_058_site" class="xhand_taxel" pos="0.00579 -0.00141 0.04016" />
+          <site name="right_tactile_pinky_059_site" class="xhand_taxel" pos="0.00363 -0.00119 0.04147" />
+          <site name="right_tactile_pinky_060_site" class="xhand_taxel" pos="0.00135 -0.00089 0.04208" />
+          <site name="right_tactile_pinky_061_site" class="xhand_taxel" pos="0.01094 0.0013 0.01894" />
+          <site name="right_tactile_pinky_062_site" class="xhand_taxel" pos="0.01083 0.00132 0.02138" />
+          <site name="right_tactile_pinky_063_site" class="xhand_taxel" pos="0.01064 0.00133 0.0238" />
+          <site name="right_tactile_pinky_064_site" class="xhand_taxel" pos="0.01044 0.00135 0.02621" />
+          <site name="right_tactile_pinky_065_site" class="xhand_taxel" pos="0.0102 0.00137 0.02863" />
+          <site name="right_tactile_pinky_066_site" class="xhand_taxel" pos="0.00988 0.0014 0.03106" />
+          <site name="right_tactile_pinky_067_site" class="xhand_taxel" pos="0.00942 0.00143 0.03348" />
+          <site name="right_tactile_pinky_068_site" class="xhand_taxel" pos="0.00869 0.0015 0.03588" />
+          <site name="right_tactile_pinky_069_site" class="xhand_taxel" pos="0.00751 0.00149 0.03818" />
+          <site name="right_tactile_pinky_070_site" class="xhand_taxel" pos="0.00579 0.00141 0.04016" />
+          <site name="right_tactile_pinky_071_site" class="xhand_taxel" pos="0.00363 0.00119 0.04147" />
+          <site name="right_tactile_pinky_072_site" class="xhand_taxel" pos="0.00135 0.00089 0.04208" />
+          <site name="right_tactile_pinky_073_site" class="xhand_taxel" pos="0.01059 0.00391 0.01893" />
+          <site name="right_tactile_pinky_074_site" class="xhand_taxel" pos="0.01044 0.00396 0.02135" />
+          <site name="right_tactile_pinky_075_site" class="xhand_taxel" pos="0.01024 0.004 0.02376" />
+          <site name="right_tactile_pinky_076_site" class="xhand_taxel" pos="0.01 0.00404 0.02617" />
+          <site name="right_tactile_pinky_077_site" class="xhand_taxel" pos="0.00971 0.00411 0.02858" />
+          <site name="right_tactile_pinky_078_site" class="xhand_taxel" pos="0.00933 0.00418 0.03097" />
+          <site name="right_tactile_pinky_079_site" class="xhand_taxel" pos="0.00878 0.00423 0.03332" />
+          <site name="right_tactile_pinky_080_site" class="xhand_taxel" pos="0.00795 0.00435 0.03559" />
+          <site name="right_tactile_pinky_081_site" class="xhand_taxel" pos="0.00682 0.00432 0.03773" />
+          <site name="right_tactile_pinky_082_site" class="xhand_taxel" pos="0.00529 0.00403 0.03958" />
+          <site name="right_tactile_pinky_083_site" class="xhand_taxel" pos="0.0034 0.00346 0.04096" />
+          <site name="right_tactile_pinky_084_site" class="xhand_taxel" pos="0.00128 0.00268 0.04181" />
+          <site name="right_tactile_pinky_085_site" class="xhand_taxel" pos="0.00912 0.00646 0.01876" />
+          <site name="right_tactile_pinky_086_site" class="xhand_taxel" pos="0.00892 0.00654 0.02109" />
+          <site name="right_tactile_pinky_087_site" class="xhand_taxel" pos="0.00866 0.00663 0.02342" />
+          <site name="right_tactile_pinky_088_site" class="xhand_taxel" pos="0.00834 0.00669 0.02577" />
+          <site name="right_tactile_pinky_089_site" class="xhand_taxel" pos="0.00794 0.00674 0.02809" />
+          <site name="right_tactile_pinky_090_site" class="xhand_taxel" pos="0.00744 0.00677 0.0304" />
+          <site name="right_tactile_pinky_091_site" class="xhand_taxel" pos="0.00679 0.00677 0.03271" />
+          <site name="right_tactile_pinky_092_site" class="xhand_taxel" pos="0.00589 0.0067 0.03495" />
+          <site name="right_tactile_pinky_093_site" class="xhand_taxel" pos="0.00481 0.00638 0.03714" />
+          <site name="right_tactile_pinky_094_site" class="xhand_taxel" pos="0.00351 0.00573 0.03905" />
+          <site name="right_tactile_pinky_095_site" class="xhand_taxel" pos="0.00204 0.00482 0.04049" />
+          <site name="right_tactile_pinky_096_site" class="xhand_taxel" pos="0.00049 0.00378 0.04147" />
+          <site name="right_tactile_pinky_097_site" class="xhand_taxel" pos="0.00417 0.00831 0.01841" />
+          <site name="right_tactile_pinky_098_site" class="xhand_taxel" pos="0.00398 0.0083 0.02058" />
+          <site name="right_tactile_pinky_099_site" class="xhand_taxel" pos="0.00379 0.00829 0.02277" />
+          <site name="right_tactile_pinky_100_site" class="xhand_taxel" pos="0.00358 0.00824 0.02496" />
+          <site name="right_tactile_pinky_101_site" class="xhand_taxel" pos="0.00336 0.00817 0.02713" />
+          <site name="right_tactile_pinky_102_site" class="xhand_taxel" pos="0.0031 0.00807 0.02932" />
+          <site name="right_tactile_pinky_103_site" class="xhand_taxel" pos="0.00279 0.0079 0.03149" />
+          <site name="right_tactile_pinky_104_site" class="xhand_taxel" pos="0.00238 0.00766 0.03363" />
+          <site name="right_tactile_pinky_105_site" class="xhand_taxel" pos="0.00187 0.00732 0.03572" />
+          <site name="right_tactile_pinky_106_site" class="xhand_taxel" pos="0.00124 0.00678 0.03771" />
+          <site name="right_tactile_pinky_107_site" class="xhand_taxel" pos="0.00049 0.00595 0.03948" />
+          <site name="right_tactile_pinky_108_site" class="xhand_taxel" pos="-0.00034 0.00482 0.04088" />
+          <site name="right_tactile_pinky_109_site" class="xhand_taxel" pos="0.0004 0.00832 0.01809" />
+          <site name="right_tactile_pinky_110_site" class="xhand_taxel" pos="0.00024 0.00832 0.02013" />
+          <site name="right_tactile_pinky_111_site" class="xhand_taxel" pos="9e-05 0.00831 0.02217" />
+          <site name="right_tactile_pinky_112_site" class="xhand_taxel" pos="-7e-05 0.00829 0.02421" />
+          <site name="right_tactile_pinky_113_site" class="xhand_taxel" pos="-0.00022 0.00825 0.02625" />
+          <site name="right_tactile_pinky_114_site" class="xhand_taxel" pos="-0.00037 0.00817 0.02829" />
+          <site name="right_tactile_pinky_115_site" class="xhand_taxel" pos="-0.00052 0.00806 0.03032" />
+          <site name="right_tactile_pinky_116_site" class="xhand_taxel" pos="-0.00066 0.00789 0.03236" />
+          <site name="right_tactile_pinky_117_site" class="xhand_taxel" pos="-0.00079 0.00765 0.03438" />
+          <site name="right_tactile_pinky_118_site" class="xhand_taxel" pos="-0.00092 0.00725 0.03639" />
+          <site name="right_tactile_pinky_119_site" class="xhand_taxel" pos="-0.00105 0.00665 0.03833" />
+          <site name="right_tactile_pinky_120_site" class="xhand_taxel" pos="-0.0012 0.00566 0.04011" />
+          <body name="right_hand_pinkyback_link2" pos="0 0 0.04224829241">
+            <geom name="right_hand_pinkyback_link2_visual_1" class="xhand_visual" mesh="right_right_hand_pinkyback_link2" rgba="0.941 0.941 0.941 1" />
+            <geom name="right_hand_pinkyback_link2_collision_1" class="xhand_collision" mesh="right_right_hand_pinkyback_link2" />
+          </body>
+          <body name="right_hand_pinky_tip" pos="0 0 0.04224829241">
+            <geom name="right_hand_pinky_tip_visual_1" class="xhand_visual" mesh="right_right_hand_pinky_tip" rgba="0.055 0.055 0.063 1" />
+            <geom name="right_hand_pinky_tip_collision_1" class="xhand_collision" mesh="right_right_hand_pinky_tip" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude body1="right_hand_link" body2="right_hand_ee_link" />
+    <exclude body1="right_hand_link" body2="right_hand_back_link" />
+    <exclude body1="right_hand_link" body2="right_hand_thumb_bend_link" />
+    <exclude body1="right_hand_link" body2="right_hand_index_bend_link" />
+    <exclude body1="right_hand_link" body2="right_hand_mid_link1" />
+    <exclude body1="right_hand_link" body2="right_hand_midback_link1" />
+    <exclude body1="right_hand_link" body2="right_hand_ring_link1" />
+    <exclude body1="right_hand_link" body2="right_hand_ringback_link1" />
+    <exclude body1="right_hand_link" body2="right_hand_pinky_link1" />
+    <exclude body1="right_hand_link" body2="right_hand_pinkyback_link1" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_back_link" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_thumb_bend_link" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_index_bend_link" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_mid_link1" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_midback_link1" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_ring_link1" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_ringback_link1" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_pinky_link1" />
+    <exclude body1="right_hand_ee_link" body2="right_hand_pinkyback_link1" />
+    <exclude body1="right_hand_back_link" body2="right_hand_thumb_bend_link" />
+    <exclude body1="right_hand_back_link" body2="right_hand_index_bend_link" />
+    <exclude body1="right_hand_back_link" body2="right_hand_mid_link1" />
+    <exclude body1="right_hand_back_link" body2="right_hand_midback_link1" />
+    <exclude body1="right_hand_back_link" body2="right_hand_ring_link1" />
+    <exclude body1="right_hand_back_link" body2="right_hand_ringback_link1" />
+    <exclude body1="right_hand_back_link" body2="right_hand_pinky_link1" />
+    <exclude body1="right_hand_back_link" body2="right_hand_pinkyback_link1" />
+    <exclude body1="right_hand_thumb_bend_link" body2="right_hand_thumb_rota_link1" />
+    <exclude body1="right_hand_thumb_bend_link" body2="right_hand_thumb_rotaback_link1" />
+    <exclude body1="right_hand_thumb_rota_link1" body2="right_hand_thumb_rotaback_link1" />
+    <exclude body1="right_hand_thumb_rota_link1" body2="right_hand_thumb_rota_link2" />
+    <exclude body1="right_hand_thumb_rota_link1" body2="right_hand_thumb_rotaback_link2" />
+    <exclude body1="right_hand_thumb_rota_link1" body2="right_hand_thumb_rota_tip" />
+    <exclude body1="right_hand_thumb_rotaback_link1" body2="right_hand_thumb_rota_link2" />
+    <exclude body1="right_hand_thumb_rotaback_link1" body2="right_hand_thumb_rotaback_link2" />
+    <exclude body1="right_hand_thumb_rotaback_link1" body2="right_hand_thumb_rota_tip" />
+    <exclude body1="right_hand_thumb_rota_link2" body2="right_hand_thumb_rotaback_link2" />
+    <exclude body1="right_hand_thumb_rota_link2" body2="right_hand_thumb_rota_tip" />
+    <exclude body1="right_hand_thumb_rotaback_link2" body2="right_hand_thumb_rota_tip" />
+    <exclude body1="right_hand_index_bend_link" body2="right_hand_index_rota_link1" />
+    <exclude body1="right_hand_index_bend_link" body2="right_hand_index_rotaback_link1" />
+    <exclude body1="right_hand_index_rota_link1" body2="right_hand_index_rotaback_link1" />
+    <exclude body1="right_hand_index_rota_link1" body2="right_hand_index_rota_link2" />
+    <exclude body1="right_hand_index_rota_link1" body2="right_hand_index_rotaback_link2" />
+    <exclude body1="right_hand_index_rota_link1" body2="right_hand_index_rota_tip" />
+    <exclude body1="right_hand_index_rotaback_link1" body2="right_hand_index_rota_link2" />
+    <exclude body1="right_hand_index_rotaback_link1" body2="right_hand_index_rotaback_link2" />
+    <exclude body1="right_hand_index_rotaback_link1" body2="right_hand_index_rota_tip" />
+    <exclude body1="right_hand_index_rota_link2" body2="right_hand_index_rotaback_link2" />
+    <exclude body1="right_hand_index_rota_link2" body2="right_hand_index_rota_tip" />
+    <exclude body1="right_hand_index_rotaback_link2" body2="right_hand_index_rota_tip" />
+    <exclude body1="right_hand_mid_link1" body2="right_hand_midback_link1" />
+    <exclude body1="right_hand_mid_link1" body2="right_hand_mid_link2" />
+    <exclude body1="right_hand_mid_link1" body2="right_hand_midback_link2" />
+    <exclude body1="right_hand_mid_link1" body2="right_hand_mid_tip" />
+    <exclude body1="right_hand_midback_link1" body2="right_hand_mid_link2" />
+    <exclude body1="right_hand_midback_link1" body2="right_hand_midback_link2" />
+    <exclude body1="right_hand_midback_link1" body2="right_hand_mid_tip" />
+    <exclude body1="right_hand_mid_link2" body2="right_hand_midback_link2" />
+    <exclude body1="right_hand_mid_link2" body2="right_hand_mid_tip" />
+    <exclude body1="right_hand_midback_link2" body2="right_hand_mid_tip" />
+    <exclude body1="right_hand_ring_link1" body2="right_hand_ringback_link1" />
+    <exclude body1="right_hand_ring_link1" body2="right_hand_ring_link2" />
+    <exclude body1="right_hand_ring_link1" body2="right_hand_ringback_link2" />
+    <exclude body1="right_hand_ring_link1" body2="right_hand_ring_tip" />
+    <exclude body1="right_hand_ringback_link1" body2="right_hand_ring_link2" />
+    <exclude body1="right_hand_ringback_link1" body2="right_hand_ringback_link2" />
+    <exclude body1="right_hand_ringback_link1" body2="right_hand_ring_tip" />
+    <exclude body1="right_hand_ring_link2" body2="right_hand_ringback_link2" />
+    <exclude body1="right_hand_ring_link2" body2="right_hand_ring_tip" />
+    <exclude body1="right_hand_ringback_link2" body2="right_hand_ring_tip" />
+    <exclude body1="right_hand_pinky_link1" body2="right_hand_pinkyback_link1" />
+    <exclude body1="right_hand_pinky_link1" body2="right_hand_pinky_link2" />
+    <exclude body1="right_hand_pinky_link1" body2="right_hand_pinkyback_link2" />
+    <exclude body1="right_hand_pinky_link1" body2="right_hand_pinky_tip" />
+    <exclude body1="right_hand_pinkyback_link1" body2="right_hand_pinky_link2" />
+    <exclude body1="right_hand_pinkyback_link1" body2="right_hand_pinkyback_link2" />
+    <exclude body1="right_hand_pinkyback_link1" body2="right_hand_pinky_tip" />
+    <exclude body1="right_hand_pinky_link2" body2="right_hand_pinkyback_link2" />
+    <exclude body1="right_hand_pinky_link2" body2="right_hand_pinky_tip" />
+    <exclude body1="right_hand_pinkyback_link2" body2="right_hand_pinky_tip" />
+  </contact>
+  <actuator>
+    <position name="right_hand_thumb_bend_joint_actuator" joint="right_hand_thumb_bend_joint" kp="10" dampratio="1" ctrlrange="0 1.832" forcerange="-1.1 1.1" />
+    <position name="right_hand_thumb_rota_joint1_actuator" joint="right_hand_thumb_rota_joint1" kp="10" dampratio="1" ctrlrange="-0.698 1.57" forcerange="-1.1 1.1" />
+    <position name="right_hand_thumb_rota_joint2_actuator" joint="right_hand_thumb_rota_joint2" kp="4" dampratio="1" ctrlrange="0 1.57" forcerange="-0.4 0.4" />
+    <position name="right_hand_index_bend_joint_actuator" joint="right_hand_index_bend_joint" kp="4" dampratio="1" ctrlrange="-0.174 0.174" forcerange="-0.4 0.4" />
+    <position name="right_hand_index_joint1_actuator" joint="right_hand_index_joint1" kp="10" dampratio="1" ctrlrange="0 1.919" forcerange="-1.1 1.1" />
+    <position name="right_hand_index_joint2_actuator" joint="right_hand_index_joint2" kp="4" dampratio="1" ctrlrange="0 1.919" forcerange="-0.4 0.4" />
+    <position name="right_hand_mid_joint1_actuator" joint="right_hand_mid_joint1" kp="10" dampratio="1" ctrlrange="0 1.919" forcerange="-1.1 1.1" />
+    <position name="right_hand_mid_joint2_actuator" joint="right_hand_mid_joint2" kp="4" dampratio="1" ctrlrange="0 1.919" forcerange="-0.4 0.4" />
+    <position name="right_hand_ring_joint1_actuator" joint="right_hand_ring_joint1" kp="10" dampratio="1" ctrlrange="0 1.919" forcerange="-1.1 1.1" />
+    <position name="right_hand_ring_joint2_actuator" joint="right_hand_ring_joint2" kp="4" dampratio="1" ctrlrange="0 1.919" forcerange="-0.4 0.4" />
+    <position name="right_hand_pinky_joint1_actuator" joint="right_hand_pinky_joint1" kp="10" dampratio="1" ctrlrange="0 1.919" forcerange="-1.1 1.1" />
+    <position name="right_hand_pinky_joint2_actuator" joint="right_hand_pinky_joint2" kp="4" dampratio="1" ctrlrange="0 1.919" forcerange="-0.4 0.4" />
+  </actuator>
+  <sensor>
+    <touch name="right_tactile_thumb_001" site="right_tactile_thumb_001_site" />
+    <touch name="right_tactile_thumb_002" site="right_tactile_thumb_002_site" />
+    <touch name="right_tactile_thumb_003" site="right_tactile_thumb_003_site" />
+    <touch name="right_tactile_thumb_004" site="right_tactile_thumb_004_site" />
+    <touch name="right_tactile_thumb_005" site="right_tactile_thumb_005_site" />
+    <touch name="right_tactile_thumb_006" site="right_tactile_thumb_006_site" />
+    <touch name="right_tactile_thumb_007" site="right_tactile_thumb_007_site" />
+    <touch name="right_tactile_thumb_008" site="right_tactile_thumb_008_site" />
+    <touch name="right_tactile_thumb_009" site="right_tactile_thumb_009_site" />
+    <touch name="right_tactile_thumb_010" site="right_tactile_thumb_010_site" />
+    <touch name="right_tactile_thumb_011" site="right_tactile_thumb_011_site" />
+    <touch name="right_tactile_thumb_012" site="right_tactile_thumb_012_site" />
+    <touch name="right_tactile_thumb_013" site="right_tactile_thumb_013_site" />
+    <touch name="right_tactile_thumb_014" site="right_tactile_thumb_014_site" />
+    <touch name="right_tactile_thumb_015" site="right_tactile_thumb_015_site" />
+    <touch name="right_tactile_thumb_016" site="right_tactile_thumb_016_site" />
+    <touch name="right_tactile_thumb_017" site="right_tactile_thumb_017_site" />
+    <touch name="right_tactile_thumb_018" site="right_tactile_thumb_018_site" />
+    <touch name="right_tactile_thumb_019" site="right_tactile_thumb_019_site" />
+    <touch name="right_tactile_thumb_020" site="right_tactile_thumb_020_site" />
+    <touch name="right_tactile_thumb_021" site="right_tactile_thumb_021_site" />
+    <touch name="right_tactile_thumb_022" site="right_tactile_thumb_022_site" />
+    <touch name="right_tactile_thumb_023" site="right_tactile_thumb_023_site" />
+    <touch name="right_tactile_thumb_024" site="right_tactile_thumb_024_site" />
+    <touch name="right_tactile_thumb_025" site="right_tactile_thumb_025_site" />
+    <touch name="right_tactile_thumb_026" site="right_tactile_thumb_026_site" />
+    <touch name="right_tactile_thumb_027" site="right_tactile_thumb_027_site" />
+    <touch name="right_tactile_thumb_028" site="right_tactile_thumb_028_site" />
+    <touch name="right_tactile_thumb_029" site="right_tactile_thumb_029_site" />
+    <touch name="right_tactile_thumb_030" site="right_tactile_thumb_030_site" />
+    <touch name="right_tactile_thumb_031" site="right_tactile_thumb_031_site" />
+    <touch name="right_tactile_thumb_032" site="right_tactile_thumb_032_site" />
+    <touch name="right_tactile_thumb_033" site="right_tactile_thumb_033_site" />
+    <touch name="right_tactile_thumb_034" site="right_tactile_thumb_034_site" />
+    <touch name="right_tactile_thumb_035" site="right_tactile_thumb_035_site" />
+    <touch name="right_tactile_thumb_036" site="right_tactile_thumb_036_site" />
+    <touch name="right_tactile_thumb_037" site="right_tactile_thumb_037_site" />
+    <touch name="right_tactile_thumb_038" site="right_tactile_thumb_038_site" />
+    <touch name="right_tactile_thumb_039" site="right_tactile_thumb_039_site" />
+    <touch name="right_tactile_thumb_040" site="right_tactile_thumb_040_site" />
+    <touch name="right_tactile_thumb_041" site="right_tactile_thumb_041_site" />
+    <touch name="right_tactile_thumb_042" site="right_tactile_thumb_042_site" />
+    <touch name="right_tactile_thumb_043" site="right_tactile_thumb_043_site" />
+    <touch name="right_tactile_thumb_044" site="right_tactile_thumb_044_site" />
+    <touch name="right_tactile_thumb_045" site="right_tactile_thumb_045_site" />
+    <touch name="right_tactile_thumb_046" site="right_tactile_thumb_046_site" />
+    <touch name="right_tactile_thumb_047" site="right_tactile_thumb_047_site" />
+    <touch name="right_tactile_thumb_048" site="right_tactile_thumb_048_site" />
+    <touch name="right_tactile_thumb_049" site="right_tactile_thumb_049_site" />
+    <touch name="right_tactile_thumb_050" site="right_tactile_thumb_050_site" />
+    <touch name="right_tactile_thumb_051" site="right_tactile_thumb_051_site" />
+    <touch name="right_tactile_thumb_052" site="right_tactile_thumb_052_site" />
+    <touch name="right_tactile_thumb_053" site="right_tactile_thumb_053_site" />
+    <touch name="right_tactile_thumb_054" site="right_tactile_thumb_054_site" />
+    <touch name="right_tactile_thumb_055" site="right_tactile_thumb_055_site" />
+    <touch name="right_tactile_thumb_056" site="right_tactile_thumb_056_site" />
+    <touch name="right_tactile_thumb_057" site="right_tactile_thumb_057_site" />
+    <touch name="right_tactile_thumb_058" site="right_tactile_thumb_058_site" />
+    <touch name="right_tactile_thumb_059" site="right_tactile_thumb_059_site" />
+    <touch name="right_tactile_thumb_060" site="right_tactile_thumb_060_site" />
+    <touch name="right_tactile_thumb_061" site="right_tactile_thumb_061_site" />
+    <touch name="right_tactile_thumb_062" site="right_tactile_thumb_062_site" />
+    <touch name="right_tactile_thumb_063" site="right_tactile_thumb_063_site" />
+    <touch name="right_tactile_thumb_064" site="right_tactile_thumb_064_site" />
+    <touch name="right_tactile_thumb_065" site="right_tactile_thumb_065_site" />
+    <touch name="right_tactile_thumb_066" site="right_tactile_thumb_066_site" />
+    <touch name="right_tactile_thumb_067" site="right_tactile_thumb_067_site" />
+    <touch name="right_tactile_thumb_068" site="right_tactile_thumb_068_site" />
+    <touch name="right_tactile_thumb_069" site="right_tactile_thumb_069_site" />
+    <touch name="right_tactile_thumb_070" site="right_tactile_thumb_070_site" />
+    <touch name="right_tactile_thumb_071" site="right_tactile_thumb_071_site" />
+    <touch name="right_tactile_thumb_072" site="right_tactile_thumb_072_site" />
+    <touch name="right_tactile_thumb_073" site="right_tactile_thumb_073_site" />
+    <touch name="right_tactile_thumb_074" site="right_tactile_thumb_074_site" />
+    <touch name="right_tactile_thumb_075" site="right_tactile_thumb_075_site" />
+    <touch name="right_tactile_thumb_076" site="right_tactile_thumb_076_site" />
+    <touch name="right_tactile_thumb_077" site="right_tactile_thumb_077_site" />
+    <touch name="right_tactile_thumb_078" site="right_tactile_thumb_078_site" />
+    <touch name="right_tactile_thumb_079" site="right_tactile_thumb_079_site" />
+    <touch name="right_tactile_thumb_080" site="right_tactile_thumb_080_site" />
+    <touch name="right_tactile_thumb_081" site="right_tactile_thumb_081_site" />
+    <touch name="right_tactile_thumb_082" site="right_tactile_thumb_082_site" />
+    <touch name="right_tactile_thumb_083" site="right_tactile_thumb_083_site" />
+    <touch name="right_tactile_thumb_084" site="right_tactile_thumb_084_site" />
+    <touch name="right_tactile_thumb_085" site="right_tactile_thumb_085_site" />
+    <touch name="right_tactile_thumb_086" site="right_tactile_thumb_086_site" />
+    <touch name="right_tactile_thumb_087" site="right_tactile_thumb_087_site" />
+    <touch name="right_tactile_thumb_088" site="right_tactile_thumb_088_site" />
+    <touch name="right_tactile_thumb_089" site="right_tactile_thumb_089_site" />
+    <touch name="right_tactile_thumb_090" site="right_tactile_thumb_090_site" />
+    <touch name="right_tactile_thumb_091" site="right_tactile_thumb_091_site" />
+    <touch name="right_tactile_thumb_092" site="right_tactile_thumb_092_site" />
+    <touch name="right_tactile_thumb_093" site="right_tactile_thumb_093_site" />
+    <touch name="right_tactile_thumb_094" site="right_tactile_thumb_094_site" />
+    <touch name="right_tactile_thumb_095" site="right_tactile_thumb_095_site" />
+    <touch name="right_tactile_thumb_096" site="right_tactile_thumb_096_site" />
+    <touch name="right_tactile_thumb_097" site="right_tactile_thumb_097_site" />
+    <touch name="right_tactile_thumb_098" site="right_tactile_thumb_098_site" />
+    <touch name="right_tactile_thumb_099" site="right_tactile_thumb_099_site" />
+    <touch name="right_tactile_thumb_100" site="right_tactile_thumb_100_site" />
+    <touch name="right_tactile_thumb_101" site="right_tactile_thumb_101_site" />
+    <touch name="right_tactile_thumb_102" site="right_tactile_thumb_102_site" />
+    <touch name="right_tactile_thumb_103" site="right_tactile_thumb_103_site" />
+    <touch name="right_tactile_thumb_104" site="right_tactile_thumb_104_site" />
+    <touch name="right_tactile_thumb_105" site="right_tactile_thumb_105_site" />
+    <touch name="right_tactile_thumb_106" site="right_tactile_thumb_106_site" />
+    <touch name="right_tactile_thumb_107" site="right_tactile_thumb_107_site" />
+    <touch name="right_tactile_thumb_108" site="right_tactile_thumb_108_site" />
+    <touch name="right_tactile_thumb_109" site="right_tactile_thumb_109_site" />
+    <touch name="right_tactile_thumb_110" site="right_tactile_thumb_110_site" />
+    <touch name="right_tactile_thumb_111" site="right_tactile_thumb_111_site" />
+    <touch name="right_tactile_thumb_112" site="right_tactile_thumb_112_site" />
+    <touch name="right_tactile_thumb_113" site="right_tactile_thumb_113_site" />
+    <touch name="right_tactile_thumb_114" site="right_tactile_thumb_114_site" />
+    <touch name="right_tactile_thumb_115" site="right_tactile_thumb_115_site" />
+    <touch name="right_tactile_thumb_116" site="right_tactile_thumb_116_site" />
+    <touch name="right_tactile_thumb_117" site="right_tactile_thumb_117_site" />
+    <touch name="right_tactile_thumb_118" site="right_tactile_thumb_118_site" />
+    <touch name="right_tactile_thumb_119" site="right_tactile_thumb_119_site" />
+    <touch name="right_tactile_thumb_120" site="right_tactile_thumb_120_site" />
+    <touch name="right_tactile_index_001" site="right_tactile_index_001_site" />
+    <touch name="right_tactile_index_002" site="right_tactile_index_002_site" />
+    <touch name="right_tactile_index_003" site="right_tactile_index_003_site" />
+    <touch name="right_tactile_index_004" site="right_tactile_index_004_site" />
+    <touch name="right_tactile_index_005" site="right_tactile_index_005_site" />
+    <touch name="right_tactile_index_006" site="right_tactile_index_006_site" />
+    <touch name="right_tactile_index_007" site="right_tactile_index_007_site" />
+    <touch name="right_tactile_index_008" site="right_tactile_index_008_site" />
+    <touch name="right_tactile_index_009" site="right_tactile_index_009_site" />
+    <touch name="right_tactile_index_010" site="right_tactile_index_010_site" />
+    <touch name="right_tactile_index_011" site="right_tactile_index_011_site" />
+    <touch name="right_tactile_index_012" site="right_tactile_index_012_site" />
+    <touch name="right_tactile_index_013" site="right_tactile_index_013_site" />
+    <touch name="right_tactile_index_014" site="right_tactile_index_014_site" />
+    <touch name="right_tactile_index_015" site="right_tactile_index_015_site" />
+    <touch name="right_tactile_index_016" site="right_tactile_index_016_site" />
+    <touch name="right_tactile_index_017" site="right_tactile_index_017_site" />
+    <touch name="right_tactile_index_018" site="right_tactile_index_018_site" />
+    <touch name="right_tactile_index_019" site="right_tactile_index_019_site" />
+    <touch name="right_tactile_index_020" site="right_tactile_index_020_site" />
+    <touch name="right_tactile_index_021" site="right_tactile_index_021_site" />
+    <touch name="right_tactile_index_022" site="right_tactile_index_022_site" />
+    <touch name="right_tactile_index_023" site="right_tactile_index_023_site" />
+    <touch name="right_tactile_index_024" site="right_tactile_index_024_site" />
+    <touch name="right_tactile_index_025" site="right_tactile_index_025_site" />
+    <touch name="right_tactile_index_026" site="right_tactile_index_026_site" />
+    <touch name="right_tactile_index_027" site="right_tactile_index_027_site" />
+    <touch name="right_tactile_index_028" site="right_tactile_index_028_site" />
+    <touch name="right_tactile_index_029" site="right_tactile_index_029_site" />
+    <touch name="right_tactile_index_030" site="right_tactile_index_030_site" />
+    <touch name="right_tactile_index_031" site="right_tactile_index_031_site" />
+    <touch name="right_tactile_index_032" site="right_tactile_index_032_site" />
+    <touch name="right_tactile_index_033" site="right_tactile_index_033_site" />
+    <touch name="right_tactile_index_034" site="right_tactile_index_034_site" />
+    <touch name="right_tactile_index_035" site="right_tactile_index_035_site" />
+    <touch name="right_tactile_index_036" site="right_tactile_index_036_site" />
+    <touch name="right_tactile_index_037" site="right_tactile_index_037_site" />
+    <touch name="right_tactile_index_038" site="right_tactile_index_038_site" />
+    <touch name="right_tactile_index_039" site="right_tactile_index_039_site" />
+    <touch name="right_tactile_index_040" site="right_tactile_index_040_site" />
+    <touch name="right_tactile_index_041" site="right_tactile_index_041_site" />
+    <touch name="right_tactile_index_042" site="right_tactile_index_042_site" />
+    <touch name="right_tactile_index_043" site="right_tactile_index_043_site" />
+    <touch name="right_tactile_index_044" site="right_tactile_index_044_site" />
+    <touch name="right_tactile_index_045" site="right_tactile_index_045_site" />
+    <touch name="right_tactile_index_046" site="right_tactile_index_046_site" />
+    <touch name="right_tactile_index_047" site="right_tactile_index_047_site" />
+    <touch name="right_tactile_index_048" site="right_tactile_index_048_site" />
+    <touch name="right_tactile_index_049" site="right_tactile_index_049_site" />
+    <touch name="right_tactile_index_050" site="right_tactile_index_050_site" />
+    <touch name="right_tactile_index_051" site="right_tactile_index_051_site" />
+    <touch name="right_tactile_index_052" site="right_tactile_index_052_site" />
+    <touch name="right_tactile_index_053" site="right_tactile_index_053_site" />
+    <touch name="right_tactile_index_054" site="right_tactile_index_054_site" />
+    <touch name="right_tactile_index_055" site="right_tactile_index_055_site" />
+    <touch name="right_tactile_index_056" site="right_tactile_index_056_site" />
+    <touch name="right_tactile_index_057" site="right_tactile_index_057_site" />
+    <touch name="right_tactile_index_058" site="right_tactile_index_058_site" />
+    <touch name="right_tactile_index_059" site="right_tactile_index_059_site" />
+    <touch name="right_tactile_index_060" site="right_tactile_index_060_site" />
+    <touch name="right_tactile_index_061" site="right_tactile_index_061_site" />
+    <touch name="right_tactile_index_062" site="right_tactile_index_062_site" />
+    <touch name="right_tactile_index_063" site="right_tactile_index_063_site" />
+    <touch name="right_tactile_index_064" site="right_tactile_index_064_site" />
+    <touch name="right_tactile_index_065" site="right_tactile_index_065_site" />
+    <touch name="right_tactile_index_066" site="right_tactile_index_066_site" />
+    <touch name="right_tactile_index_067" site="right_tactile_index_067_site" />
+    <touch name="right_tactile_index_068" site="right_tactile_index_068_site" />
+    <touch name="right_tactile_index_069" site="right_tactile_index_069_site" />
+    <touch name="right_tactile_index_070" site="right_tactile_index_070_site" />
+    <touch name="right_tactile_index_071" site="right_tactile_index_071_site" />
+    <touch name="right_tactile_index_072" site="right_tactile_index_072_site" />
+    <touch name="right_tactile_index_073" site="right_tactile_index_073_site" />
+    <touch name="right_tactile_index_074" site="right_tactile_index_074_site" />
+    <touch name="right_tactile_index_075" site="right_tactile_index_075_site" />
+    <touch name="right_tactile_index_076" site="right_tactile_index_076_site" />
+    <touch name="right_tactile_index_077" site="right_tactile_index_077_site" />
+    <touch name="right_tactile_index_078" site="right_tactile_index_078_site" />
+    <touch name="right_tactile_index_079" site="right_tactile_index_079_site" />
+    <touch name="right_tactile_index_080" site="right_tactile_index_080_site" />
+    <touch name="right_tactile_index_081" site="right_tactile_index_081_site" />
+    <touch name="right_tactile_index_082" site="right_tactile_index_082_site" />
+    <touch name="right_tactile_index_083" site="right_tactile_index_083_site" />
+    <touch name="right_tactile_index_084" site="right_tactile_index_084_site" />
+    <touch name="right_tactile_index_085" site="right_tactile_index_085_site" />
+    <touch name="right_tactile_index_086" site="right_tactile_index_086_site" />
+    <touch name="right_tactile_index_087" site="right_tactile_index_087_site" />
+    <touch name="right_tactile_index_088" site="right_tactile_index_088_site" />
+    <touch name="right_tactile_index_089" site="right_tactile_index_089_site" />
+    <touch name="right_tactile_index_090" site="right_tactile_index_090_site" />
+    <touch name="right_tactile_index_091" site="right_tactile_index_091_site" />
+    <touch name="right_tactile_index_092" site="right_tactile_index_092_site" />
+    <touch name="right_tactile_index_093" site="right_tactile_index_093_site" />
+    <touch name="right_tactile_index_094" site="right_tactile_index_094_site" />
+    <touch name="right_tactile_index_095" site="right_tactile_index_095_site" />
+    <touch name="right_tactile_index_096" site="right_tactile_index_096_site" />
+    <touch name="right_tactile_index_097" site="right_tactile_index_097_site" />
+    <touch name="right_tactile_index_098" site="right_tactile_index_098_site" />
+    <touch name="right_tactile_index_099" site="right_tactile_index_099_site" />
+    <touch name="right_tactile_index_100" site="right_tactile_index_100_site" />
+    <touch name="right_tactile_index_101" site="right_tactile_index_101_site" />
+    <touch name="right_tactile_index_102" site="right_tactile_index_102_site" />
+    <touch name="right_tactile_index_103" site="right_tactile_index_103_site" />
+    <touch name="right_tactile_index_104" site="right_tactile_index_104_site" />
+    <touch name="right_tactile_index_105" site="right_tactile_index_105_site" />
+    <touch name="right_tactile_index_106" site="right_tactile_index_106_site" />
+    <touch name="right_tactile_index_107" site="right_tactile_index_107_site" />
+    <touch name="right_tactile_index_108" site="right_tactile_index_108_site" />
+    <touch name="right_tactile_index_109" site="right_tactile_index_109_site" />
+    <touch name="right_tactile_index_110" site="right_tactile_index_110_site" />
+    <touch name="right_tactile_index_111" site="right_tactile_index_111_site" />
+    <touch name="right_tactile_index_112" site="right_tactile_index_112_site" />
+    <touch name="right_tactile_index_113" site="right_tactile_index_113_site" />
+    <touch name="right_tactile_index_114" site="right_tactile_index_114_site" />
+    <touch name="right_tactile_index_115" site="right_tactile_index_115_site" />
+    <touch name="right_tactile_index_116" site="right_tactile_index_116_site" />
+    <touch name="right_tactile_index_117" site="right_tactile_index_117_site" />
+    <touch name="right_tactile_index_118" site="right_tactile_index_118_site" />
+    <touch name="right_tactile_index_119" site="right_tactile_index_119_site" />
+    <touch name="right_tactile_index_120" site="right_tactile_index_120_site" />
+    <touch name="right_tactile_mid_001" site="right_tactile_mid_001_site" />
+    <touch name="right_tactile_mid_002" site="right_tactile_mid_002_site" />
+    <touch name="right_tactile_mid_003" site="right_tactile_mid_003_site" />
+    <touch name="right_tactile_mid_004" site="right_tactile_mid_004_site" />
+    <touch name="right_tactile_mid_005" site="right_tactile_mid_005_site" />
+    <touch name="right_tactile_mid_006" site="right_tactile_mid_006_site" />
+    <touch name="right_tactile_mid_007" site="right_tactile_mid_007_site" />
+    <touch name="right_tactile_mid_008" site="right_tactile_mid_008_site" />
+    <touch name="right_tactile_mid_009" site="right_tactile_mid_009_site" />
+    <touch name="right_tactile_mid_010" site="right_tactile_mid_010_site" />
+    <touch name="right_tactile_mid_011" site="right_tactile_mid_011_site" />
+    <touch name="right_tactile_mid_012" site="right_tactile_mid_012_site" />
+    <touch name="right_tactile_mid_013" site="right_tactile_mid_013_site" />
+    <touch name="right_tactile_mid_014" site="right_tactile_mid_014_site" />
+    <touch name="right_tactile_mid_015" site="right_tactile_mid_015_site" />
+    <touch name="right_tactile_mid_016" site="right_tactile_mid_016_site" />
+    <touch name="right_tactile_mid_017" site="right_tactile_mid_017_site" />
+    <touch name="right_tactile_mid_018" site="right_tactile_mid_018_site" />
+    <touch name="right_tactile_mid_019" site="right_tactile_mid_019_site" />
+    <touch name="right_tactile_mid_020" site="right_tactile_mid_020_site" />
+    <touch name="right_tactile_mid_021" site="right_tactile_mid_021_site" />
+    <touch name="right_tactile_mid_022" site="right_tactile_mid_022_site" />
+    <touch name="right_tactile_mid_023" site="right_tactile_mid_023_site" />
+    <touch name="right_tactile_mid_024" site="right_tactile_mid_024_site" />
+    <touch name="right_tactile_mid_025" site="right_tactile_mid_025_site" />
+    <touch name="right_tactile_mid_026" site="right_tactile_mid_026_site" />
+    <touch name="right_tactile_mid_027" site="right_tactile_mid_027_site" />
+    <touch name="right_tactile_mid_028" site="right_tactile_mid_028_site" />
+    <touch name="right_tactile_mid_029" site="right_tactile_mid_029_site" />
+    <touch name="right_tactile_mid_030" site="right_tactile_mid_030_site" />
+    <touch name="right_tactile_mid_031" site="right_tactile_mid_031_site" />
+    <touch name="right_tactile_mid_032" site="right_tactile_mid_032_site" />
+    <touch name="right_tactile_mid_033" site="right_tactile_mid_033_site" />
+    <touch name="right_tactile_mid_034" site="right_tactile_mid_034_site" />
+    <touch name="right_tactile_mid_035" site="right_tactile_mid_035_site" />
+    <touch name="right_tactile_mid_036" site="right_tactile_mid_036_site" />
+    <touch name="right_tactile_mid_037" site="right_tactile_mid_037_site" />
+    <touch name="right_tactile_mid_038" site="right_tactile_mid_038_site" />
+    <touch name="right_tactile_mid_039" site="right_tactile_mid_039_site" />
+    <touch name="right_tactile_mid_040" site="right_tactile_mid_040_site" />
+    <touch name="right_tactile_mid_041" site="right_tactile_mid_041_site" />
+    <touch name="right_tactile_mid_042" site="right_tactile_mid_042_site" />
+    <touch name="right_tactile_mid_043" site="right_tactile_mid_043_site" />
+    <touch name="right_tactile_mid_044" site="right_tactile_mid_044_site" />
+    <touch name="right_tactile_mid_045" site="right_tactile_mid_045_site" />
+    <touch name="right_tactile_mid_046" site="right_tactile_mid_046_site" />
+    <touch name="right_tactile_mid_047" site="right_tactile_mid_047_site" />
+    <touch name="right_tactile_mid_048" site="right_tactile_mid_048_site" />
+    <touch name="right_tactile_mid_049" site="right_tactile_mid_049_site" />
+    <touch name="right_tactile_mid_050" site="right_tactile_mid_050_site" />
+    <touch name="right_tactile_mid_051" site="right_tactile_mid_051_site" />
+    <touch name="right_tactile_mid_052" site="right_tactile_mid_052_site" />
+    <touch name="right_tactile_mid_053" site="right_tactile_mid_053_site" />
+    <touch name="right_tactile_mid_054" site="right_tactile_mid_054_site" />
+    <touch name="right_tactile_mid_055" site="right_tactile_mid_055_site" />
+    <touch name="right_tactile_mid_056" site="right_tactile_mid_056_site" />
+    <touch name="right_tactile_mid_057" site="right_tactile_mid_057_site" />
+    <touch name="right_tactile_mid_058" site="right_tactile_mid_058_site" />
+    <touch name="right_tactile_mid_059" site="right_tactile_mid_059_site" />
+    <touch name="right_tactile_mid_060" site="right_tactile_mid_060_site" />
+    <touch name="right_tactile_mid_061" site="right_tactile_mid_061_site" />
+    <touch name="right_tactile_mid_062" site="right_tactile_mid_062_site" />
+    <touch name="right_tactile_mid_063" site="right_tactile_mid_063_site" />
+    <touch name="right_tactile_mid_064" site="right_tactile_mid_064_site" />
+    <touch name="right_tactile_mid_065" site="right_tactile_mid_065_site" />
+    <touch name="right_tactile_mid_066" site="right_tactile_mid_066_site" />
+    <touch name="right_tactile_mid_067" site="right_tactile_mid_067_site" />
+    <touch name="right_tactile_mid_068" site="right_tactile_mid_068_site" />
+    <touch name="right_tactile_mid_069" site="right_tactile_mid_069_site" />
+    <touch name="right_tactile_mid_070" site="right_tactile_mid_070_site" />
+    <touch name="right_tactile_mid_071" site="right_tactile_mid_071_site" />
+    <touch name="right_tactile_mid_072" site="right_tactile_mid_072_site" />
+    <touch name="right_tactile_mid_073" site="right_tactile_mid_073_site" />
+    <touch name="right_tactile_mid_074" site="right_tactile_mid_074_site" />
+    <touch name="right_tactile_mid_075" site="right_tactile_mid_075_site" />
+    <touch name="right_tactile_mid_076" site="right_tactile_mid_076_site" />
+    <touch name="right_tactile_mid_077" site="right_tactile_mid_077_site" />
+    <touch name="right_tactile_mid_078" site="right_tactile_mid_078_site" />
+    <touch name="right_tactile_mid_079" site="right_tactile_mid_079_site" />
+    <touch name="right_tactile_mid_080" site="right_tactile_mid_080_site" />
+    <touch name="right_tactile_mid_081" site="right_tactile_mid_081_site" />
+    <touch name="right_tactile_mid_082" site="right_tactile_mid_082_site" />
+    <touch name="right_tactile_mid_083" site="right_tactile_mid_083_site" />
+    <touch name="right_tactile_mid_084" site="right_tactile_mid_084_site" />
+    <touch name="right_tactile_mid_085" site="right_tactile_mid_085_site" />
+    <touch name="right_tactile_mid_086" site="right_tactile_mid_086_site" />
+    <touch name="right_tactile_mid_087" site="right_tactile_mid_087_site" />
+    <touch name="right_tactile_mid_088" site="right_tactile_mid_088_site" />
+    <touch name="right_tactile_mid_089" site="right_tactile_mid_089_site" />
+    <touch name="right_tactile_mid_090" site="right_tactile_mid_090_site" />
+    <touch name="right_tactile_mid_091" site="right_tactile_mid_091_site" />
+    <touch name="right_tactile_mid_092" site="right_tactile_mid_092_site" />
+    <touch name="right_tactile_mid_093" site="right_tactile_mid_093_site" />
+    <touch name="right_tactile_mid_094" site="right_tactile_mid_094_site" />
+    <touch name="right_tactile_mid_095" site="right_tactile_mid_095_site" />
+    <touch name="right_tactile_mid_096" site="right_tactile_mid_096_site" />
+    <touch name="right_tactile_mid_097" site="right_tactile_mid_097_site" />
+    <touch name="right_tactile_mid_098" site="right_tactile_mid_098_site" />
+    <touch name="right_tactile_mid_099" site="right_tactile_mid_099_site" />
+    <touch name="right_tactile_mid_100" site="right_tactile_mid_100_site" />
+    <touch name="right_tactile_mid_101" site="right_tactile_mid_101_site" />
+    <touch name="right_tactile_mid_102" site="right_tactile_mid_102_site" />
+    <touch name="right_tactile_mid_103" site="right_tactile_mid_103_site" />
+    <touch name="right_tactile_mid_104" site="right_tactile_mid_104_site" />
+    <touch name="right_tactile_mid_105" site="right_tactile_mid_105_site" />
+    <touch name="right_tactile_mid_106" site="right_tactile_mid_106_site" />
+    <touch name="right_tactile_mid_107" site="right_tactile_mid_107_site" />
+    <touch name="right_tactile_mid_108" site="right_tactile_mid_108_site" />
+    <touch name="right_tactile_mid_109" site="right_tactile_mid_109_site" />
+    <touch name="right_tactile_mid_110" site="right_tactile_mid_110_site" />
+    <touch name="right_tactile_mid_111" site="right_tactile_mid_111_site" />
+    <touch name="right_tactile_mid_112" site="right_tactile_mid_112_site" />
+    <touch name="right_tactile_mid_113" site="right_tactile_mid_113_site" />
+    <touch name="right_tactile_mid_114" site="right_tactile_mid_114_site" />
+    <touch name="right_tactile_mid_115" site="right_tactile_mid_115_site" />
+    <touch name="right_tactile_mid_116" site="right_tactile_mid_116_site" />
+    <touch name="right_tactile_mid_117" site="right_tactile_mid_117_site" />
+    <touch name="right_tactile_mid_118" site="right_tactile_mid_118_site" />
+    <touch name="right_tactile_mid_119" site="right_tactile_mid_119_site" />
+    <touch name="right_tactile_mid_120" site="right_tactile_mid_120_site" />
+    <touch name="right_tactile_ring_001" site="right_tactile_ring_001_site" />
+    <touch name="right_tactile_ring_002" site="right_tactile_ring_002_site" />
+    <touch name="right_tactile_ring_003" site="right_tactile_ring_003_site" />
+    <touch name="right_tactile_ring_004" site="right_tactile_ring_004_site" />
+    <touch name="right_tactile_ring_005" site="right_tactile_ring_005_site" />
+    <touch name="right_tactile_ring_006" site="right_tactile_ring_006_site" />
+    <touch name="right_tactile_ring_007" site="right_tactile_ring_007_site" />
+    <touch name="right_tactile_ring_008" site="right_tactile_ring_008_site" />
+    <touch name="right_tactile_ring_009" site="right_tactile_ring_009_site" />
+    <touch name="right_tactile_ring_010" site="right_tactile_ring_010_site" />
+    <touch name="right_tactile_ring_011" site="right_tactile_ring_011_site" />
+    <touch name="right_tactile_ring_012" site="right_tactile_ring_012_site" />
+    <touch name="right_tactile_ring_013" site="right_tactile_ring_013_site" />
+    <touch name="right_tactile_ring_014" site="right_tactile_ring_014_site" />
+    <touch name="right_tactile_ring_015" site="right_tactile_ring_015_site" />
+    <touch name="right_tactile_ring_016" site="right_tactile_ring_016_site" />
+    <touch name="right_tactile_ring_017" site="right_tactile_ring_017_site" />
+    <touch name="right_tactile_ring_018" site="right_tactile_ring_018_site" />
+    <touch name="right_tactile_ring_019" site="right_tactile_ring_019_site" />
+    <touch name="right_tactile_ring_020" site="right_tactile_ring_020_site" />
+    <touch name="right_tactile_ring_021" site="right_tactile_ring_021_site" />
+    <touch name="right_tactile_ring_022" site="right_tactile_ring_022_site" />
+    <touch name="right_tactile_ring_023" site="right_tactile_ring_023_site" />
+    <touch name="right_tactile_ring_024" site="right_tactile_ring_024_site" />
+    <touch name="right_tactile_ring_025" site="right_tactile_ring_025_site" />
+    <touch name="right_tactile_ring_026" site="right_tactile_ring_026_site" />
+    <touch name="right_tactile_ring_027" site="right_tactile_ring_027_site" />
+    <touch name="right_tactile_ring_028" site="right_tactile_ring_028_site" />
+    <touch name="right_tactile_ring_029" site="right_tactile_ring_029_site" />
+    <touch name="right_tactile_ring_030" site="right_tactile_ring_030_site" />
+    <touch name="right_tactile_ring_031" site="right_tactile_ring_031_site" />
+    <touch name="right_tactile_ring_032" site="right_tactile_ring_032_site" />
+    <touch name="right_tactile_ring_033" site="right_tactile_ring_033_site" />
+    <touch name="right_tactile_ring_034" site="right_tactile_ring_034_site" />
+    <touch name="right_tactile_ring_035" site="right_tactile_ring_035_site" />
+    <touch name="right_tactile_ring_036" site="right_tactile_ring_036_site" />
+    <touch name="right_tactile_ring_037" site="right_tactile_ring_037_site" />
+    <touch name="right_tactile_ring_038" site="right_tactile_ring_038_site" />
+    <touch name="right_tactile_ring_039" site="right_tactile_ring_039_site" />
+    <touch name="right_tactile_ring_040" site="right_tactile_ring_040_site" />
+    <touch name="right_tactile_ring_041" site="right_tactile_ring_041_site" />
+    <touch name="right_tactile_ring_042" site="right_tactile_ring_042_site" />
+    <touch name="right_tactile_ring_043" site="right_tactile_ring_043_site" />
+    <touch name="right_tactile_ring_044" site="right_tactile_ring_044_site" />
+    <touch name="right_tactile_ring_045" site="right_tactile_ring_045_site" />
+    <touch name="right_tactile_ring_046" site="right_tactile_ring_046_site" />
+    <touch name="right_tactile_ring_047" site="right_tactile_ring_047_site" />
+    <touch name="right_tactile_ring_048" site="right_tactile_ring_048_site" />
+    <touch name="right_tactile_ring_049" site="right_tactile_ring_049_site" />
+    <touch name="right_tactile_ring_050" site="right_tactile_ring_050_site" />
+    <touch name="right_tactile_ring_051" site="right_tactile_ring_051_site" />
+    <touch name="right_tactile_ring_052" site="right_tactile_ring_052_site" />
+    <touch name="right_tactile_ring_053" site="right_tactile_ring_053_site" />
+    <touch name="right_tactile_ring_054" site="right_tactile_ring_054_site" />
+    <touch name="right_tactile_ring_055" site="right_tactile_ring_055_site" />
+    <touch name="right_tactile_ring_056" site="right_tactile_ring_056_site" />
+    <touch name="right_tactile_ring_057" site="right_tactile_ring_057_site" />
+    <touch name="right_tactile_ring_058" site="right_tactile_ring_058_site" />
+    <touch name="right_tactile_ring_059" site="right_tactile_ring_059_site" />
+    <touch name="right_tactile_ring_060" site="right_tactile_ring_060_site" />
+    <touch name="right_tactile_ring_061" site="right_tactile_ring_061_site" />
+    <touch name="right_tactile_ring_062" site="right_tactile_ring_062_site" />
+    <touch name="right_tactile_ring_063" site="right_tactile_ring_063_site" />
+    <touch name="right_tactile_ring_064" site="right_tactile_ring_064_site" />
+    <touch name="right_tactile_ring_065" site="right_tactile_ring_065_site" />
+    <touch name="right_tactile_ring_066" site="right_tactile_ring_066_site" />
+    <touch name="right_tactile_ring_067" site="right_tactile_ring_067_site" />
+    <touch name="right_tactile_ring_068" site="right_tactile_ring_068_site" />
+    <touch name="right_tactile_ring_069" site="right_tactile_ring_069_site" />
+    <touch name="right_tactile_ring_070" site="right_tactile_ring_070_site" />
+    <touch name="right_tactile_ring_071" site="right_tactile_ring_071_site" />
+    <touch name="right_tactile_ring_072" site="right_tactile_ring_072_site" />
+    <touch name="right_tactile_ring_073" site="right_tactile_ring_073_site" />
+    <touch name="right_tactile_ring_074" site="right_tactile_ring_074_site" />
+    <touch name="right_tactile_ring_075" site="right_tactile_ring_075_site" />
+    <touch name="right_tactile_ring_076" site="right_tactile_ring_076_site" />
+    <touch name="right_tactile_ring_077" site="right_tactile_ring_077_site" />
+    <touch name="right_tactile_ring_078" site="right_tactile_ring_078_site" />
+    <touch name="right_tactile_ring_079" site="right_tactile_ring_079_site" />
+    <touch name="right_tactile_ring_080" site="right_tactile_ring_080_site" />
+    <touch name="right_tactile_ring_081" site="right_tactile_ring_081_site" />
+    <touch name="right_tactile_ring_082" site="right_tactile_ring_082_site" />
+    <touch name="right_tactile_ring_083" site="right_tactile_ring_083_site" />
+    <touch name="right_tactile_ring_084" site="right_tactile_ring_084_site" />
+    <touch name="right_tactile_ring_085" site="right_tactile_ring_085_site" />
+    <touch name="right_tactile_ring_086" site="right_tactile_ring_086_site" />
+    <touch name="right_tactile_ring_087" site="right_tactile_ring_087_site" />
+    <touch name="right_tactile_ring_088" site="right_tactile_ring_088_site" />
+    <touch name="right_tactile_ring_089" site="right_tactile_ring_089_site" />
+    <touch name="right_tactile_ring_090" site="right_tactile_ring_090_site" />
+    <touch name="right_tactile_ring_091" site="right_tactile_ring_091_site" />
+    <touch name="right_tactile_ring_092" site="right_tactile_ring_092_site" />
+    <touch name="right_tactile_ring_093" site="right_tactile_ring_093_site" />
+    <touch name="right_tactile_ring_094" site="right_tactile_ring_094_site" />
+    <touch name="right_tactile_ring_095" site="right_tactile_ring_095_site" />
+    <touch name="right_tactile_ring_096" site="right_tactile_ring_096_site" />
+    <touch name="right_tactile_ring_097" site="right_tactile_ring_097_site" />
+    <touch name="right_tactile_ring_098" site="right_tactile_ring_098_site" />
+    <touch name="right_tactile_ring_099" site="right_tactile_ring_099_site" />
+    <touch name="right_tactile_ring_100" site="right_tactile_ring_100_site" />
+    <touch name="right_tactile_ring_101" site="right_tactile_ring_101_site" />
+    <touch name="right_tactile_ring_102" site="right_tactile_ring_102_site" />
+    <touch name="right_tactile_ring_103" site="right_tactile_ring_103_site" />
+    <touch name="right_tactile_ring_104" site="right_tactile_ring_104_site" />
+    <touch name="right_tactile_ring_105" site="right_tactile_ring_105_site" />
+    <touch name="right_tactile_ring_106" site="right_tactile_ring_106_site" />
+    <touch name="right_tactile_ring_107" site="right_tactile_ring_107_site" />
+    <touch name="right_tactile_ring_108" site="right_tactile_ring_108_site" />
+    <touch name="right_tactile_ring_109" site="right_tactile_ring_109_site" />
+    <touch name="right_tactile_ring_110" site="right_tactile_ring_110_site" />
+    <touch name="right_tactile_ring_111" site="right_tactile_ring_111_site" />
+    <touch name="right_tactile_ring_112" site="right_tactile_ring_112_site" />
+    <touch name="right_tactile_ring_113" site="right_tactile_ring_113_site" />
+    <touch name="right_tactile_ring_114" site="right_tactile_ring_114_site" />
+    <touch name="right_tactile_ring_115" site="right_tactile_ring_115_site" />
+    <touch name="right_tactile_ring_116" site="right_tactile_ring_116_site" />
+    <touch name="right_tactile_ring_117" site="right_tactile_ring_117_site" />
+    <touch name="right_tactile_ring_118" site="right_tactile_ring_118_site" />
+    <touch name="right_tactile_ring_119" site="right_tactile_ring_119_site" />
+    <touch name="right_tactile_ring_120" site="right_tactile_ring_120_site" />
+    <touch name="right_tactile_pinky_001" site="right_tactile_pinky_001_site" />
+    <touch name="right_tactile_pinky_002" site="right_tactile_pinky_002_site" />
+    <touch name="right_tactile_pinky_003" site="right_tactile_pinky_003_site" />
+    <touch name="right_tactile_pinky_004" site="right_tactile_pinky_004_site" />
+    <touch name="right_tactile_pinky_005" site="right_tactile_pinky_005_site" />
+    <touch name="right_tactile_pinky_006" site="right_tactile_pinky_006_site" />
+    <touch name="right_tactile_pinky_007" site="right_tactile_pinky_007_site" />
+    <touch name="right_tactile_pinky_008" site="right_tactile_pinky_008_site" />
+    <touch name="right_tactile_pinky_009" site="right_tactile_pinky_009_site" />
+    <touch name="right_tactile_pinky_010" site="right_tactile_pinky_010_site" />
+    <touch name="right_tactile_pinky_011" site="right_tactile_pinky_011_site" />
+    <touch name="right_tactile_pinky_012" site="right_tactile_pinky_012_site" />
+    <touch name="right_tactile_pinky_013" site="right_tactile_pinky_013_site" />
+    <touch name="right_tactile_pinky_014" site="right_tactile_pinky_014_site" />
+    <touch name="right_tactile_pinky_015" site="right_tactile_pinky_015_site" />
+    <touch name="right_tactile_pinky_016" site="right_tactile_pinky_016_site" />
+    <touch name="right_tactile_pinky_017" site="right_tactile_pinky_017_site" />
+    <touch name="right_tactile_pinky_018" site="right_tactile_pinky_018_site" />
+    <touch name="right_tactile_pinky_019" site="right_tactile_pinky_019_site" />
+    <touch name="right_tactile_pinky_020" site="right_tactile_pinky_020_site" />
+    <touch name="right_tactile_pinky_021" site="right_tactile_pinky_021_site" />
+    <touch name="right_tactile_pinky_022" site="right_tactile_pinky_022_site" />
+    <touch name="right_tactile_pinky_023" site="right_tactile_pinky_023_site" />
+    <touch name="right_tactile_pinky_024" site="right_tactile_pinky_024_site" />
+    <touch name="right_tactile_pinky_025" site="right_tactile_pinky_025_site" />
+    <touch name="right_tactile_pinky_026" site="right_tactile_pinky_026_site" />
+    <touch name="right_tactile_pinky_027" site="right_tactile_pinky_027_site" />
+    <touch name="right_tactile_pinky_028" site="right_tactile_pinky_028_site" />
+    <touch name="right_tactile_pinky_029" site="right_tactile_pinky_029_site" />
+    <touch name="right_tactile_pinky_030" site="right_tactile_pinky_030_site" />
+    <touch name="right_tactile_pinky_031" site="right_tactile_pinky_031_site" />
+    <touch name="right_tactile_pinky_032" site="right_tactile_pinky_032_site" />
+    <touch name="right_tactile_pinky_033" site="right_tactile_pinky_033_site" />
+    <touch name="right_tactile_pinky_034" site="right_tactile_pinky_034_site" />
+    <touch name="right_tactile_pinky_035" site="right_tactile_pinky_035_site" />
+    <touch name="right_tactile_pinky_036" site="right_tactile_pinky_036_site" />
+    <touch name="right_tactile_pinky_037" site="right_tactile_pinky_037_site" />
+    <touch name="right_tactile_pinky_038" site="right_tactile_pinky_038_site" />
+    <touch name="right_tactile_pinky_039" site="right_tactile_pinky_039_site" />
+    <touch name="right_tactile_pinky_040" site="right_tactile_pinky_040_site" />
+    <touch name="right_tactile_pinky_041" site="right_tactile_pinky_041_site" />
+    <touch name="right_tactile_pinky_042" site="right_tactile_pinky_042_site" />
+    <touch name="right_tactile_pinky_043" site="right_tactile_pinky_043_site" />
+    <touch name="right_tactile_pinky_044" site="right_tactile_pinky_044_site" />
+    <touch name="right_tactile_pinky_045" site="right_tactile_pinky_045_site" />
+    <touch name="right_tactile_pinky_046" site="right_tactile_pinky_046_site" />
+    <touch name="right_tactile_pinky_047" site="right_tactile_pinky_047_site" />
+    <touch name="right_tactile_pinky_048" site="right_tactile_pinky_048_site" />
+    <touch name="right_tactile_pinky_049" site="right_tactile_pinky_049_site" />
+    <touch name="right_tactile_pinky_050" site="right_tactile_pinky_050_site" />
+    <touch name="right_tactile_pinky_051" site="right_tactile_pinky_051_site" />
+    <touch name="right_tactile_pinky_052" site="right_tactile_pinky_052_site" />
+    <touch name="right_tactile_pinky_053" site="right_tactile_pinky_053_site" />
+    <touch name="right_tactile_pinky_054" site="right_tactile_pinky_054_site" />
+    <touch name="right_tactile_pinky_055" site="right_tactile_pinky_055_site" />
+    <touch name="right_tactile_pinky_056" site="right_tactile_pinky_056_site" />
+    <touch name="right_tactile_pinky_057" site="right_tactile_pinky_057_site" />
+    <touch name="right_tactile_pinky_058" site="right_tactile_pinky_058_site" />
+    <touch name="right_tactile_pinky_059" site="right_tactile_pinky_059_site" />
+    <touch name="right_tactile_pinky_060" site="right_tactile_pinky_060_site" />
+    <touch name="right_tactile_pinky_061" site="right_tactile_pinky_061_site" />
+    <touch name="right_tactile_pinky_062" site="right_tactile_pinky_062_site" />
+    <touch name="right_tactile_pinky_063" site="right_tactile_pinky_063_site" />
+    <touch name="right_tactile_pinky_064" site="right_tactile_pinky_064_site" />
+    <touch name="right_tactile_pinky_065" site="right_tactile_pinky_065_site" />
+    <touch name="right_tactile_pinky_066" site="right_tactile_pinky_066_site" />
+    <touch name="right_tactile_pinky_067" site="right_tactile_pinky_067_site" />
+    <touch name="right_tactile_pinky_068" site="right_tactile_pinky_068_site" />
+    <touch name="right_tactile_pinky_069" site="right_tactile_pinky_069_site" />
+    <touch name="right_tactile_pinky_070" site="right_tactile_pinky_070_site" />
+    <touch name="right_tactile_pinky_071" site="right_tactile_pinky_071_site" />
+    <touch name="right_tactile_pinky_072" site="right_tactile_pinky_072_site" />
+    <touch name="right_tactile_pinky_073" site="right_tactile_pinky_073_site" />
+    <touch name="right_tactile_pinky_074" site="right_tactile_pinky_074_site" />
+    <touch name="right_tactile_pinky_075" site="right_tactile_pinky_075_site" />
+    <touch name="right_tactile_pinky_076" site="right_tactile_pinky_076_site" />
+    <touch name="right_tactile_pinky_077" site="right_tactile_pinky_077_site" />
+    <touch name="right_tactile_pinky_078" site="right_tactile_pinky_078_site" />
+    <touch name="right_tactile_pinky_079" site="right_tactile_pinky_079_site" />
+    <touch name="right_tactile_pinky_080" site="right_tactile_pinky_080_site" />
+    <touch name="right_tactile_pinky_081" site="right_tactile_pinky_081_site" />
+    <touch name="right_tactile_pinky_082" site="right_tactile_pinky_082_site" />
+    <touch name="right_tactile_pinky_083" site="right_tactile_pinky_083_site" />
+    <touch name="right_tactile_pinky_084" site="right_tactile_pinky_084_site" />
+    <touch name="right_tactile_pinky_085" site="right_tactile_pinky_085_site" />
+    <touch name="right_tactile_pinky_086" site="right_tactile_pinky_086_site" />
+    <touch name="right_tactile_pinky_087" site="right_tactile_pinky_087_site" />
+    <touch name="right_tactile_pinky_088" site="right_tactile_pinky_088_site" />
+    <touch name="right_tactile_pinky_089" site="right_tactile_pinky_089_site" />
+    <touch name="right_tactile_pinky_090" site="right_tactile_pinky_090_site" />
+    <touch name="right_tactile_pinky_091" site="right_tactile_pinky_091_site" />
+    <touch name="right_tactile_pinky_092" site="right_tactile_pinky_092_site" />
+    <touch name="right_tactile_pinky_093" site="right_tactile_pinky_093_site" />
+    <touch name="right_tactile_pinky_094" site="right_tactile_pinky_094_site" />
+    <touch name="right_tactile_pinky_095" site="right_tactile_pinky_095_site" />
+    <touch name="right_tactile_pinky_096" site="right_tactile_pinky_096_site" />
+    <touch name="right_tactile_pinky_097" site="right_tactile_pinky_097_site" />
+    <touch name="right_tactile_pinky_098" site="right_tactile_pinky_098_site" />
+    <touch name="right_tactile_pinky_099" site="right_tactile_pinky_099_site" />
+    <touch name="right_tactile_pinky_100" site="right_tactile_pinky_100_site" />
+    <touch name="right_tactile_pinky_101" site="right_tactile_pinky_101_site" />
+    <touch name="right_tactile_pinky_102" site="right_tactile_pinky_102_site" />
+    <touch name="right_tactile_pinky_103" site="right_tactile_pinky_103_site" />
+    <touch name="right_tactile_pinky_104" site="right_tactile_pinky_104_site" />
+    <touch name="right_tactile_pinky_105" site="right_tactile_pinky_105_site" />
+    <touch name="right_tactile_pinky_106" site="right_tactile_pinky_106_site" />
+    <touch name="right_tactile_pinky_107" site="right_tactile_pinky_107_site" />
+    <touch name="right_tactile_pinky_108" site="right_tactile_pinky_108_site" />
+    <touch name="right_tactile_pinky_109" site="right_tactile_pinky_109_site" />
+    <touch name="right_tactile_pinky_110" site="right_tactile_pinky_110_site" />
+    <touch name="right_tactile_pinky_111" site="right_tactile_pinky_111_site" />
+    <touch name="right_tactile_pinky_112" site="right_tactile_pinky_112_site" />
+    <touch name="right_tactile_pinky_113" site="right_tactile_pinky_113_site" />
+    <touch name="right_tactile_pinky_114" site="right_tactile_pinky_114_site" />
+    <touch name="right_tactile_pinky_115" site="right_tactile_pinky_115_site" />
+    <touch name="right_tactile_pinky_116" site="right_tactile_pinky_116_site" />
+    <touch name="right_tactile_pinky_117" site="right_tactile_pinky_117_site" />
+    <touch name="right_tactile_pinky_118" site="right_tactile_pinky_118_site" />
+    <touch name="right_tactile_pinky_119" site="right_tactile_pinky_119_site" />
+    <touch name="right_tactile_pinky_120" site="right_tactile_pinky_120_site" />
+  </sensor>
+  <keyframe>
+    <key name="xhand_open" ctrl="0 0 0 0 0 0 0 0 0 0 0 0" />
+    <key name="xhand_pinch" ctrl="0.55 0.8 1.05 0 1.25 0.95 0.2 0.2 0.2 0.2 0.2 0.2" />
+    <key name="xhand_close" ctrl="0.85 0.85 1.2 0 1.35 1.15 1.35 1.15 1.35 1.15 1.35 1.15" />
+  </keyframe>
+</mujoco>
