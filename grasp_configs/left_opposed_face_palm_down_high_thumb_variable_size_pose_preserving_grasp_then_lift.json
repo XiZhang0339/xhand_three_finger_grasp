@@ -1,0 +1,467 @@
+{
+  "schema_version": 7,
+  "experiment_id": "left_opposed_face_palm_down_high_thumb_variable_size_pose_preserving_grasp_then_lift",
+  "side": "left",
+  "description": "Unvalidated schema-v7 high-thumb fixed-mass variable-size pose-preserving search template",
+  "experiment_status": {
+    "classification": "unvalidated_search_template",
+    "passed": false,
+    "grasp_success": false,
+    "manipulation_success": false,
+    "full_success": false,
+    "robustness_passed": false,
+    "note": "This template declares search bounds and budgets only; it is not evidence of a successful grasp or lift."
+  },
+  "hand_pose": {
+    "translation_m": [
+      0.029284342190693077,
+      -0.011501263186424174,
+      0.2601331261825117
+    ],
+    "rpy_deg": [
+      -1.4283500386102714,
+      121.83473317402027,
+      7.503598800443184
+    ]
+  },
+  "pose_constraints": {
+    "finger_down_tilt_deg": [
+      30.0,
+      40.0
+    ],
+    "palm_plane_ground_angle_deg": [
+      30.0,
+      40.0
+    ],
+    "root_cube_distance_m": [
+      0.138,
+      0.165
+    ],
+    "cube_position_in_root_m": {
+      "x": [
+        0.09,
+        0.115
+      ],
+      "y": [
+        -0.04,
+        -0.01
+      ],
+      "z": [
+        0.095,
+        0.125
+      ]
+    },
+    "legacy_press_reference_translation_m": [
+      -0.036454669709448065,
+      0.008499986928773153,
+      0.19777491509344874
+    ]
+  },
+  "cube": {
+    "center_xy_m": [
+      0.071,
+      -0.027
+    ],
+    "edge_m": 0.06,
+    "mass_kg": 0.16,
+    "friction": 0.8,
+    "rpy_deg": [
+      0.0,
+      0.0,
+      27.609990189403167
+    ],
+    "z_offset_m": 0.0,
+    "solref_timeconst_s": 0.004
+  },
+  "scene": {
+    "support_top_z_m": 0.084,
+    "support_radius_m": 0.006,
+    "floor_z_m": -0.015
+  },
+  "control": {
+    "pregrasp_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.107401639126688,
+      "left_hand_thumb_rota_joint1_actuator": 0.23086247058512005,
+      "left_hand_thumb_rota_joint2_actuator": 0.899387163906937,
+      "left_hand_index_bend_joint_actuator": -0.03949968461732575,
+      "left_hand_index_joint1_actuator": 0.6396159754921289,
+      "left_hand_index_joint2_actuator": 1.2959890882231848,
+      "left_hand_mid_joint1_actuator": 0.8241764688484944,
+      "left_hand_mid_joint2_actuator": 1.0459918528427137
+    },
+    "grasp_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.25,
+      "left_hand_thumb_rota_joint1_actuator": 0.3762493202900651,
+      "left_hand_thumb_rota_joint2_actuator": 1.0070913503882977,
+      "left_hand_index_bend_joint_actuator": -0.0242991814835032,
+      "left_hand_index_joint1_actuator": 0.6940773793455135,
+      "left_hand_index_joint2_actuator": 1.35,
+      "left_hand_mid_joint1_actuator": 0.8789227411679765,
+      "left_hand_mid_joint2_actuator": 1.1
+    },
+    "manipulation_delta_rad": {
+      "left_hand_thumb_bend_joint_actuator": 0.0,
+      "left_hand_thumb_rota_joint1_actuator": 0.0,
+      "left_hand_thumb_rota_joint2_actuator": 0.0,
+      "left_hand_index_bend_joint_actuator": 0.0,
+      "left_hand_index_joint1_actuator": 0.0,
+      "left_hand_index_joint2_actuator": 0.0,
+      "left_hand_mid_joint1_actuator": 0.0,
+      "left_hand_mid_joint2_actuator": 0.0
+    },
+    "close_profile": {
+      "left_hand_thumb_bend_joint_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_thumb_rota_joint1_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_thumb_rota_joint2_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_index_bend_joint_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_index_joint1_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_index_joint2_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_mid_joint1_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      },
+      "left_hand_mid_joint2_actuator": {
+        "start_fraction": 0.0,
+        "end_fraction": 1.0
+      }
+    }
+  },
+  "control_protocol": {
+    "strategy": "grasp_verify_then_manipulate",
+    "failure_behavior": "abort_hold_grasp_pose",
+    "settle_s": 0.5,
+    "close_s": 1.0,
+    "verify_timeout_s": 0.75,
+    "stable_window_s": 0.25,
+    "manipulate_s": 1.5,
+    "min_hold_s": 1.0,
+    "grasp_gate": {
+      "min_target_face_force_n": 0.05,
+      "min_target_force_fraction": 0.95,
+      "require_touch": true,
+      "require_support_contact": true,
+      "max_translation_m": 0.0005,
+      "max_orientation_drift_deg": 3.0,
+      "max_linear_speed_m_s": 0.01,
+      "max_early_lift_m": 0.001
+    }
+  },
+  "contact_alignment": {
+    "max_height_spread_m": 0.005,
+    "verify_continuous_s": 0.25,
+    "operation_aligned_duty": 0.7
+  },
+  "fingertip_contact_preferences": {
+    "taxel_assignment_max_distance_m": 0.006,
+    "ranking_policy": "soft_maximize_force_fraction_then_taxel_coverage",
+    "hard_acceptance": false
+  },
+  "acceptance": {
+    "median_lift_m": 0.01,
+    "minimum_lift_m": 0.008,
+    "height_window_s": 0.5,
+    "finger_contact_duty": 0.8,
+    "simultaneous_contact_duty": 0.7,
+    "contact_force_min_n": 0.05,
+    "touch_force_min_n": 1e-08,
+    "max_height_span_m": 0.002,
+    "max_orientation_drift_deg": 20.0,
+    "max_end_linear_speed_m_s": 0.05,
+    "max_penetration_m": 0.002,
+    "inactive_joint_abs_max_rad": 0.02,
+    "max_palm_down_angle_deg": 40.0
+  },
+  "contact_topology": {
+    "target_faces": {
+      "thumb": "-X",
+      "index": "+X",
+      "mid": "+X"
+    },
+    "surface_tolerance_m": 5e-05,
+    "edge_margin_m": 0.0005,
+    "min_normal_alignment": 0.95,
+    "target_force_fraction": 0.95,
+    "max_off_target_force_fraction": 0.05,
+    "max_material_off_target_duty": 0.01,
+    "max_material_off_target_run_s": 0.01,
+    "forbid_active_nondistal": true
+  },
+  "search": {
+    "shared_faces": [
+      "+X",
+      "+Y"
+    ],
+    "seed": 20260821,
+    "budget": {
+      "static_samples_per_cell": 20000,
+      "static_retain_per_cell": 8,
+      "cell_count": 50,
+      "static_sample_count": 1000000,
+      "dynamic_candidate_count": 400,
+      "local_sizes_per_thumb_band": 4,
+      "local_seeds_per_size": 2,
+      "local_refine_seed_count": 40,
+      "local_refine_per_seed": 64,
+      "local_refinement_count": 2560,
+      "fine_dynamic_candidate_count": 320,
+      "exact_candidate_count": 48,
+      "perturbations_per_grasp": 16,
+      "manipulation_candidates_per_lift_seed": 256,
+      "manipulation_refinement_count": 1536
+    }
+  },
+  "robustness": {
+    "edge_m": [
+      0.052,
+      0.054,
+      0.056,
+      0.058,
+      0.06,
+      0.062,
+      0.064,
+      0.066,
+      0.068,
+      0.07
+    ],
+    "mass_kg": [
+      0.16
+    ],
+    "friction": [
+      0.8
+    ],
+    "perturbation_count": 50,
+    "required_pass_count": 45,
+    "seed": 20260821,
+    "position_xy_delta_m": [
+      -0.0015,
+      0.0015
+    ],
+    "rpy_delta_deg": [
+      -3.0,
+      3.0
+    ],
+    "mass_scale": [
+      0.9,
+      1.1
+    ],
+    "friction_delta": [
+      -0.1,
+      0.1
+    ],
+    "z_offset_delta_m": [
+      0.0,
+      0.0005
+    ]
+  },
+  "pose_preservation": {
+    "reference": "reset_pre_step_cube_pose",
+    "scope": "through_grasp_acquisition_inclusive",
+    "max_translation_m": 0.0005,
+    "max_orientation_drift_deg": 1.0,
+    "require_support_contact": true,
+    "require_no_hand_cube_contact_during_settle": true,
+    "initialize_active_joints_at_pregrasp": true
+  },
+  "high_thumb_size_campaign": {
+    "schema_version": 1,
+    "coarse_edges_m": [
+      0.052,
+      0.054,
+      0.056,
+      0.058,
+      0.06,
+      0.062,
+      0.064,
+      0.066,
+      0.068,
+      0.07
+    ],
+    "coarse_thumb_targets_rad": [
+      1.25,
+      1.3,
+      1.35,
+      1.4,
+      1.45
+    ],
+    "edge_fine_step_m": 0.001,
+    "thumb_fine_step_rad": 0.01,
+    "fixed_mass_kg": 0.16,
+    "friction": 0.8,
+    "seed": 20260821,
+    "cube_pose_policy": {
+      "center_xy_m": [
+        0.071,
+        -0.027
+      ],
+      "support_placement": "support_top_z_plus_half_edge",
+      "retain_source_seed_yaw": true,
+      "freejoint_required": true,
+      "runtime_pose_rewrite_forbidden": true,
+      "candidate_world_pose_sampling_forbidden": true
+    },
+    "control_search": {
+      "grasp_target_bounds_rad": {
+        "left_hand_thumb_bend_joint_actuator": [
+          1.25,
+          1.45
+        ],
+        "left_hand_thumb_rota_joint1_actuator": [
+          0.15,
+          0.8
+        ],
+        "left_hand_thumb_rota_joint2_actuator": [
+          0.75,
+          1.1
+        ],
+        "left_hand_index_bend_joint_actuator": [
+          -0.08,
+          0.08
+        ],
+        "left_hand_index_joint1_actuator": [
+          0.3,
+          0.7
+        ],
+        "left_hand_index_joint2_actuator": [
+          1.2,
+          1.8
+        ],
+        "left_hand_mid_joint1_actuator": [
+          0.5,
+          1.0
+        ],
+        "left_hand_mid_joint2_actuator": [
+          0.85,
+          1.7
+        ]
+      },
+      "pregrasp_target_bounds_rad": {
+        "left_hand_thumb_bend_joint_actuator": [
+          0.6,
+          1.3
+        ],
+        "left_hand_thumb_rota_joint1_actuator": [
+          0.0,
+          0.5
+        ],
+        "left_hand_thumb_rota_joint2_actuator": [
+          0.55,
+          1.0
+        ],
+        "left_hand_index_bend_joint_actuator": [
+          -0.08,
+          0.08
+        ],
+        "left_hand_index_joint1_actuator": [
+          0.4,
+          0.7
+        ],
+        "left_hand_index_joint2_actuator": [
+          1.05,
+          1.35
+        ],
+        "left_hand_mid_joint1_actuator": [
+          0.6,
+          0.9
+        ],
+        "left_hand_mid_joint2_actuator": [
+          0.85,
+          1.1
+        ]
+      },
+      "manipulation_delta_bounds_rad": {
+        "left_hand_thumb_bend_joint_actuator": [
+          -0.2,
+          0.12
+        ],
+        "left_hand_thumb_rota_joint1_actuator": [
+          -0.05,
+          0.3
+        ],
+        "left_hand_thumb_rota_joint2_actuator": [
+          -0.05,
+          0.4
+        ],
+        "left_hand_index_bend_joint_actuator": [
+          -0.05,
+          0.1
+        ],
+        "left_hand_index_joint1_actuator": [
+          -0.25,
+          0.1
+        ],
+        "left_hand_index_joint2_actuator": [
+          0.0,
+          0.4
+        ],
+        "left_hand_mid_joint1_actuator": [
+          -0.25,
+          0.1
+        ],
+        "left_hand_mid_joint2_actuator": [
+          0.0,
+          0.45
+        ]
+      },
+      "acquisition_manipulation_delta_zero": true
+    },
+    "source_seed_family_count": 6,
+    "budget": {
+      "static_samples_per_cell": 20000,
+      "static_retain_per_cell": 8,
+      "cell_count": 50,
+      "static_sample_count": 1000000,
+      "dynamic_candidate_count": 400,
+      "local_sizes_per_thumb_band": 4,
+      "local_seeds_per_size": 2,
+      "local_refine_seed_count": 40,
+      "local_refine_per_seed": 64,
+      "local_refinement_count": 2560,
+      "fine_dynamic_candidate_count": 320,
+      "exact_candidate_count": 48,
+      "perturbations_per_grasp": 16,
+      "manipulation_candidates_per_lift_seed": 256,
+      "manipulation_refinement_count": 1536
+    },
+    "selection": {
+      "selected_grasp_count": 12,
+      "selected_lift_seed_count": 6,
+      "minimum_distinct_edges": 4,
+      "minimum_seed_families": 3,
+      "minimum_per_thumb_band": 3,
+      "maximum_per_edge_target_pair": 2,
+      "thumb_bend_bands_rad": [
+        [
+          1.25,
+          1.31
+        ],
+        [
+          1.31,
+          1.38
+        ],
+        [
+          1.38,
+          1.45
+        ]
+      ],
+      "band_boundary_policy": "lower_open_except_first_upper_closed"
+    }
+  }
+}

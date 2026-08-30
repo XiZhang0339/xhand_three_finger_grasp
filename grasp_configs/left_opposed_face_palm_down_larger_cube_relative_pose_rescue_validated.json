@@ -1,0 +1,459 @@
+{
+  "schema_version": 3,
+  "experiment_id": "left_opposed_face_palm_down_larger_cube_relative_pose_rescue",
+  "side": "left",
+  "description": "Validated 62 mm constant-density opposed-face palm-down grasp-verify-then-lift configuration selected by the bounded relative-pose rescue operation search",
+  "experiment_status": {
+    "classification": "validated_constant_density",
+    "passed": true,
+    "grasp_success": true,
+    "manipulation_success": true,
+    "full_success": true,
+    "fixed_mass_discovery_passed": false,
+    "constant_density_passed": true,
+    "robustness_passed": false,
+    "note": "The exact nominal constant-density configuration passed all 54 declared hard checks in two recorded identical runs. Fixed-mass discovery and the registered robustness campaign are not claimed by this source config."
+  },
+  "hand_pose": {
+    "translation_m": [
+      -0.036454669709448065,
+      0.008499986928773153,
+      0.19777491509344874
+    ],
+    "rpy_deg": [
+      0.8800118717318188,
+      89.5166867019805,
+      -2.6325407810459214
+    ]
+  },
+  "cube": {
+    "center_xy_m": [
+      0.071,
+      -0.027
+    ],
+    "edge_m": 0.062,
+    "mass_kg": 0.17653925925925934,
+    "friction": 0.8,
+    "rpy_deg": [
+      0,
+      0,
+      30.589880839844653
+    ],
+    "z_offset_m": 0,
+    "solref_timeconst_s": 0.004
+  },
+  "scene": {
+    "support_top_z_m": 0.084,
+    "support_radius_m": 0.006,
+    "floor_z_m": -0.015
+  },
+  "control": {
+    "grasp_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.019914111112225,
+      "left_hand_thumb_rota_joint1_actuator": 0.45,
+      "left_hand_thumb_rota_joint2_actuator": 0.6156759841937474,
+      "left_hand_index_bend_joint_actuator": -0.0049579503195133975,
+      "left_hand_index_joint1_actuator": 0.4434969320225719,
+      "left_hand_index_joint2_actuator": 1.6035425081988066,
+      "left_hand_mid_joint1_actuator": 0.7608503089023541,
+      "left_hand_mid_joint2_actuator": 1.3064070166012365
+    },
+    "manipulation_delta_rad": {
+      "left_hand_thumb_bend_joint_actuator": -0.1991315467092353,
+      "left_hand_thumb_rota_joint1_actuator": 0.09007911014711634,
+      "left_hand_thumb_rota_joint2_actuator": 0.36111262803013183,
+      "left_hand_index_bend_joint_actuator": -0.0007398344932933489,
+      "left_hand_index_joint1_actuator": -0.1236577010107487,
+      "left_hand_index_joint2_actuator": 0.1347433499994188,
+      "left_hand_mid_joint1_actuator": 0.03704509887157975,
+      "left_hand_mid_joint2_actuator": 0.41101557911873393
+    }
+  },
+  "control_protocol": {
+    "strategy": "grasp_verify_then_manipulate",
+    "failure_behavior": "abort_hold_grasp_pose",
+    "settle_s": 0.5,
+    "close_s": 1,
+    "verify_timeout_s": 0.75,
+    "stable_window_s": 0.25,
+    "manipulate_s": 1.5,
+    "min_hold_s": 1,
+    "grasp_gate": {
+      "min_target_face_force_n": 0.05,
+      "min_target_force_fraction": 0.95,
+      "require_touch": true,
+      "require_support_contact": true,
+      "max_translation_m": 0.0005,
+      "max_orientation_drift_deg": 3,
+      "max_linear_speed_m_s": 0.01,
+      "max_early_lift_m": 0.001
+    }
+  },
+  "acceptance": {
+    "median_lift_m": 0.01,
+    "minimum_lift_m": 0.008,
+    "height_window_s": 0.5,
+    "finger_contact_duty": 0.8,
+    "simultaneous_contact_duty": 0.7,
+    "contact_force_min_n": 0.05,
+    "touch_force_min_n": 1e-8,
+    "max_height_span_m": 0.002,
+    "max_orientation_drift_deg": 20,
+    "max_end_linear_speed_m_s": 0.05,
+    "max_penetration_m": 0.002,
+    "inactive_joint_abs_max_rad": 0.02,
+    "max_palm_down_angle_deg": 30
+  },
+  "contact_topology": {
+    "target_faces": {
+      "thumb": "-X",
+      "index": "+X",
+      "mid": "+X"
+    },
+    "surface_tolerance_m": 0.00005,
+    "edge_margin_m": 0.0005,
+    "min_normal_alignment": 0.95,
+    "target_force_fraction": 0.95,
+    "max_off_target_force_fraction": 0.05,
+    "max_material_off_target_duty": 0.01,
+    "max_material_off_target_run_s": 0.01,
+    "forbid_active_nondistal": true
+  },
+  "search": {
+    "shared_faces": [
+      "+X",
+      "-X",
+      "+Y",
+      "-Y"
+    ],
+    "seed": 20260821,
+    "budget": {
+      "palm_pitch_values_deg": [
+        87,
+        88,
+        89,
+        90
+      ],
+      "kinematic_samples_per_pitch": 5000,
+      "dynamic_candidate_count": 512,
+      "local_refine_seed_count": 8,
+      "local_refine_per_seed": 128,
+      "final_candidate_count": 16,
+      "perturbations_per_final_candidate": 16,
+      "fallback_kinematic_samples_per_pitch": 50000,
+      "fallback_candidate_count": 512
+    }
+  },
+  "pose_rescue": {
+    "schema_version": 1,
+    "strategy": "relative_pose_rescue",
+    "source": {
+      "experiment_id": "left_opposed_face_palm_down_larger_cube_grasp_then_lift",
+      "search_seed": 20260821,
+      "candidate_id": 309288,
+      "candidate_kind": "linked_static_solution"
+    },
+    "anchor": {
+      "edge_m": 0.062,
+      "hand_translation_m": [
+        -0.03425669746601186,
+        0.0115923774280421,
+        0.19747
+      ],
+      "hand_rpy_deg": [
+        1,
+        90,
+        -3.779
+      ],
+      "cube_position_in_root_m": [
+        0.08247,
+        -0.029689,
+        0.108106
+      ],
+      "cube_yaw_deg": 28.549,
+      "target_faces": {
+        "thumb": "-X",
+        "index": "+X",
+        "mid": "+X"
+      },
+      "grasp_targets_rad": {
+        "left_hand_thumb_bend_joint_actuator": 0.95,
+        "left_hand_thumb_rota_joint1_actuator": 0.45,
+        "left_hand_thumb_rota_joint2_actuator": 0.5,
+        "left_hand_index_bend_joint_actuator": 0.027,
+        "left_hand_index_joint1_actuator": 0.348,
+        "left_hand_index_joint2_actuator": 1.403,
+        "left_hand_mid_joint1_actuator": 0.65,
+        "left_hand_mid_joint2_actuator": 1.35
+      }
+    },
+    "focus": {
+      "priority_edges_m": [
+        0.061,
+        0.062,
+        0.063
+      ],
+      "cube_position_in_root_m": {
+        "x": [
+          0.08164,
+          0.08364
+        ],
+        "y": [
+          -0.03085,
+          -0.02885
+        ],
+        "z": [
+          0.10736,
+          0.10936
+        ]
+      },
+      "hand_roll_deg": [
+        -0.5,
+        2.5
+      ],
+      "palm_pitch_values_deg": [
+        88.5,
+        89,
+        89.5,
+        90
+      ],
+      "hand_yaw_deg": [
+        -5.8,
+        -1.8
+      ],
+      "cube_yaw_deg": [
+        26.5,
+        30.5
+      ],
+      "actuator_bounds_policy": "measured_focus_within_one_shot_expanded_registered_envelope"
+    },
+    "registered_outer_envelope": {
+      "cube_position_in_root_m": {
+        "x": [
+          0.08,
+          0.086
+        ],
+        "y": [
+          -0.034,
+          -0.026
+        ],
+        "z": [
+          0.104,
+          0.114
+        ]
+      },
+      "hand_roll_deg": [
+        -3,
+        5
+      ],
+      "palm_pitch_values_deg": [
+        87,
+        88,
+        89,
+        90
+      ],
+      "hand_yaw_deg": [
+        -8,
+        1
+      ],
+      "cube_yaw_deg": [
+        24,
+        34
+      ],
+      "purpose": "configuration validation envelope; not the default focused sampler"
+    },
+    "budget_notes": {
+      "broad_candidate_budget": 256,
+      "local_parent_budget": 8,
+      "local_samples_per_parent": 32,
+      "dynamic_total_budget": 512,
+      "registered_search_budget_is_outer_compatibility_metadata": true,
+      "anchor_candidate_is_included_once_in_default_broad_batch": true,
+      "relative_pose_is_refined_before_targets": true,
+      "acceptance_thresholds_must_not_be_relaxed": true,
+      "success_still_requires_constant_density_validation": true
+    },
+    "one_shot_boundary_expansion": {
+      "applied": true,
+      "reason": "The first legal manipulation sweep reached 0.2952 rad on the 0.30 rad thumb-rota2 delta ceiling while retaining all three target faces.",
+      "delta_axes_rad": {
+        "left_hand_thumb_rota_joint2_actuator": [
+          -0.05,
+          0.4
+        ]
+      },
+      "absolute_target_axes_rad": {
+        "left_hand_index_joint2_actuator": [
+          0.3,
+          1.8
+        ],
+        "left_hand_mid_joint2_actuator": [
+          0.3,
+          1.8
+        ]
+      },
+      "model_limit_checked": true,
+      "further_expansion_allowed": false
+    }
+  },
+  "size_campaign": {
+    "schema_version": 1,
+    "coarse_edges_m": [
+      0.052,
+      0.054,
+      0.056,
+      0.058,
+      0.06,
+      0.062,
+      0.064
+    ],
+    "material_policy": {
+      "discovery_mass_kg": 0.02,
+      "discovery_friction": 0.8,
+      "reference_edge_m": 0.03,
+      "reference_mass_kg": 0.02,
+      "density_kg_m3": 740.7407407407409,
+      "success_requires_constant_density": true
+    },
+    "budget": {
+      "coarse_samples_per_pitch": 5000,
+      "odd_samples_per_pitch": 10000,
+      "fine_samples_per_pitch": 50000,
+      "coarse_size_count": 3,
+      "exact_size_count": 2,
+      "fine_dynamic_per_size": 256,
+      "local_seed_count_per_size": 4,
+      "local_refine_per_seed": 128,
+      "constant_density_max_candidates": 16,
+      "density_refine_seed_count": 4,
+      "density_refine_per_seed": 128,
+      "finalist_count": 16,
+      "perturbations_per_final": 16,
+      "manipulation_seed_count": 8,
+      "manipulation_refine_per_seed": 128
+    },
+    "trajectory_policy": {
+      "target_sampling": "grasp_targets_plus_manipulation_delta"
+    },
+    "continuation_policy": {
+      "local_refinement_min_target_fingers": 2,
+      "boundary_hit_also_continues": true
+    },
+    "boundary": {
+      "position_tolerance_m": 0.001,
+      "actuator_tolerance_rad": 0.03,
+      "position_expand_m": 0.005,
+      "actuator_expand_rad": 0.1,
+      "max_expansions": 1
+    }
+  },
+  "robustness": {
+    "friction": [
+      0.4,
+      0.6,
+      0.8,
+      1,
+      1.2
+    ],
+    "perturbation_count": 50,
+    "required_pass_count": 45,
+    "seed": 20260821,
+    "position_xy_delta_m": [
+      -0.0015,
+      0.0015
+    ],
+    "rpy_delta_deg": [
+      -3,
+      3
+    ],
+    "mass_scale": [
+      0.9,
+      1.1
+    ],
+    "friction_delta": [
+      -0.1,
+      0.1
+    ],
+    "z_offset_delta_m": [
+      0,
+      0.0005
+    ],
+    "case_families": {
+      "schema_version": 1,
+      "edge_limits_m": [
+        0.052,
+        0.064
+      ],
+      "edge_window_count": 5,
+      "edge_step_m": 0.001,
+      "density_mass_scales": [
+        0.9,
+        1,
+        1.1
+      ],
+      "friction": [
+        0.4,
+        0.6,
+        0.8,
+        1,
+        1.2
+      ],
+      "fixed_mass_kg": 0.02,
+      "fixed_mass_case_label": "fixed_20g_control",
+      "boundary_probe_step_m": 0.0005,
+      "case_counts": {
+        "constant_density": 75,
+        "fixed_20g_control": 25,
+        "total": 100
+      }
+    }
+  },
+  "validation_provenance": {
+    "schema_version": 1,
+    "source_anchor_config": "grasp_configs/left_opposed_face_palm_down_larger_cube_relative_pose_rescue.json",
+    "search_seed": 20260821,
+    "stable_parent_candidate_id": 187,
+    "selected_local_candidate_id": 44,
+    "cube_position_in_root_m": [
+      0.08369118081660427,
+      -0.02886063167725713,
+      0.10872576454433161
+    ],
+    "material": {
+      "kind": "constant_density",
+      "edge_m": 0.062,
+      "density_kg_m3": 740.7407407407409,
+      "mass_kg": 0.17653925925925934,
+      "friction": 0.8
+    },
+    "bounded_operation_search": {
+      "declared_attempt_budget": 256,
+      "conservative_attempts_consumed": 204,
+      "unspent_attempts": 52,
+      "pre_local_attempts": 11,
+      "diagnostic_batch_attempts_counted": 96,
+      "effective_unique_local_samples": 96,
+      "effective_full_passes": 11,
+      "exact_confirmation_attempts": 1,
+      "note": "The first 96-point local batch completed simulation but its ephemeral postprocessor discarded summaries; those attempts remain conservatively counted. The corrected 96-point batch contained 11 full passes."
+    },
+    "deterministic_replay": {
+      "recorded_exact_runs": 2,
+      "recorded_results_identical": true,
+      "checks_passed": 54,
+      "checks_total": 54,
+      "median_lift_m": 0.011219589516140396,
+      "minimum_lift_m": 0.011169229753061463,
+      "operation_contact_duty": {
+        "thumb": 1,
+        "index": 0.9996666666666667,
+        "mid": 1,
+        "simultaneous": 0.9996666666666667
+      }
+    },
+    "robustness": {
+      "status": "pending_separate_registered_run",
+      "nominal_validation_only": true
+    }
+  }
+}

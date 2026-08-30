@@ -1,0 +1,291 @@
+{
+  "campaign_kind": "pose_preserving_six_seed_dynamic_acquisition",
+  "description": "Versioned hand-pose, acquisition-qpos backoff and grouped close-timing evidence. Missing source IDs deliberately fall back to deterministic derived seeds.",
+  "evidence_seed_manifest_schema_version": 1,
+  "source_catalog_sha256": "a8cdd2151d92bfde9884265de22b637cc48b1295ea636f55e1aa716d0165fd14",
+  "target_experiment_id": "left_opposed_face_palm_down_pose_preserving_grasp",
+  "seeds": {
+    "117060": {
+      "close_profile": {
+        "left_hand_index_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_rota_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_rota_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0}
+      },
+      "grasp_target_overrides_rad": {"left_hand_thumb_bend_joint_actuator": 1.17},
+      "hand_pose": {
+        "cube_in_root_m": [0.1034029798443342, -0.023561509233907145, 0.10994533441254473],
+        "rpy_deg": [-1.4283500386102714, 121.83473317402027, 7.503598800443184],
+        "verified_translation_m": [0.029284342190693105, -0.01150126318642417, 0.2601331261825117]
+      },
+      "pregrasp_strategy": {"kind": "v6_template"},
+      "pregrasp_targets_rad": {
+        "left_hand_index_bend_joint_actuator": -0.03949968461732575,
+        "left_hand_index_joint1_actuator": 0.6396159754921289,
+        "left_hand_index_joint2_actuator": 1.2959890882231848,
+        "left_hand_mid_joint1_actuator": 0.8241764688484944,
+        "left_hand_mid_joint2_actuator": 1.0459918528427137,
+        "left_hand_thumb_bend_joint_actuator": 1.107401639126688,
+        "left_hand_thumb_rota_joint1_actuator": 0.23086247058512005,
+        "left_hand_thumb_rota_joint2_actuator": 0.899387163906937
+      },
+      "provenance": {"evidence_candidate_id": 117060, "evidence_direct_transfer": true},
+      "source_candidate_id": 117060,
+      "source_sha256": "d522e57ecb379ce6e7027f490e7b7f17035b1ab31b9b4a111f512acdee32d79f",
+      "validation": {
+        "acquisition_step": 1749,
+        "grasp_success": true,
+        "max_orientation_drift_deg": 0.895815,
+        "max_translation_m": 0.000399839,
+        "object_pose_preserved": true,
+        "settle_contact_free": true,
+        "support_retained": true
+      }
+    },
+    "116060": {
+      "close_profile": {
+        "left_hand_index_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_rota_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_rota_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0}
+      },
+      "grasp_target_overrides_rad": {"left_hand_thumb_bend_joint_actuator": 1.17},
+      "hand_pose": {
+        "cube_in_root_m": [0.1034029798443342, -0.023561509233907145, 0.10994533441254473],
+        "rpy_deg": [-1.4283500386102714, 121.83473317402027, 7.268664114909361],
+        "verified_translation_m": [0.029348243467059887, -0.01133034374977044, 0.2601331261825117]
+      },
+      "pregrasp_strategy": {"kind": "v6_template"},
+      "pregrasp_targets_rad": {
+        "left_hand_index_bend_joint_actuator": -0.03949968461732575,
+        "left_hand_index_joint1_actuator": 0.6396159754921289,
+        "left_hand_index_joint2_actuator": 1.2959890882231848,
+        "left_hand_mid_joint1_actuator": 0.8241764688484944,
+        "left_hand_mid_joint2_actuator": 1.0459918528427137,
+        "left_hand_thumb_bend_joint_actuator": 1.107401639126688,
+        "left_hand_thumb_rota_joint1_actuator": 0.23086247058512005,
+        "left_hand_thumb_rota_joint2_actuator": 0.899387163906937
+      },
+      "provenance": {"evidence_candidate_id": 116060, "evidence_direct_transfer": true},
+      "source_candidate_id": 116060,
+      "source_sha256": "66b935154d0df1a9ff715978ecbfcd8c691f17acc3bf69dfad0bbe792b5f4c89",
+      "validation": {
+        "acquisition_step": 1749,
+        "grasp_success": true,
+        "max_orientation_drift_deg": 0.896010,
+        "max_translation_m": 0.000399674,
+        "object_pose_preserved": true,
+        "settle_contact_free": true,
+        "support_retained": true
+      }
+    },
+    "115060": {
+      "close_profile": {
+        "left_hand_index_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_rota_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_rota_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0}
+      },
+      "grasp_target_overrides_rad": {"left_hand_thumb_bend_joint_actuator": 1.17},
+      "hand_pose": {
+        "cube_in_root_m": [0.1034029798443342, -0.023561509233907145, 0.10994533441254473],
+        "rpy_deg": [-1.4283500386102714, 121.83473317402027, 5.893608611040017],
+        "verified_translation_m": [0.02973626167915469, -0.010335341315572004, 0.2601331261825117]
+      },
+      "pregrasp_strategy": {"kind": "v6_template"},
+      "pregrasp_targets_rad": {
+        "left_hand_index_bend_joint_actuator": -0.03949968461732575,
+        "left_hand_index_joint1_actuator": 0.6396159754921289,
+        "left_hand_index_joint2_actuator": 1.2959890882231848,
+        "left_hand_mid_joint1_actuator": 0.8241764688484944,
+        "left_hand_mid_joint2_actuator": 1.0459918528427137,
+        "left_hand_thumb_bend_joint_actuator": 1.107401639126688,
+        "left_hand_thumb_rota_joint1_actuator": 0.23086247058512005,
+        "left_hand_thumb_rota_joint2_actuator": 0.899387163906937
+      },
+      "provenance": {"evidence_candidate_id": 115060, "evidence_direct_transfer": true},
+      "source_candidate_id": 115060,
+      "source_sha256": "64a54899bb498a202eb40c85c6dc891d531c1e800da0aecc6c6055969ab782df",
+      "validation": {
+        "acquisition_step": 1749,
+        "grasp_success": true,
+        "max_orientation_drift_deg": 0.896290,
+        "max_translation_m": 0.000400177,
+        "object_pose_preserved": true,
+        "settle_contact_free": true,
+        "support_retained": true
+      }
+    },
+    "117061": {
+      "close_profile": {
+        "left_hand_index_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.2},
+        "left_hand_thumb_rota_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.2},
+        "left_hand_thumb_rota_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.2}
+      },
+      "grasp_target_overrides_rad": {
+        "left_hand_thumb_bend_joint_actuator": 1.17
+      },
+      "hand_pose": {
+        "cube_in_root_m": [0.10182278084348323, -0.02996185424133772, 0.11036818748929737],
+        "rpy_deg": [-0.841377273205152, 121.97946403250573, 4.476005568197417],
+        "verified_translation_m": [0.028855932173168286, -0.0018744131154428273, 0.259549338670212]
+      },
+      "pregrasp_backoff_factor": 0.5,
+      "pregrasp_strategy": {"factor": 0.5, "kind": "acquisition_qpos_servo_error_backoff"},
+      "pregrasp_targets_rad": {
+        "left_hand_index_bend_joint_actuator": -0.057280532565833354,
+        "left_hand_index_joint1_actuator": 0.6235815242664606,
+        "left_hand_index_joint2_actuator": 1.2908191428789628,
+        "left_hand_mid_joint1_actuator": 0.8055662572364262,
+        "left_hand_mid_joint2_actuator": 1.0329230227061545,
+        "left_hand_thumb_bend_joint_actuator": 1.1029944909585383,
+        "left_hand_thumb_rota_joint1_actuator": 0.15237827614266192,
+        "left_hand_thumb_rota_joint2_actuator": 0.8554388143441203
+      },
+      "provenance": {
+        "evidence_candidate_id": 610000007,
+        "evidence_result_sha256": "ac474d24142d956f7d39c04c573a3ad0ae61972ae8b06b349c5576444598861d",
+        "resolved_config_sha256": "5f550c9c8e5ff9297c972c1ddb4970eaa02a0c53458c5d8bd4dfa504627893b5",
+        "static_candidate_id": 14427,
+        "summary_sha256": "98889cafb82a2dbbb7008184f848163d244215d4f2ef2b06f4783d10723536fc",
+        "trace_sha256": "44d069563818d6ba34415a477fb23b49aaf8414fb3db7ed7c48b9c59fcd18501"
+      },
+      "source_candidate_id": 117061,
+      "source_sha256": "840c5d5f48f3c959509b351e487c0aa8bfd11aff15baebc890000d40c2ef8795",
+      "validation": {
+        "acquisition_step": 1749,
+        "grasp_success": true,
+        "max_orientation_drift_deg": 0.6190155757154607,
+        "max_translation_m": 0.0004707045277007088,
+        "object_pose_preserved": true,
+        "settle_contact_free": true,
+        "support_retained": true,
+        "verify_alignment_duty": 1.0,
+        "verify_height_spread_p95_m": 0.004695281680141508
+      }
+    },
+    "116062": {
+      "close_profile": {
+        "left_hand_index_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.2},
+        "left_hand_thumb_rota_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.2},
+        "left_hand_thumb_rota_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.2}
+      },
+      "grasp_target_overrides_rad": {
+        "left_hand_thumb_bend_joint_actuator": 1.16
+      },
+      "hand_pose": {
+        "cube_in_root_m": [0.1011098822533602, -0.023409074378168793, 0.1063023221482894],
+        "rpy_deg": [-0.06108914092235218, 121.52042181949412, 5.40247637172696],
+        "verified_translation_m": [0.03119593420336937, -0.007364663166673925, 0.2567796411342229]
+      },
+      "pregrasp_backoff_factor": 0.5,
+      "pregrasp_strategy": {"factor": 0.5, "kind": "acquisition_qpos_servo_error_backoff"},
+      "pregrasp_targets_rad": {
+        "left_hand_index_bend_joint_actuator": -0.06711879923515553,
+        "left_hand_index_joint1_actuator": 0.6220046984596102,
+        "left_hand_index_joint2_actuator": 1.295544123857173,
+        "left_hand_mid_joint1_actuator": 0.8067227285048424,
+        "left_hand_mid_joint2_actuator": 1.0371062571626113,
+        "left_hand_thumb_bend_joint_actuator": 1.079157383244722,
+        "left_hand_thumb_rota_joint1_actuator": 0.1445368293304289,
+        "left_hand_thumb_rota_joint2_actuator": 0.8550689197662987
+      },
+      "provenance": {
+        "evidence_candidate_id": 620000007,
+        "evidence_result_sha256": "fc57245441748c9f5442b20ed2d5beeb4b38867e99aa6f0496ef0449b3bae1d5",
+        "resolved_config_sha256": "5c0de534e676371525ce9df5a1676b0232c8a375b920345c87b992f9e4c00175",
+        "static_candidate_id": 19950,
+        "summary_sha256": "2ee6e44885a7e3dd56340136f710327a67af08384122e47615da7a08aa4396a0",
+        "trace_sha256": "8c28b2768f89aca0d7408262a39b0f556527c2efa3b0e9c56d64daa852fd2d8d"
+      },
+      "source_candidate_id": 116062,
+      "source_sha256": "873be0135ea8158c1b9e3390fff0b2fee900e977e99a2971513321fd47c67ec5",
+      "validation": {
+        "acquisition_step": 1749,
+        "grasp_success": true,
+        "max_orientation_drift_deg": 0.5828889534674433,
+        "max_translation_m": 0.00041231232961603474,
+        "object_pose_preserved": true,
+        "settle_contact_free": true,
+        "support_retained": true,
+        "verify_alignment_duty": 1.0,
+        "verify_height_spread_p95_m": 0.004623310493947474
+      }
+    },
+    "110064": {
+      "close_profile": {
+        "left_hand_index_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_index_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_mid_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.0},
+        "left_hand_thumb_bend_joint_actuator": {"end_fraction": 1.0, "start_fraction": 0.22},
+        "left_hand_thumb_rota_joint1_actuator": {"end_fraction": 1.0, "start_fraction": 0.22},
+        "left_hand_thumb_rota_joint2_actuator": {"end_fraction": 1.0, "start_fraction": 0.22}
+      },
+      "grasp_target_overrides_rad": {
+        "left_hand_thumb_bend_joint_actuator": 1.12
+      },
+      "hand_pose": {
+        "cube_in_root_m": [0.0989702955130234, -0.034169338808711196, 0.10883506194070501],
+        "rpy_deg": [1.7925724173077988, 120.09113605729037, 2.1812314103745196],
+        "verified_translation_m": [0.026027188460480556, 0.008871411592125945, 0.2556367497072885]
+      },
+      "pregrasp_backoff_factor": 0.5,
+      "pregrasp_strategy": {"factor": 0.5, "kind": "acquisition_qpos_servo_error_backoff"},
+      "pregrasp_targets_rad": {
+        "left_hand_index_bend_joint_actuator": -0.06908892413040614,
+        "left_hand_index_joint1_actuator": 0.6182967449100989,
+        "left_hand_index_joint2_actuator": 1.2963714840043645,
+        "left_hand_mid_joint1_actuator": 0.8106429802750714,
+        "left_hand_mid_joint2_actuator": 1.0383015356319991,
+        "left_hand_thumb_bend_joint_actuator": 1.0158992096345383,
+        "left_hand_thumb_rota_joint1_actuator": 0.1631951417627986,
+        "left_hand_thumb_rota_joint2_actuator": 0.7734302077188597
+      },
+      "provenance": {
+        "evidence_candidate_id": 64100010,
+        "evidence_manifest_sha256": "98c7d85b61d26b14a7853f66901428383990624e5c8430ba342b0a6cfeccd838",
+        "resolved_config_sha256": "699c925a996c3fe592ca933a113777412d250057ec8bb5514bb337a9ecda3496",
+        "static_candidate_id": 17643,
+        "summary_sha256": "599197658a5bd88fb0686e0479b0558ac3e12654229b58a43adb1a445b0a70b5",
+        "trace_sha256": "1c4e857a57074ff5d222a1445e4cf113366cb61e71beebbc26a1338901f57c0f"
+      },
+      "source_candidate_id": 110064,
+      "source_sha256": "a11b33120c9bbcecbd1415cf93277ecc35d02db16045637c924e4c7736129a18",
+      "validation": {
+        "acquisition_step": 1749,
+        "grasp_success": true,
+        "max_orientation_drift_deg": 0.7040084310243238,
+        "max_translation_m": 0.0003270318897946091,
+        "object_pose_preserved": true,
+        "settle_contact_free": true,
+        "support_retained": true,
+        "verify_alignment_duty": 1.0,
+        "verify_height_spread_p95_m": 0.00498175971984536
+      }
+    }
+  }
+}

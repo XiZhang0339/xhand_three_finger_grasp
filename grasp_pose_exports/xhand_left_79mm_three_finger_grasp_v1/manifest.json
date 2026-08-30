@@ -1,0 +1,56 @@
+{
+  "grasp_pose_bundle_manifest_schema_version": 1,
+  "bundle_id": "xhand_left_79mm_three_finger_grasp_v1",
+  "portable_entrypoint": "portable_grasp_pose.json",
+  "viewer_entrypoint": "catalog.json",
+  "classification": {
+    "grasp": "validated",
+    "manipulation": "diagnostic_best_attempt"
+  },
+  "files": {
+    "portable_grasp_pose.json": {
+      "sha256": "8da2d6a01a2e8941a9a35d328a715adb1d12013cda9fd1900ca4f61ad0175f70",
+      "role": "Implementation-independent grasp-pose interface"
+    },
+    "README.md": {
+      "sha256": "95f725dbb59c0fc2e65f0e9d65dbfeef48828cacb37baff627e15d77d9dc45f0",
+      "role": "Bundle usage and status documentation"
+    },
+    "verify_bundle.py": {
+      "sha256": "d742aae5f270fe59a867938b40e1810a815406e4236edb3b481caea357a70ac5",
+      "role": "Standard-library integrity checker"
+    },
+    "catalog.json": {
+      "sha256": "9b936c28f8fb56147f1a56de48ff728e3e6698bee3311a91e35ffe79ed7aebde",
+      "role": "Original authenticated Viewer catalog"
+    },
+    "best/resolved_config.json": {
+      "sha256": "f91a2cf2f9360d0d030cff371c8a16d8657b78e46d9e65167cb386e9f76cf0e6",
+      "role": "Complete schema-v16 simulation configuration"
+    },
+    "best/result.json": {
+      "sha256": "f5bc9feb7b67265b4daac0b8178d1c0e8ebe545bb6388c905b421bc8015bf620",
+      "role": "Validation metrics and acceptance evidence"
+    },
+    "best/trace.npz": {
+      "sha256": "e41e4245a7a345a66f07c1582aba2109ae91f6d9091a3661f4069cac28301383",
+      "role": "Authenticated 6750-frame reference trajectory"
+    },
+    "source_campaign_manifest.json": {
+      "sha256": "2370a4980fe126300d01f124924ed0ff58eaf84cef73fef6f161f35f462b8a4a",
+      "role": "Original campaign provenance"
+    },
+    "source_campaign_report.json": {
+      "sha256": "de168c9c161a02e480b47fffe8f07d656310e1917316048cbed6df881bccd388",
+      "role": "Original candidate ranking report"
+    }
+  },
+  "runtime_bindings": {
+    "xhand_left.xml": {
+      "sha256": "739e14c14ef9e475f99475355c2b21b3857ffb132bd2f3907f640f66852a1925"
+    },
+    "uv.lock": {
+      "sha256": "852b8bc0a119b04b80a7e228559d26139d74d4a534b0b3993460fc2b1947377f"
+    }
+  }
+}

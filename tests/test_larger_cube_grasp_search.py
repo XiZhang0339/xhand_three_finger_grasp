@@ -1,14 +1,18 @@
 from __future__ import annotations
 
 import copy
+import json
 import random
+from pathlib import Path
 
 import pytest
 
-from xhand_grasp.config import ACTIVE_ACTUATORS
+from xhand_grasp.config import ACTIVE_ACTUATORS, load_config
 from xhand_grasp.larger_cube_grasp_search import (
     DEFAULT_PLAN,
     SizeScreenSummary,
+    _per_size_outcomes,
+    _run_v3_stage,
     adjacent_neighbor_edges_m,
     build_manipulation_refinement_candidates,
     campaign_manifest,
@@ -16,6 +20,7 @@ from xhand_grasp.larger_cube_grasp_search import (
     constant_density_candidates,
     deterministic_rank_results,
     exact_screen_jobs,
+    kinematic_screen_v3,
     larger_cube_candidate_rank,
     larger_cube_robustness_cases,
     manipulation_targets,
@@ -26,6 +31,16 @@ from xhand_grasp.larger_cube_grasp_search import (
     select_exact_edges_m,
     select_grasp_refinement_parents,
     select_manipulation_parents,
+    tune_larger_cube_grasp_then_lift,
+)
+from xhand_grasp.v2_search import KinematicScreenResult
+
+
+ROOT = Path(__file__).resolve().parents[1]
+V3_CONFIG = (
+    ROOT
+    / "grasp_configs"
+    / "left_opposed_face_palm_down_larger_cube_grasp_then_lift.json"
 )
 
 
@@ -125,11 +140,39 @@ def test_campaign_manifest_declares_complete_larger_cube_budget():
     assert manifest["nominal_counts"]["coarse_job_count"] == 49
     assert manifest["nominal_counts"]["coarse_samples_per_size"] == 35_000
     assert manifest["nominal_counts"]["coarse_sample_count"] == 245_000
+    assert manifest["nominal_counts"]["declared_neighbor_sample_count"] == 420_000
+    assert manifest["nominal_counts"]["declared_exact_sample_count"] == 700_000
+    assert (
+        manifest["nominal_counts"]["declared_max_static_sample_count"]
+        == 1_365_000
+    )
     assert manifest["hard_stage_gates"] == {
         "manipulation_requires_grasp_success": True,
         "constant_density_requires_fixed_mass_full_success": True,
         "campaign_success_requires_constant_density_full_success": True,
     }
+
+
+def test_real_v3_static_screen_samples_only_a_grasp_pose():
+    config = load_config(V3_CONFIG)
+    screen = kinematic_screen_v3(
+        config, samples_per_pitch=1, retain=4, seed=20260821
+    )
+    assert screen.sample_count == 7
+    assert screen.retained_count == 4
+    assert len(screen.candidates) == len(screen.diagnostics) == 4
+    for candidate in screen.candidates:
+        assert set(candidate["control"]) == {
+            "grasp_targets_rad",
+            "manipulation_delta_rad",
+        }
+        assert set(candidate["control"]["grasp_targets_rad"]) == set(
+            ACTIVE_ACTUATORS
+        )
+        assert all(
+            value == 0.0
+            for value in candidate["control"]["manipulation_delta_rad"].values()
+        )
 
 
 def test_screen_jobs_are_face_balanced_complete_and_seed_stable():
@@ -181,6 +224,228 @@ def test_neighbor_stage_requires_three_declared_coarse_sizes():
         adjacent_neighbor_edges_m((0.052, 0.054, 0.055))
 
 
+def test_v3_stage_reorders_valid_worker_results_and_preserves_id_binding():
+    configs = [_config(edge_m=0.052), _config(edge_m=0.054)]
+
+    def reversed_runner(payload, workers):
+        assert workers == 3
+        return [
+            {
+                "candidate_id": candidate_id,
+                "config": config,
+                "summary": {"stage_status": {}, "metrics": {}},
+            }
+            for candidate_id, config in reversed(payload)
+        ]
+
+    results, next_id = _run_v3_stage(
+        configs,
+        next_id=10,
+        workers=3,
+        run_candidates=reversed_runner,
+        stage="contract_test",
+        material_policy="fixed_20g_control",
+    )
+    assert [result["candidate_id"] for result in results] == [10, 11]
+    assert next_id == 12
+    assert all(result["search_stage"] == "contract_test" for result in results)
+
+
+@pytest.mark.parametrize("failure", ("missing", "duplicate", "rebound"))
+def test_v3_stage_rejects_invalid_runner_results(failure):
+    configs = [_config(edge_m=0.052), _config(edge_m=0.054)]
+
+    def invalid_runner(payload, workers):
+        del workers
+        results = [
+            {
+                "candidate_id": candidate_id,
+                "config": config,
+                "summary": {"stage_status": {}, "metrics": {}},
+            }
+            for candidate_id, config in payload
+        ]
+        if failure == "missing":
+            return results[:1]
+        if failure == "duplicate":
+            results[1]["candidate_id"] = results[0]["candidate_id"]
+            return results
+        results[1]["config"] = copy.deepcopy(results[0]["config"])
+        return results
+
+    message = "different configuration" if failure == "rebound" else "exactly match"
+    with pytest.raises(RuntimeError, match=message):
+        _run_v3_stage(
+            configs,
+            next_id=0,
+            workers=1,
+            run_candidates=invalid_runner,
+            stage="contract_test",
+            material_policy="fixed_20g_control",
+        )
+
+
+def test_tune_blocks_zero_delta_full_results_and_reports_actual_static_budget():
+    config = load_config(V3_CONFIG)
+
+    def fake_screen(
+        base,
+        *,
+        samples_per_pitch,
+        retain,
+        seed,
+        definition,
+    ):
+        sample_count = (
+            len(definition.search_bounds.palm_pitch_values_deg)
+            * samples_per_pitch
+        )
+        retained = min(retain, sample_count)
+        candidates = tuple(copy.deepcopy(base) for _ in range(retained))
+        edge = float(base["cube"]["edge_m"])
+        diagnostics = tuple(
+            {
+                "candidate_id": index,
+                "score": (edge, 1.0, 1.0),
+                "clean_target_contact_count": 3,
+                "near_target_face_count": 3,
+                "target_site_signed_distance_m": (0.0, 0.0, 0.0),
+                "forbidden_contact": False,
+                "max_penetration_m": 0.0,
+            }
+            for index in range(retained)
+        )
+        return KinematicScreenResult(
+            seed=seed,
+            sample_count=sample_count,
+            retained_count=retained,
+            candidates=candidates,
+            diagnostics=diagnostics,
+        )
+
+    def fake_runner(payload, workers):
+        assert workers == 2
+        results = []
+        for candidate_id, candidate in payload:
+            delta = candidate["control"]["manipulation_delta_rad"]
+            zero_delta = all(abs(float(value)) <= 1e-15 for value in delta.values())
+            results.append(
+                {
+                    "candidate_id": candidate_id,
+                    "config": candidate,
+                    "summary": {
+                        "passed": zero_delta,
+                        "failed_checks": [] if zero_delta else ["mock_lift"],
+                        "checks": {},
+                        "stage_status": {
+                            "grasp_success": True,
+                            "manipulation_success": zero_delta,
+                            "full_success": zero_delta,
+                        },
+                        "metrics": {
+                            "grasp_stability_margin": 1.0
+                            - candidate_id * 1e-6,
+                            "operation_target_face_simultaneous_duty": 0.9,
+                            "peak_total_distal_contact_force_n": 1.0,
+                            "actuator_saturation_fraction": 0.0,
+                        },
+                    },
+                }
+            )
+        return list(reversed(results))
+
+    def rank(result):
+        status = result["summary"]["stage_status"]
+        return (
+            float(status["full_success"]),
+            float(status["grasp_success"]),
+            -float(result["candidate_id"]),
+        )
+
+    tuned = tune_larger_cube_grasp_then_lift(
+        config,
+        workers=2,
+        seed=20260821,
+        run_candidates=fake_runner,
+        rank_candidate=rank,
+        kinematic_samples_per_pitch=1,
+        dynamic_candidate_count=1,
+        local_refine_seed_count=1,
+        local_refine_per_seed=1,
+        final_candidate_count=2,
+        perturbations_per_final=1,
+        fallback_physics_count=1,
+        fallback_kinematic_samples_per_pitch=1,
+        perturb_cases=None,
+        screen_candidates=fake_screen,
+    )
+
+    # The initial and grasp-refinement runs deliberately claim full success,
+    # but they have a zero manipulation delta and cannot authorize density.
+    assert tuned["fixed_mass_passing_candidates"] == 0
+    assert tuned["constant_density_reevaluation_count"] == 0
+    assert tuned["fixed_mass_success"] is False
+    assert tuned["best"]["search_stage"] == "fixed_mass_manipulation_refinement"
+    assert all(
+        result["search_stage"] == "fixed_mass_manipulation_refinement"
+        for result in tuned["top_candidates"]
+    )
+
+    budget = tuned["static_search_budget"]
+    assert budget["versioned_declared"]["maximum_total_sample_count"] == 1_365_000
+    assert budget["effective_declared"]["maximum_total_sample_count"] == 147
+    assert budget["actual"]["total_sample_count"] == 105
+    assert budget["actual"]["unique_neighbor_edge_count"] == 3
+    assert budget["neighbor_selection"]["duplicate_slot_count"] == 2
+    assert budget["neighbor_selection"]["out_of_range_slot_count"] == 1
+    assert budget["stop_reason"] == (
+        "completed_with_neighbor_edge_deduplication_and_neighbor_range_clamping"
+    )
+
+    outcomes = tuned["per_size_outcomes"]
+    json.dumps(outcomes, allow_nan=False)
+    assert len(outcomes) == 2
+    active = max(outcomes, key=lambda item: item["total_dynamic_trial_count"])
+    assert active["initial_dynamic_trial_count"] == 1
+    assert active["grasp_refinement_trial_count"] == 1
+    assert active["stable_grasp_evaluation_count"] == 2
+    assert active["stable_grasp_success_count"] == 2
+    assert active["stable_grasp_success_rate"] == pytest.approx(1.0)
+    assert active["manipulation_refinement_trial_count"] == 256
+    assert active["fixed_full_success_count"] == 0
+    assert active["density_full_success_count"] == 0
+
+
+def test_per_size_outcomes_counts_fixed_and_density_successes():
+    records = _per_size_outcomes(
+        selected_exact_edges_m=(0.058, 0.060),
+        initial_runs=(
+            _result(0, edge_m=0.058, grasp=True),
+            _result(1, edge_m=0.058, grasp=False),
+            _result(2, edge_m=0.060, grasp=True),
+        ),
+        grasp_local_runs=(_result(3, edge_m=0.058, grasp=True),),
+        manipulation_runs=(
+            _result(4, edge_m=0.058, grasp=True, full=True),
+            _result(5, edge_m=0.060, grasp=True, full=False),
+        ),
+        density_runs=(_result(6, edge_m=0.058, grasp=True, full=True),),
+        density_local_runs=(
+            _result(7, edge_m=0.058, grasp=True, full=True),
+            _result(8, edge_m=0.060, grasp=True, full=False),
+        ),
+    )
+    json.dumps(records, allow_nan=False)
+    by_edge = {round(record["edge_mm"]): record for record in records}
+    assert by_edge[58]["stable_grasp_evaluation_count"] == 3
+    assert by_edge[58]["stable_grasp_success_count"] == 2
+    assert by_edge[58]["stable_grasp_success_rate"] == pytest.approx(2 / 3)
+    assert by_edge[58]["fixed_full_success_count"] == 1
+    assert by_edge[58]["density_full_success_count"] == 2
+    assert by_edge[60]["fixed_full_success_count"] == 0
+    assert by_edge[60]["density_full_success_count"] == 0
+
+
 def test_grasp_gate_never_uses_generic_simulation_pass_as_authorization():
     false_grasp = _result(1, generic_passed=True, full=True)
     stable = _result(2, grasp=True, margin=0.2)
@@ -229,6 +494,54 @@ def test_final_rank_follows_full_margin_perturbation_topology_force_saturation()
         many_perturbations
     )
 
+    high_topology = _result(
+        8, grasp=True, full=True, margin=0.1, topology=0.9, force=5.0
+    )
+    low_topology = _result(
+        7, grasp=True, full=True, margin=0.1, topology=0.8, force=0.1
+    )
+    assert larger_cube_candidate_rank(high_topology) > larger_cube_candidate_rank(
+        low_topology
+    )
+    low_force = _result(
+        6, grasp=True, full=True, margin=0.1, topology=0.9, force=1.0
+    )
+    high_force = _result(
+        5, grasp=True, full=True, margin=0.1, topology=0.9, force=2.0
+    )
+    assert larger_cube_candidate_rank(low_force) > larger_cube_candidate_rank(
+        high_force
+    )
+    low_saturation = _result(
+        2,
+        grasp=True,
+        full=True,
+        margin=0.1,
+        topology=0.9,
+        force=1.0,
+        saturation=0.01,
+    )
+    high_saturation = _result(
+        1,
+        grasp=True,
+        full=True,
+        margin=0.1,
+        topology=0.9,
+        force=1.0,
+        saturation=0.02,
+    )
+    assert larger_cube_candidate_rank(
+        low_saturation
+    ) > larger_cube_candidate_rank(high_saturation)
+
+    lower_id = _result(
+        11, grasp=True, full=True, margin=0.1, topology=0.9, force=1.0
+    )
+    higher_id = _result(
+        12, grasp=True, full=True, margin=0.1, topology=0.9, force=1.0
+    )
+    assert larger_cube_candidate_rank(lower_id) > larger_cube_candidate_rank(higher_id)
+
     inputs = [full_tight, near_miss, high_margin, many_perturbations]
     first = [item["candidate_id"] for item in deterministic_rank_results(inputs)]
     random.Random(7).shuffle(inputs)
@@ -236,6 +549,40 @@ def test_final_rank_follows_full_margin_perturbation_topology_force_saturation()
     assert first == second
     with pytest.raises(ValueError, match="unique"):
         deterministic_rank_results((full_tight, copy.deepcopy(full_tight)))
+
+
+def test_ungrasped_rank_prefers_verify_evidence_over_zero_contact_force():
+    zero = _result(1, force=0.0)
+    near = _result(9, force=10.0)
+    near["summary"]["metrics"].update(
+        {
+            "verify_effective_finger_count": 0,
+            "verify_max_simultaneous_effective_finger_count": 0,
+            "verify_target_face_effective_duty": {
+                "thumb": 0.0,
+                "index": 0.0,
+                "mid": 0.0,
+            },
+            "verify_target_face_simultaneous_duty": 0.0,
+            "verify_peak_target_face_force_n": {
+                "thumb": 0.02,
+                "index": 0.02,
+                "mid": 0.02,
+            },
+            "verify_peak_tactile_n": {
+                "thumb": 0.02,
+                "index": 0.02,
+                "mid": 0.02,
+            },
+            "verify_max_consecutive_all_gate_steps": 0,
+            "verify_all_gate_duty": 0.0,
+            "verify_gate_component_duty": {},
+        }
+    )
+
+    # Old ordering preferred the zero-force candidate and its lower ID.
+    assert larger_cube_candidate_rank(near) > larger_cube_candidate_rank(zero)
+    assert deterministic_rank_results((zero, near))[0]["candidate_id"] == 9
 
 
 def test_grasp_refinement_selects_four_per_size_before_hard_grasp_gate():

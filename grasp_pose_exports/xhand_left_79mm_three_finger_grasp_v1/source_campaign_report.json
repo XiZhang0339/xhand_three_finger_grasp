@@ -1,0 +1,210 @@
+{
+  "aliases": {
+    "best_attempt": "candidate_765141132734518844",
+    "best_rescue": "candidate_765141132734518844"
+  },
+  "best_artifacts": {
+    "resolved_config": "best/resolved_config.json",
+    "result": "best/result.json",
+    "sha256": {
+      "resolved_config": "f91a2cf2f9360d0d030cff371c8a16d8657b78e46d9e65167cb386e9f76cf0e6",
+      "result": "f5bc9feb7b67265b4daac0b8178d1c0e8ebe545bb6388c905b421bc8015bf620",
+      "trace": "e41e4245a7a345a66f07c1582aba2109ae91f6d9091a3661f4069cac28301383"
+    },
+    "trace": "best/trace.npz"
+  },
+  "campaign_input_sha256": "7c9fadc22f3787b89d0cc1181430d23b653ad2e61713fb6cf70d7f89e9382a86",
+  "candidate_count": 4,
+  "experiment_id": "left_opposed_face_palm_down_joint_pair_near_zero_rolling_slip_contact_preserving_planned_lift",
+  "full_success_count": 0,
+  "ranked_candidates": [
+    {
+      "alignment_gain": 0.5,
+      "artifacts": {
+        "resolved_config": "cases/candidate_765141132734518844/resolved_config.json",
+        "result": "cases/candidate_765141132734518844/result.json"
+      },
+      "candidate_id": 765141132734518844,
+      "candidate_key": "a9e53ce6bae563c5d8591a35e145426b84cf6ef5d21798d8c9ea39acf61e83fc",
+      "metrics": {
+        "contact_score": 0.9933333333333333,
+        "failed_checks": [
+          "smooth_motion_jerk_within_limit",
+          "smooth_motion_lateral_displacement_within_limit"
+        ],
+        "final_plan_progress": 1.0,
+        "full_success": false,
+        "grasp_success": true,
+        "maximum_plan_progress": 1.0,
+        "maximum_rolling_material_slip_m": 0.001793136248250937,
+        "median_lift_m": 0.010416101755659837,
+        "minimum_lift_m": 0.010356910994705093,
+        "operation_aborted": false
+      },
+      "rank": 1,
+      "slip_recovery_gain_rad_per_m": 8.0
+    },
+    {
+      "alignment_gain": 0.25,
+      "artifacts": {
+        "resolved_config": "cases/candidate_70346258547137393/resolved_config.json",
+        "result": "cases/candidate_70346258547137393/result.json"
+      },
+      "candidate_id": 70346258547137393,
+      "candidate_key": "0f9eb8ca7fadb715fe4ce1a0e29e6e1f3663989b2df9c9182c51bb5da3189481",
+      "metrics": {
+        "contact_score": 0.9926402943882244,
+        "failed_checks": [
+          "middle_contact_duty",
+          "simultaneous_three_finger_contact",
+          "middle_target_face_contact_duty",
+          "simultaneous_target_face_topology",
+          "controller_state_sequence_is_consistent",
+          "controller_termination_event_is_consistent",
+          "operation_executed",
+          "manipulation_completed",
+          "v14_minimum_hold_duration_preserved",
+          "smooth_motion_jerk_within_limit",
+          "smooth_motion_lateral_displacement_within_limit",
+          "v14_operation_did_not_abort",
+          "v15_joint_pair_continuous_violation_within_limit",
+          "v15_joint_pair_no_alignment_abort_risk"
+        ],
+        "final_plan_progress": 1.0,
+        "full_success": false,
+        "grasp_success": true,
+        "maximum_plan_progress": 1.0,
+        "maximum_rolling_material_slip_m": 0.0015187980680098504,
+        "median_lift_m": 0.010601353869515329,
+        "minimum_lift_m": 0.01055922621787797,
+        "operation_aborted": true
+      },
+      "rank": 2,
+      "slip_recovery_gain_rad_per_m": 8.0
+    },
+    {
+      "alignment_gain": 0.75,
+      "artifacts": {
+        "resolved_config": "cases/candidate_26612900633292191/resolved_config.json",
+        "result": "cases/candidate_26612900633292191/result.json"
+      },
+      "candidate_id": 26612900633292191,
+      "candidate_key": "05e8c4ac8b0ad9f0f2875eaec5a056c3bcf0d8be7aecd771410501ab4556b1c6",
+      "metrics": {
+        "contact_score": 0.9917777777777778,
+        "failed_checks": [
+          "smooth_motion_jerk_within_limit",
+          "smooth_motion_lateral_displacement_within_limit"
+        ],
+        "final_plan_progress": 1.0,
+        "full_success": false,
+        "grasp_success": true,
+        "maximum_plan_progress": 1.0,
+        "maximum_rolling_material_slip_m": 0.0018617242329613572,
+        "median_lift_m": 0.010410368396047323,
+        "minimum_lift_m": 0.01035098977466603,
+        "operation_aborted": false
+      },
+      "rank": 3,
+      "slip_recovery_gain_rad_per_m": 8.0
+    },
+    {
+      "alignment_gain": 1.0,
+      "artifacts": {
+        "resolved_config": "cases/candidate_920394954217249790/resolved_config.json",
+        "result": "cases/candidate_920394954217249790/result.json"
+      },
+      "candidate_id": 920394954217249790,
+      "candidate_key": "cc5e6559b2e5bfe5976876123245260877809223002ec37cf4377463748107c4",
+      "metrics": {
+        "contact_score": 0.9817142857142858,
+        "failed_checks": [
+          "middle_contact_duty",
+          "simultaneous_three_finger_contact",
+          "middle_tactile_nonzero",
+          "middle_target_face_contact_duty",
+          "simultaneous_target_face_topology",
+          "controller_state_sequence_is_consistent",
+          "controller_operation_events_are_consistent",
+          "controller_termination_event_is_consistent",
+          "operation_started_only_after_acquisition",
+          "operation_executed",
+          "manipulation_completed",
+          "operation_middle_target_face_contact_duty",
+          "operation_simultaneous_target_face_topology",
+          "v14_manipulation_completed_within_saved_verify_slack",
+          "v14_minimum_hold_duration_preserved",
+          "smooth_motion_event_sequence_valid",
+          "smooth_motion_filter_window_available",
+          "smooth_motion_cumulative_backtrack_within_limit",
+          "smooth_motion_downward_speed_duty_within_limit",
+          "smooth_motion_peak_upward_speed_within_limit",
+          "smooth_motion_acceleration_within_limit",
+          "smooth_motion_jerk_within_limit",
+          "smooth_motion_hold_entry_speed_within_limit",
+          "smooth_motion_lateral_displacement_within_limit",
+          "smooth_motion_orientation_drift_within_limit",
+          "v14_operation_did_not_abort",
+          "v14_plan_progress_reached_one",
+          "v14_middle_contact_duty_at_least_99_percent",
+          "v14_simultaneous_contact_duty_at_least_99_percent"
+        ],
+        "final_plan_progress": 0.9963333333333333,
+        "full_success": false,
+        "grasp_success": true,
+        "maximum_plan_progress": 0.9963333333333333,
+        "maximum_rolling_material_slip_m": 0.0017775296437365004,
+        "median_lift_m": 0.01049373065416416,
+        "minimum_lift_m": 0.010451225934648423,
+        "operation_aborted": true
+      },
+      "rank": 4,
+      "slip_recovery_gain_rad_per_m": 8.0
+    }
+  ],
+  "report_sha256": "0a0328b36b55530e42a56509ff714bfd97bab5949b5659bbb0f2df7e7299d96f",
+  "rolling_slip_rescue_campaign_report_schema_version": 1,
+  "selected_candidate_id": 765141132734518844,
+  "selected_final_metrics": {
+    "contact_score": 0.9933333333333333,
+    "failed_checks": [
+      "smooth_motion_jerk_within_limit",
+      "smooth_motion_lateral_displacement_within_limit"
+    ],
+    "final_plan_progress": 1.0,
+    "full_success": false,
+    "grasp_success": true,
+    "maximum_plan_progress": 1.0,
+    "maximum_rolling_material_slip_m": 0.001793136248250937,
+    "median_lift_m": 0.010416101755659837,
+    "minimum_lift_m": 0.010356910994705093,
+    "operation_aborted": false
+  },
+  "selected_grid_metrics": {
+    "contact_score": 0.9933333333333333,
+    "failed_checks": [
+      "smooth_motion_jerk_within_limit",
+      "smooth_motion_lateral_displacement_within_limit"
+    ],
+    "final_plan_progress": 1.0,
+    "full_success": false,
+    "grasp_success": true,
+    "maximum_plan_progress": 1.0,
+    "maximum_rolling_material_slip_m": 0.001793136248250937,
+    "median_lift_m": 0.010416101755659837,
+    "minimum_lift_m": 0.010356910994705093,
+    "operation_aborted": false
+  },
+  "selection_policy": "full_success_then_contact_then_plan_progress_then_lift_v1",
+  "source": {
+    "candidate_id": 15204225421299876,
+    "config_path": "/home/xizhang/MyProjects/xhand_test/xhand1/artifacts/left_opposed_face_palm_down_joint_pair_near_zero_contact_preserving_planned_lift/tune/formal_campaign_v15_4_refinement_continuation_v1/catalogs/target_1/manipulation/candidate_15204225421299876/resolved_config.json",
+    "config_semantic_sha256": "3e0432fb3678ba16b49a91bb27176401facc154bf4897e00d8b91cd06a680b99",
+    "config_sha256": "33ffe0597690ef6ee82e3f8dd71dcea55fc50e18e147d59b6cc73ecf805d6771",
+    "result_path": "/home/xizhang/MyProjects/xhand_test/xhand1/artifacts/left_opposed_face_palm_down_joint_pair_near_zero_contact_preserving_planned_lift/tune/formal_campaign_v15_4_refinement_continuation_v1/catalogs/target_1/manipulation/candidate_15204225421299876/result.json",
+    "result_sha256": "6ab06e0e8cb04bb03d724d6c9a1f282847c92cd227c8614509e5fbbefef21b5a",
+    "trace_path": "/home/xizhang/MyProjects/xhand_test/xhand1/artifacts/left_opposed_face_palm_down_joint_pair_near_zero_contact_preserving_planned_lift/tune/formal_campaign_v15_4_refinement_continuation_v1/catalogs/target_1/manipulation/candidate_15204225421299876/trace.npz",
+    "trace_sha256": "7c270a641bd08fe434cf7cfeb69e4b981f9a010949f977cd959ef28ca602a09a"
+  },
+  "viewer_catalog": "catalog.json"
+}

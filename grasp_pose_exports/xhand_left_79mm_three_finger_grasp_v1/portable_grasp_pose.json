@@ -1,0 +1,239 @@
+{
+  "portable_grasp_pose_schema_version": 1,
+  "bundle_name": "xhand_left_79mm_three_finger_grasp_v1",
+  "alias": "high_quality_grasp",
+  "description": "Measured left-XHAND three-finger opposed-face grasp pose with a fixed hand root and a free 79 mm cube.",
+  "classification": {
+    "grasp_success": true,
+    "manipulation_full_success": false,
+    "source_catalog_alias": "best_attempt",
+    "source_candidate_id": "765141132734518844",
+    "failed_manipulation_checks": [
+      "smooth_motion_jerk_within_limit",
+      "smooth_motion_lateral_displacement_within_limit"
+    ]
+  },
+  "identity": {
+    "experiment_id": "left_opposed_face_palm_down_joint_pair_near_zero_rolling_slip_contact_preserving_planned_lift",
+    "object_config_id": "fdaaab54c61e0464ea9fcd59260d764a2e59c55bca708c5fe91ac177559207ba",
+    "grasp_pose_id": "b69a03987e51a6166a8a75e668214bec8f30f5f83271af09ecb223c32ede517a",
+    "grasp_object_pair_id": "3cf395501ed12f5db05db2e0a72663e5c44ce030820a5e2099056c4f8b8c96ff"
+  },
+  "coordinate_conventions": {
+    "length": "metre",
+    "angle": "radian unless the field suffix is _deg",
+    "quaternion": "wxyz",
+    "hand_rotation": "R_world_from_root = Rz(yaw) * Ry(pitch) * Rx(roll)",
+    "contact_points": "cube-local Cartesian coordinates",
+    "contact_normals": "outward from the cube"
+  },
+  "robot": {
+    "model": "xhand_left.xml",
+    "model_sha256": "739e14c14ef9e475f99475355c2b21b3857ffb132bd2f3907f640f66852a1925",
+    "root_body": "left_hand_link",
+    "side": "left",
+    "hand_root_fixed": true,
+    "mujoco_version": "3.10.0",
+    "simulation_timestep_s": 0.001,
+    "hand_root_world_pose": {
+      "translation_m": [
+        0.028179105919219773,
+        -0.039722565946966826,
+        0.27085431127957493
+      ],
+      "rpy_deg": [
+        -1.3145662423378894,
+        121.16041683151995,
+        27.607514865467483
+      ],
+      "quaternion_wxyz": [
+        0.4746025101821671,
+        -0.21328709338560933,
+        0.8444871221533513,
+        0.12689591656572335
+      ],
+      "rotation_matrix_world_from_root": [
+        [-0.4585221462478087, -0.4806866484392509, 0.747460893567378],
+        [-0.23978616630341434, 0.8768120843081267, 0.4167771146077359],
+        [-0.8557219383946016, 0.011870754966662043, -0.5172997673754619]
+      ]
+    },
+    "active_actuator_order": [
+      "left_hand_thumb_bend_joint_actuator",
+      "left_hand_thumb_rota_joint1_actuator",
+      "left_hand_thumb_rota_joint2_actuator",
+      "left_hand_index_bend_joint_actuator",
+      "left_hand_index_joint1_actuator",
+      "left_hand_index_joint2_actuator",
+      "left_hand_mid_joint1_actuator",
+      "left_hand_mid_joint2_actuator"
+    ],
+    "actuator_to_joint": {
+      "left_hand_thumb_bend_joint_actuator": "left_hand_thumb_bend_joint",
+      "left_hand_thumb_rota_joint1_actuator": "left_hand_thumb_rota_joint1",
+      "left_hand_thumb_rota_joint2_actuator": "left_hand_thumb_rota_joint2",
+      "left_hand_index_bend_joint_actuator": "left_hand_index_bend_joint",
+      "left_hand_index_joint1_actuator": "left_hand_index_joint1",
+      "left_hand_index_joint2_actuator": "left_hand_index_joint2",
+      "left_hand_mid_joint1_actuator": "left_hand_mid_joint1",
+      "left_hand_mid_joint2_actuator": "left_hand_mid_joint2"
+    },
+    "inactive_actuator_targets_rad": {
+      "left_hand_ring_joint1_actuator": 0.0,
+      "left_hand_ring_joint2_actuator": 0.0,
+      "left_hand_pinky_joint1_actuator": 0.0,
+      "left_hand_pinky_joint2_actuator": 0.0
+    },
+    "hand_root_pose_in_cube_frame": {
+      "translation_m": [
+        -0.043840850065786786,
+        0.008571611264022694,
+        0.1473543112795749
+      ],
+      "rotation_matrix_cube_from_root": [
+        [-0.5174359512543166, -0.01958835047371474, 0.8554977106195315],
+        [0.000022354553982946854, 0.9997376564390482, 0.022904536625601483],
+        [-0.8557219383946015, 0.011870754966661798, -0.517299767375462]
+      ]
+    }
+  },
+  "object": {
+    "type": "cube",
+    "freejoint": true,
+    "edge_m": 0.079,
+    "mass_kg": 0.16,
+    "diagonal_inertia_kg_m2": [
+      0.00016642666666666668,
+      0.00016642666666666668,
+      0.00016642666666666668
+    ],
+    "geom_half_size_m": [0.0395, 0.0395, 0.0395],
+    "friction": [0.8, 0.005, 0.0001],
+    "contact_condim": 4,
+    "contact_priority": 10,
+    "world_pose": {
+      "translation_m": [0.071, -0.027, 0.1235],
+      "rpy_deg": [0.0, 0.0, 27.609990189403167],
+      "quaternion_wxyz": [0.9711134806697646, 0.0, 0.0, 0.23861812098299415]
+    },
+    "support_top_z_m": 0.084
+  },
+  "contact_plan": {
+    "target_radius_m": 0.002,
+    "target_faces": {
+      "thumb": "-X",
+      "index": "+X",
+      "mid": "+X"
+    },
+    "target_points_cube_local_m": {
+      "thumb": [-0.0395, 0.004130245179506447, 0.012157665086029704],
+      "index": [0.0395, -0.012597245172401912, 0.010882500681959608],
+      "mid": [0.0395, 0.00768928928602485, 0.010820780295861004]
+    },
+    "measured_contact_centroids_cube_local_m": {
+      "thumb": [-0.03950000000000008, 0.004185138316738952, 0.012324280879930689],
+      "index": [0.039500110213856014, -0.012728415248301062, 0.01090650829068089],
+      "mid": [0.03950000000000006, 0.007836712463540483, 0.01083694904192954]
+    }
+  },
+  "grasp_acquisition": {
+    "timing_s": {
+      "settle": 0.5,
+      "close": 1.5,
+      "verify_timeout": 0.75,
+      "required_stable_window": 0.25
+    },
+    "close_profile": {
+      "thumb": {
+        "start_fraction": 0.7792316529443715,
+        "end_fraction": 0.9647587060166858
+      },
+      "index": {
+        "start_fraction": 0.644519457814899,
+        "end_fraction": 1.0
+      },
+      "mid": {
+        "start_fraction": 0.6733722725725462,
+        "end_fraction": 1.0
+      }
+    },
+    "precontact_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.553086555351931,
+      "left_hand_thumb_rota_joint1_actuator": 0.16536178081900177,
+      "left_hand_thumb_rota_joint2_actuator": 0.6412632307997613,
+      "left_hand_index_bend_joint_actuator": -0.02438149175812105,
+      "left_hand_index_joint1_actuator": 0.5172828997948393,
+      "left_hand_index_joint2_actuator": 1.2039539426627899,
+      "left_hand_mid_joint1_actuator": 0.5163530453615198,
+      "left_hand_mid_joint2_actuator": 1.2061967628756354
+    },
+    "contact_preload_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.5457155315245978,
+      "left_hand_thumb_rota_joint1_actuator": 0.21529555507805567,
+      "left_hand_thumb_rota_joint2_actuator": 0.6601157095965164,
+      "left_hand_index_bend_joint_actuator": -0.03150606252083349,
+      "left_hand_index_joint1_actuator": 0.5733638265884514,
+      "left_hand_index_joint2_actuator": 1.2007977955586777,
+      "left_hand_mid_joint1_actuator": 0.5675764787214399,
+      "left_hand_mid_joint2_actuator": 1.2055938696759791
+    }
+  },
+  "actual_contact_grasp_pose": {
+    "definition": "Per-joint median qpos over the verified 250 ms stable contact window",
+    "authoritative_field": "measured_median_qpos_rad",
+    "nominal_qpos_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.5461910704112032,
+      "left_hand_thumb_rota_joint1_actuator": 0.1998692769932838,
+      "left_hand_thumb_rota_joint2_actuator": 0.6440609502764258,
+      "left_hand_index_bend_joint_actuator": -0.026846623730745537,
+      "left_hand_index_joint1_actuator": 0.5598422617661476,
+      "left_hand_index_joint2_actuator": 1.1959666887315397,
+      "left_hand_mid_joint1_actuator": 0.558955145860143,
+      "left_hand_mid_joint2_actuator": 1.1982642935852061
+    },
+    "measured_median_qpos_rad": {
+      "left_hand_thumb_bend_joint_actuator": 1.5468656874640947,
+      "left_hand_thumb_rota_joint1_actuator": 0.20049731304637236,
+      "left_hand_thumb_rota_joint2_actuator": 0.6470369974260666,
+      "left_hand_index_bend_joint_actuator": -0.028588410885685252,
+      "left_hand_index_joint1_actuator": 0.5614019879451947,
+      "left_hand_index_joint2_actuator": 1.1985959030136328,
+      "left_hand_mid_joint1_actuator": 0.560022645213544,
+      "left_hand_mid_joint2_actuator": 1.2037689762137211
+    }
+  },
+  "validation": {
+    "stable_window_steps_at_1ms": 250,
+    "target_face_contact_duty_per_finger": {
+      "thumb": 1.0,
+      "index": 1.0,
+      "mid": 1.0
+    },
+    "simultaneous_target_face_contact_duty": 1.0,
+    "maximum_contact_height_spread_m": 0.001475364908103849,
+    "stable_window_normal_force_p50_n": {
+      "thumb": 1.94733,
+      "index": 1.82852,
+      "mid": 1.19613
+    },
+    "target_face_force_purity_min": 1.0,
+    "distal_pad_force_fraction_min": 1.0,
+    "maximum_joint_stability_span_rad": 0.0019665602623468725,
+    "index_middle_joint1_line_angle_p95_deg": 0.015449081120410125,
+    "index_middle_joint1_line_angle_max_deg": 0.016259924206130084,
+    "maximum_prelock_object_translation_m": 0.00002084880271946445,
+    "maximum_prelock_object_orientation_drift_deg": 0.02989113857603061,
+    "active_finger_self_collision_free": true,
+    "median_lift_m": 0.010416101755659837,
+    "minimum_lift_m": 0.010356910994705093
+  },
+  "provenance": {
+    "resolved_config": "best/resolved_config.json",
+    "validation_result": "best/result.json",
+    "reference_trace": "best/trace.npz",
+    "viewer_catalog": "catalog.json",
+    "resolved_config_sha256": "f91a2cf2f9360d0d030cff371c8a16d8657b78e46d9e65167cb386e9f76cf0e6",
+    "validation_result_sha256": "f5bc9feb7b67265b4daac0b8178d1c0e8ebe545bb6388c905b421bc8015bf620",
+    "reference_trace_sha256": "e41e4245a7a345a66f07c1582aba2109ae91f6d9091a3661f4069cac28301383"
+  }
+}

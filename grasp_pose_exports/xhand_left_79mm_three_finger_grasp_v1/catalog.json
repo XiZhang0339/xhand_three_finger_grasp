@@ -1,0 +1,39 @@
+{
+  "aliases": {
+    "best_attempt": "candidate_765141132734518844",
+    "best_rescue": "candidate_765141132734518844"
+  },
+  "catalog_kind": "manipulation",
+  "complete": true,
+  "experiment_id": "left_opposed_face_palm_down_joint_pair_near_zero_rolling_slip_contact_preserving_planned_lift",
+  "rolling_slip_rescue_viewer_catalog_schema_version": 1,
+  "selection_policy": "full_success_then_contact_then_plan_progress_then_lift_v1",
+  "success_count": 0,
+  "trajectories": [
+    {
+      "aliases": [
+        "best_attempt",
+        "best_rescue"
+      ],
+      "artifacts": {
+        "resolved_config": "best/resolved_config.json",
+        "result": "best/result.json",
+        "sha256": {
+          "resolved_config": "f91a2cf2f9360d0d030cff371c8a16d8657b78e46d9e65167cb386e9f76cf0e6",
+          "result": "f5bc9feb7b67265b4daac0b8178d1c0e8ebe545bb6388c905b421bc8015bf620",
+          "trace": "e41e4245a7a345a66f07c1582aba2109ae91f6d9091a3661f4069cac28301383"
+        },
+        "trace": "best/trace.npz",
+        "video": null
+      },
+      "candidate_id": 765141132734518844,
+      "classification": "diagnostic",
+      "full_success": false,
+      "grasp_success": true,
+      "label": "best_rescue",
+      "rank": 1,
+      "trajectory_id": "candidate_765141132734518844"
+    }
+  ],
+  "trajectory_catalog_schema_version": 1
+}
