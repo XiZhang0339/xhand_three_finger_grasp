@@ -1,0 +1,1065 @@
+{
+    "acceptance": {
+        "contact_force_min_n": 0.05,
+        "finger_contact_duty": 0.99,
+        "height_window_s": 0.5,
+        "inactive_joint_abs_max_rad": 0.02,
+        "max_end_linear_speed_m_s": 0.05,
+        "max_height_span_m": 0.002,
+        "max_orientation_drift_deg": 20.0,
+        "max_palm_down_angle_deg": 40.0,
+        "max_penetration_m": 0.002,
+        "median_lift_m": 0.01,
+        "minimum_lift_m": 0.008,
+        "simultaneous_contact_duty": 0.99,
+        "touch_force_min_n": 1e-08
+    },
+    "actual_contact_grasp_pose_campaign": {
+        "budget": {
+            "cell_count": 145,
+            "controller_seeds_per_pose": 1,
+            "exact_grasp_pose_count": 5,
+            "full_static_retain_per_cell": 1,
+            "full_static_sample_count": 290,
+            "full_static_samples_per_cell": 2,
+            "local_pose_count": 8,
+            "local_refine_per_pose": 128,
+            "manipulation_candidates_per_pose": 4,
+            "manipulation_probe_count": 17,
+            "manipulation_refine_per_pose": 128,
+            "manipulation_refine_pose_count": 8,
+            "maximum_dynamic_grasp_candidate_count": 145,
+            "perturbations_per_trajectory": 16,
+            "quick_static_retain_per_cell": 1,
+            "quick_static_sample_count": 145,
+            "quick_static_samples_per_cell": 1
+        },
+        "checkpoint_policy": {
+            "final_trajectories_require_full_reset_rerun": true,
+            "search_probes_may_restore_latched_free_dynamics": true
+        },
+        "cube_center_xy_m": [
+            0.071,
+            -0.027
+        ],
+        "cube_yaw_deg": 27.609990189403167,
+        "edges_m": [
+            0.06,
+            0.061,
+            0.062,
+            0.063,
+            0.064,
+            0.065,
+            0.066,
+            0.067,
+            0.068,
+            0.069,
+            0.07,
+            0.071,
+            0.072,
+            0.073,
+            0.074,
+            0.075,
+            0.076,
+            0.077,
+            0.078,
+            0.079,
+            0.08,
+            0.081,
+            0.082,
+            0.083,
+            0.084,
+            0.085,
+            0.086,
+            0.087,
+            0.088
+        ],
+        "fixed_mass_kg": 0.16,
+        "friction": 0.8,
+        "identity": {
+            "controller": "precontact_preload_timing_manipulation_sha256",
+            "grasp_pose": "cube_hand_topology_contact_point_plan_nominal_qpos_sha256"
+        },
+        "schema_version": 1,
+        "seed": 20260821,
+        "selection": {
+            "initial_target_success_count": 1,
+            "minimum_distinct_edges": 3,
+            "minimum_thumb_bands": 2,
+            "selected_trajectory_count": 5
+        },
+        "source_pose_manifest": "artifacts/left_opposed_face_palm_down_scaled_centered_spread_actual_grasp_then_lift/tune/campaign_yaw_bounded_v2/catalogs/target_5/grasp_pose/catalog.json",
+        "static_contact_geometry": {
+            "cube_body_type": "freejoint",
+            "max_contact_height_spread_m": 0.005,
+            "min_witness_edge_margin_m": 0.0005,
+            "min_witness_normal_alignment": 0.95,
+            "precontact_retreat_m": [
+                0.002,
+                0.004
+            ],
+            "static_filter_is_success_evidence": false,
+            "witness_signed_gap_m": [
+                -0.0005,
+                0.00025
+            ]
+        },
+        "thumb_actual_centers_rad": [
+            1.4,
+            1.45,
+            1.5,
+            1.55,
+            1.6
+        ],
+        "validation_labels": {
+            "grasp": "validated_fixed_160g_contact_preserving_source_grasp_ablation",
+            "manipulation": "validated_fixed_160g_contact_preserving_planned_lift_ablation",
+            "robust": "validated_fixed_160g_contact_preserving_robust_lift_ablation"
+        }
+    },
+    "candidate_metadata": {
+        "cube_pose_sampled": false,
+        "hand_root_fixed_during_simulation": true,
+        "schema_version": 1,
+        "source_candidate_id": "109000000000091",
+        "source_contact_point_plan_id": "e83364ba4532b6d62f738ee6d5bf080c6eaf2a8746645d829d0c7df11918b872",
+        "source_experiment_id": "left_opposed_face_palm_down_scaled_centered_spread_actual_grasp_then_lift",
+        "source_grasp_catalog_sha256": "715c1c5ddf46586a31be0dd219f7076136a09fac2f546854332d5c1c7ad18fea",
+        "source_grasp_pose_id": "deef95e1f002cefb217fa72f507cacfb47e8a5a3989ac93f288e7efe1ad82510"
+    },
+    "closure_alignment": {
+        "dynamic_p95_max_angle_deg": 30,
+        "measurement_phase": "close_target_face_contacts",
+        "min_contact_force_n": 0.05,
+        "min_inward_speed_m_s": 0,
+        "optimization_target_max_angle_deg": 20,
+        "require_positive_inward_speed": true,
+        "static_max_angle_deg": 45
+    },
+    "contact_alignment": {
+        "max_height_spread_m": 0.005,
+        "operation_aligned_duty": 0.7,
+        "verify_continuous_s": 0.25
+    },
+    "contact_feedback": {
+        "acceleration_limit_rad_s2": 6.0,
+        "correction_limit_rad": 0.06,
+        "feedback_id": "54d0edca16bc87ae2128bc63b8da3dcef4e59e39d3357c419d092b7f23afe437",
+        "filter_time_constant_s": 0.005,
+        "force_risk_n": 0.1,
+        "freeze_on_risk": true,
+        "integral_limit_n_s": 0.5,
+        "ki_rad_per_n_s": {
+            "index": 0.08,
+            "mid": 0.05,
+            "thumb": 0.06
+        },
+        "kp_rad_per_n": {
+            "index": 0.025,
+            "mid": 0.015,
+            "thumb": 0.018
+        },
+        "max_loss_s": 0.01,
+        "operation_contact_duty_min": 0.99,
+        "rate_limit_rad_s": 0.6,
+        "recovery_behavior": "freeze_and_inward_preload_then_abort",
+        "schema_version": 1,
+        "strategy": "per_finger_force_pi"
+    },
+    "contact_force_targets_n": {
+        "maximum_n": 3.0,
+        "minimum_n": 0.2,
+        "per_finger_n": {
+            "index": 1.203,
+            "mid": 2.134,
+            "thumb": 0.923
+        },
+        "schema_version": 1,
+        "source": "verify_window_median_clamped",
+        "target_id": "20d7b483108c7b2e123cc7231847521a10a11e2c5bba913f07d84461f2625ec8"
+    },
+    "contact_point_plan": {
+        "coordinate_frame": "cube_local",
+        "cube_edge_m": 0.081,
+        "frozen": true,
+        "identity_binding": "grasp_pose_id_includes_point_plan_id",
+        "point_plan_id": "e83364ba4532b6d62f738ee6d5bf080c6eaf2a8746645d829d0c7df11918b872",
+        "schema_version": 1,
+        "target_points": {
+            "index": {
+                "face": "+X",
+                "face_yz_m": [
+                    -0.012597245172401912,
+                    0.010882500681959608
+                ]
+            },
+            "mid": {
+                "face": "+X",
+                "face_yz_m": [
+                    0.00768928928602485,
+                    0.010820780295861004
+                ]
+            },
+            "thumb": {
+                "face": "-X",
+                "face_yz_m": [
+                    0.004130245179506447,
+                    0.012157665086029704
+                ]
+            }
+        },
+        "target_points_cube_local_m": {
+            "index": [
+                0.0405,
+                -0.012597245172401912,
+                0.010882500681959608
+            ],
+            "mid": [
+                0.0405,
+                0.00768928928602485,
+                0.010820780295861004
+            ],
+            "thumb": [
+                -0.0405,
+                0.004130245179506447,
+                0.012157665086029704
+            ]
+        },
+        "target_radius_m": 0.002
+    },
+    "contact_preserving_planned_lift_campaign": {
+        "budget": {
+            "expected_source_grasp_count": 18,
+            "feedback_candidates_per_plan": 64,
+            "feedback_plan_candidates_per_pair": 4,
+            "feedback_refine_per_plan": 128,
+            "feedback_refine_plan_count": 8,
+            "final_candidate_count": 5,
+            "grasp_rescue_candidates_per_edge_mapping": 32,
+            "grasp_rescue_retain_per_edge_mapping": 2,
+            "maximum_plan_candidate_count": 64,
+            "pair_probe_count": 17,
+            "pair_shortlist_count": 16,
+            "perturbations_per_final": 16,
+            "plan_candidates_per_pair": 4,
+            "plan_knot_count": 21,
+            "priority_grasp_rescue_candidates_per_seed": 256,
+            "robustness_required_passes": 45,
+            "robustness_trials": 50
+        },
+        "contact_acceptance": {
+            "applies_to_each_finger_and_simultaneous_topology": true,
+            "max_contact_loss_s": 0.01,
+            "operation_contact_duty_min": 0.99
+        },
+        "edges_m": [
+            0.06,
+            0.061,
+            0.062,
+            0.063,
+            0.064,
+            0.065,
+            0.066,
+            0.067,
+            0.068,
+            0.069,
+            0.07,
+            0.071,
+            0.072,
+            0.073,
+            0.074,
+            0.075,
+            0.076,
+            0.077,
+            0.078,
+            0.079,
+            0.08,
+            0.081,
+            0.082,
+            0.083,
+            0.084,
+            0.085,
+            0.086,
+            0.087,
+            0.088
+        ],
+        "final_evidence": "fresh_full_reset_free_dynamics_only",
+        "fixed_mass_kg": 0.16,
+        "force_target_contract": {
+            "maximum_n": 3.0,
+            "minimum_n": 0.2,
+            "source": "verify_window_median_clamped"
+        },
+        "friction": 0.8,
+        "identity": {
+            "contact_feedback": "feedback_id_sha256",
+            "contact_force_targets_n": "target_id_sha256",
+            "final_controller": "plan_id_target_id_feedback_id_sha256",
+            "manipulation_plan": "plan_id_sha256"
+        },
+        "plan_contract": {
+            "duration_s": 3.0,
+            "knot_count": 21,
+            "profile": "piecewise_quintic_minimum_jerk",
+            "relative_to": "contact_preload_targets_rad"
+        },
+        "schema_version": 1,
+        "seed": 20260821,
+        "source_grasp_catalog": {
+            "expected_success_count": 18,
+            "path": "artifacts/left_opposed_face_palm_down_scaled_centered_spread_actual_grasp_then_lift/tune/campaign_yaw_bounded_v2/catalogs/target_5/grasp_pose/catalog.json",
+            "sha256": "715c1c5ddf46586a31be0dd219f7076136a09fac2f546854332d5c1c7ad18fea",
+            "success_evidence_only": true
+        },
+        "validation_labels": {
+            "grasp": "validated_fixed_160g_contact_preserving_source_grasp_ablation",
+            "manipulation": "validated_fixed_160g_contact_preserving_planned_lift_ablation",
+            "robust": "validated_fixed_160g_contact_preserving_robust_lift_ablation"
+        }
+    },
+    "contact_topology": {
+        "edge_margin_m": 0.0005,
+        "forbid_active_nondistal": true,
+        "max_material_off_target_duty": 0.01,
+        "max_material_off_target_run_s": 0.01,
+        "max_off_target_force_fraction": 0.05,
+        "min_normal_alignment": 0.95,
+        "surface_tolerance_m": 5e-05,
+        "target_faces": {
+            "index": "+X",
+            "mid": "+X",
+            "thumb": "-X"
+        },
+        "target_force_fraction": 0.95
+    },
+    "control": {
+        "close_profile": {
+            "left_hand_index_bend_joint_actuator": {
+                "end_fraction": 0.9804289878732342,
+                "start_fraction": 0.5907813812497632
+            },
+            "left_hand_index_joint1_actuator": {
+                "end_fraction": 0.9804289878732342,
+                "start_fraction": 0.5907813812497632
+            },
+            "left_hand_index_joint2_actuator": {
+                "end_fraction": 0.9804289878732342,
+                "start_fraction": 0.5907813812497632
+            },
+            "left_hand_mid_joint1_actuator": {
+                "end_fraction": 1.0,
+                "start_fraction": 0.7483751040480826
+            },
+            "left_hand_mid_joint2_actuator": {
+                "end_fraction": 1.0,
+                "start_fraction": 0.7483751040480826
+            },
+            "left_hand_thumb_bend_joint_actuator": {
+                "end_fraction": 0.983687352974209,
+                "start_fraction": 0.6742534823935399
+            },
+            "left_hand_thumb_rota_joint1_actuator": {
+                "end_fraction": 0.983687352974209,
+                "start_fraction": 0.6742534823935399
+            },
+            "left_hand_thumb_rota_joint2_actuator": {
+                "end_fraction": 0.983687352974209,
+                "start_fraction": 0.6742534823935399
+            }
+        },
+        "contact_preload_targets_rad": {
+            "left_hand_index_bend_joint_actuator": -0.06774516858363996,
+            "left_hand_index_joint1_actuator": 0.5513866370365802,
+            "left_hand_index_joint2_actuator": 1.1787572834419844,
+            "left_hand_mid_joint1_actuator": 0.6165346657033453,
+            "left_hand_mid_joint2_actuator": 1.1361129805435686,
+            "left_hand_thumb_bend_joint_actuator": 1.4068752171686532,
+            "left_hand_thumb_rota_joint1_actuator": 0.1584379561943108,
+            "left_hand_thumb_rota_joint2_actuator": 0.7404600804875007
+        },
+        "manipulation_delta_rad": {
+            "left_hand_index_bend_joint_actuator": -0.04796836768068951,
+            "left_hand_index_joint1_actuator": -0.21891993821624128,
+            "left_hand_index_joint2_actuator": 0.16223998845953624,
+            "left_hand_mid_joint1_actuator": -0.1565654688748859,
+            "left_hand_mid_joint2_actuator": 0.4,
+            "left_hand_thumb_bend_joint_actuator": 0.10419523579165951,
+            "left_hand_thumb_rota_joint1_actuator": -0.05,
+            "left_hand_thumb_rota_joint2_actuator": 0.4
+        },
+        "precontact_targets_rad": {
+            "left_hand_index_bend_joint_actuator": -0.04973020926839112,
+            "left_hand_index_joint1_actuator": 0.49097950820471936,
+            "left_hand_index_joint2_actuator": 1.1866679093684989,
+            "left_hand_mid_joint1_actuator": 0.5456460199238745,
+            "left_hand_mid_joint2_actuator": 1.163226606753341,
+            "left_hand_thumb_bend_joint_actuator": 1.4040746444579015,
+            "left_hand_thumb_rota_joint1_actuator": 0.12620808051063614,
+            "left_hand_thumb_rota_joint2_actuator": 0.7174768306052925
+        }
+    },
+    "control_protocol": {
+        "close_duration_options_s": [
+            1.0,
+            1.25,
+            1.5,
+            1.75,
+            2.0
+        ],
+        "close_s": 1.5,
+        "failure_behavior": "abort_hold_grasp_pose",
+        "grasp_gate": {
+            "max_early_lift_m": 0.001,
+            "max_linear_speed_m_s": 0.01,
+            "max_orientation_drift_deg": 3.0,
+            "max_translation_m": 0.0005,
+            "min_target_face_force_n": 0.05,
+            "min_target_force_fraction": 0.95,
+            "require_support_contact": true,
+            "require_touch": true
+        },
+        "manipulate_s": 3.0,
+        "manipulation_profile": "minimum_jerk_quintic",
+        "min_hold_s": 1.0,
+        "settle_s": 0.5,
+        "stable_window_s": 0.25,
+        "strategy": "grasp_verify_then_contact_preserving_planned_lift",
+        "verify_timeout_s": 0.75
+    },
+    "cube": {
+        "center_xy_m": [
+            0.071,
+            -0.027
+        ],
+        "edge_m": 0.081,
+        "friction": 0.8,
+        "mass_kg": 0.16,
+        "rpy_deg": [
+            0.0,
+            0.0,
+            27.609990189403167
+        ],
+        "solref_timeconst_s": 0.004,
+        "z_offset_m": 0.0
+    },
+    "description": "Left-hand 60--88 mm fixed-160-g contact-preserving planned lift with an expanded static wrist-yaw envelope for index/middle joint-pair alignment",
+    "experiment_id": "left_opposed_face_palm_down_joint_pair_aligned_contact_preserving_planned_lift",
+    "fingertip_contact_preferences": {
+        "hard_acceptance": false,
+        "ranking_policy": "soft_maximize_force_fraction_then_taxel_coverage",
+        "taxel_assignment_max_distance_m": 0.006
+    },
+    "grasp_pose": {
+        "max_joint_stability_span_rad": 0.03,
+        "max_nominal_joint_error_rad": 0.04,
+        "nominal_joint_qpos_rad": {
+            "left_hand_index_bend_joint_actuator": -0.06504791315541167,
+            "left_hand_index_joint1_actuator": 0.5427793116903696,
+            "left_hand_index_joint2_actuator": 1.1766103813059507,
+            "left_hand_mid_joint1_actuator": 0.6015445068824785,
+            "left_hand_mid_joint2_actuator": 1.134574790462389,
+            "left_hand_thumb_bend_joint_actuator": 1.4055995906823378,
+            "left_hand_thumb_rota_joint1_actuator": 0.15258490878328557,
+            "left_hand_thumb_rota_joint2_actuator": 0.7310019839030535
+        },
+        "qpos_reference": "stable_contact_window_actual_qpos",
+        "require_all_thumb_samples_in_range": true,
+        "thumb_actual_range_rad": [
+            1.4,
+            1.6
+        ],
+        "thumb_bend_actuator": "left_hand_thumb_bend_joint_actuator",
+        "verify_continuous_s": 0.25
+    },
+    "hand_pose": {
+        "rpy_deg": [
+            -4.607834822366499,
+            121.01182107311413,
+            14.952710143428197
+        ],
+        "translation_m": [
+            0.024881832210889174,
+            -0.028321831786417832,
+            0.27305470445523405
+        ]
+    },
+    "manipulation_plan": {
+        "actuator_waypoints_rad": {
+            "left_hand_index_bend_joint_actuator": [
+                -0.0,
+                -5.5553365820198544e-05,
+                -0.00041060922734670227,
+                -0.001276528204672549,
+                -0.0027783278560655367,
+                -0.004965475560696375,
+                -0.007822681401366842,
+                -0.01128069104723795,
+                -0.01522707863655808,
+                -0.019517039659391153,
+                -0.023984183840344755,
+                -0.02845132802129838,
+                -0.032741289044131414,
+                -0.03668767663345152,
+                -0.04014568627932265,
+                -0.043002892119993134,
+                -0.045190039824623995,
+                -0.04669183947601698,
+                -0.04755775845334289,
+                -0.04791281431486923,
+                -0.04796836768068951
+            ],
+            "left_hand_index_joint1_actuator": [
+                -0.0,
+                -0.00025353665344668446,
+                -0.0018739546711310257,
+                -0.005825870030818335,
+                -0.012679842821484696,
+                -0.0226616342294156,
+                -0.035701463524304616,
+                -0.05148326504535207,
+                -0.06949394518736364,
+                -0.08907263938684905,
+                -0.10945996910812064,
+                -0.12984729882939233,
+                -0.14942599302887757,
+                -0.16743667317088906,
+                -0.18321847469193658,
+                -0.19625830398682567,
+                -0.20624009539475668,
+                -0.21309406818542306,
+                -0.21704598354511062,
+                -0.21866640156279424,
+                -0.21891993821624128
+            ],
+            "left_hand_index_joint2_actuator": [
+                0.0,
+                0.00018789418663470042,
+                0.0013887743012136306,
+                0.0043175102928866204,
+                0.00939694013157634,
+                0.016794373805381683,
+                0.026458097317981162,
+                0.03815387668603634,
+                0.051501461936595196,
+                0.06601109110449548,
+                0.08111999422976812,
+                0.09622889735504084,
+                0.110738526522941,
+                0.12408611177349978,
+                0.135781891141555,
+                0.14544561465415456,
+                0.15284304832795997,
+                0.1579224781666497,
+                0.16085121415832287,
+                0.16205209427290126,
+                0.16223998845953624
+            ],
+            "left_hand_mid_joint1_actuator": [
+                -0.0,
+                -0.00018132238364072724,
+                -0.0013402004135690236,
+                -0.004166500687014854,
+                -0.009068271957233393,
+                -0.01620697236400186,
+                -0.025532696664116384,
+                -0.03681940346188886,
+                -0.04970014243964379,
+                -0.06370228158821509,
+                -0.07828273443744295,
+                -0.09286318728667088,
+                -0.10686532643524206,
+                -0.11974606541299693,
+                -0.13103277221076945,
+                -0.14035849651088403,
+                -0.1474971969176526,
+                -0.15239896818787113,
+                -0.15522526846131712,
+                -0.1563841464912449,
+                -0.1565654688748859
+            ],
+            "left_hand_mid_joint2_actuator": [
+                0.0,
+                0.00046325000000000007,
+                0.003424000000000001,
+                0.01064475,
+                0.023168000000000005,
+                0.041406250000000006,
+                0.06523199999999998,
+                0.09406774999999999,
+                0.12697600000000003,
+                0.16274925000000007,
+                0.2,
+                0.23725075000000012,
+                0.2730239999999999,
+                0.30593224999999974,
+                0.3347679999999999,
+                0.35859375000000004,
+                0.3768320000000002,
+                0.3893552500000002,
+                0.3965760000000007,
+                0.39953674999999933,
+                0.4
+            ],
+            "left_hand_thumb_bend_joint_actuator": [
+                0.0,
+                0.00012067110745121569,
+                0.0008919112183766056,
+                0.0027728305904831684,
+                0.0060349880570529195,
+                0.010785834954996004,
+                0.016992159052903827,
+                0.024503528479102192,
+                0.0330757356497044,
+                0.04239424119666437,
+                0.052097617895829756,
+                0.06180099459499519,
+                0.07111950014195507,
+                0.07969170731255724,
+                0.08720307673875564,
+                0.0934094008366635,
+                0.09816024773460665,
+                0.1014224052011764,
+                0.10330332457328308,
+                0.10407456468420813,
+                0.10419523579165951
+            ],
+            "left_hand_thumb_rota_joint1_actuator": [
+                -0.0,
+                -5.790625000000001e-05,
+                -0.0004280000000000001,
+                -0.00133059375,
+                -0.0028960000000000006,
+                -0.005175781250000001,
+                -0.008153999999999998,
+                -0.011758468749999999,
+                -0.015872000000000004,
+                -0.02034365625000001,
+                -0.025,
+                -0.029656343750000015,
+                -0.034127999999999985,
+                -0.03824153124999997,
+                -0.04184599999999999,
+                -0.044824218750000006,
+                -0.04710400000000003,
+                -0.048669406250000026,
+                -0.04957200000000009,
+                -0.049942093749999916,
+                -0.05
+            ],
+            "left_hand_thumb_rota_joint2_actuator": [
+                0.0,
+                0.00046325000000000007,
+                0.003424000000000001,
+                0.01064475,
+                0.023168000000000005,
+                0.041406250000000006,
+                0.06523199999999998,
+                0.09406774999999999,
+                0.12697600000000003,
+                0.16274925000000007,
+                0.2,
+                0.23725075000000012,
+                0.2730239999999999,
+                0.30593224999999974,
+                0.3347679999999999,
+                0.35859375000000004,
+                0.3768320000000002,
+                0.3893552500000002,
+                0.3965760000000007,
+                0.39953674999999933,
+                0.4
+            ]
+        },
+        "desired_cube_position_delta_m": [
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                1.2739375e-05
+            ],
+            [
+                0.0,
+                0.0,
+                9.416e-05
+            ],
+            [
+                0.0,
+                0.0,
+                0.00029273062499999994
+            ],
+            [
+                0.0,
+                0.0,
+                0.00063712
+            ],
+            [
+                0.0,
+                0.0,
+                0.001138671875
+            ],
+            [
+                0.0,
+                0.0,
+                0.0017938799999999992
+            ],
+            [
+                0.0,
+                0.0,
+                0.0025868631249999995
+            ],
+            [
+                0.0,
+                0.0,
+                0.0034918400000000004
+            ],
+            [
+                0.0,
+                0.0,
+                0.004475604375000002
+            ],
+            [
+                0.0,
+                0.0,
+                0.0055
+            ],
+            [
+                0.0,
+                0.0,
+                0.006524395625000003
+            ],
+            [
+                0.0,
+                0.0,
+                0.0075081599999999955
+            ],
+            [
+                0.0,
+                0.0,
+                0.008413136874999992
+            ],
+            [
+                0.0,
+                0.0,
+                0.009206119999999996
+            ],
+            [
+                0.0,
+                0.0,
+                0.009861328124999999
+            ],
+            [
+                0.0,
+                0.0,
+                0.010362880000000005
+            ],
+            [
+                0.0,
+                0.0,
+                0.010707269375000005
+            ],
+            [
+                0.0,
+                0.0,
+                0.010905840000000017
+            ],
+            [
+                0.0,
+                0.0,
+                0.010987260624999981
+            ],
+            [
+                0.0,
+                0.0,
+                0.011
+            ]
+        ],
+        "desired_cube_rotation_vector_rad": [
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ],
+            [
+                0.0,
+                0.0,
+                0.0
+            ]
+        ],
+        "duration_s": 3.0,
+        "knot_times_s": [
+            0.0,
+            0.15,
+            0.3,
+            0.45,
+            0.6,
+            0.75,
+            0.9,
+            1.05,
+            1.2,
+            1.35,
+            1.5,
+            1.65,
+            1.8,
+            1.95,
+            2.1,
+            2.25,
+            2.4,
+            2.55,
+            2.7,
+            2.85,
+            3.0
+        ],
+        "max_knot_delta_rad": 0.04,
+        "plan_id": "72baa88ccb9dd5b66d63cebd829638d135705847821e23f2780b5748de796a82",
+        "profile": "piecewise_quintic_minimum_jerk",
+        "schema_version": 1,
+        "trust_region_backtracks": 4
+    },
+    "motion_smoothness": {
+        "downward_speed_threshold_m_s": -0.001,
+        "filter_window_s": 0.051,
+        "max_abs_vertical_acceleration_m_s2": 0.12,
+        "max_abs_vertical_jerk_m_s3": 2.5,
+        "max_cumulative_height_backtrack_m": 0.0002,
+        "max_downward_speed_duty": 0.02,
+        "max_hold_entry_linear_speed_m_s": 0.005,
+        "max_lateral_displacement_m": 0.002,
+        "max_orientation_drift_deg": 10,
+        "max_peak_upward_speed_m_s": 0.02
+    },
+    "pose_constraints": {
+        "cube_position_in_root_m": {
+            "x": [
+                0.07,
+                0.15
+            ],
+            "y": [
+                -0.065,
+                0.02
+            ],
+            "z": [
+                0.075,
+                0.16
+            ]
+        },
+        "finger_down_tilt_deg": [
+            30,
+            40
+        ],
+        "legacy_press_reference_translation_m": [
+            -0.036454669709448065,
+            0.008499986928773153,
+            0.19777491509344874
+        ],
+        "palm_plane_ground_angle_deg": [
+            30,
+            40
+        ],
+        "root_cube_distance_m": [
+            0.135,
+            0.21
+        ]
+    },
+    "pose_preservation": {
+        "initialize_active_joints_at_pregrasp": true,
+        "max_orientation_drift_deg": 1,
+        "max_translation_m": 0.0005,
+        "reference": "reset_pre_step_cube_pose",
+        "require_no_hand_cube_contact_during_settle": true,
+        "require_support_contact": true,
+        "scope": "through_grasp_acquisition_inclusive"
+    },
+    "robustness": {
+        "edge_m": [
+            0.06,
+            0.061,
+            0.062,
+            0.063,
+            0.064,
+            0.065,
+            0.066,
+            0.067,
+            0.068,
+            0.069,
+            0.07,
+            0.071,
+            0.072,
+            0.073,
+            0.074,
+            0.075,
+            0.076,
+            0.077,
+            0.078,
+            0.079,
+            0.08,
+            0.081,
+            0.082,
+            0.083,
+            0.084,
+            0.085,
+            0.086,
+            0.087,
+            0.088
+        ],
+        "friction": [
+            0.8
+        ],
+        "friction_delta": [
+            -0.1,
+            0.1
+        ],
+        "mass_kg": [
+            0.16
+        ],
+        "mass_scale": [
+            1.0,
+            1.0
+        ],
+        "perturbation_count": 50,
+        "position_xy_delta_m": [
+            -0.0015,
+            0.0015
+        ],
+        "required_pass_count": 45,
+        "rpy_delta_deg": [
+            -3.0,
+            3.0
+        ],
+        "seed": 20260821,
+        "z_offset_delta_m": [
+            0.0,
+            0.0005
+        ]
+    },
+    "scene": {
+        "floor_z_m": -0.015,
+        "support_radius_m": 0.006,
+        "support_top_z_m": 0.084
+    },
+    "schema_version": 14,
+    "search": {
+        "budget": {
+            "expected_source_grasp_count": 18,
+            "feedback_candidates_per_plan": 64,
+            "feedback_plan_candidates_per_pair": 4,
+            "feedback_refine_per_plan": 128,
+            "feedback_refine_plan_count": 8,
+            "final_candidate_count": 5,
+            "grasp_rescue_candidates_per_edge_mapping": 32,
+            "grasp_rescue_retain_per_edge_mapping": 2,
+            "maximum_plan_candidate_count": 64,
+            "pair_probe_count": 17,
+            "pair_shortlist_count": 16,
+            "perturbations_per_final": 16,
+            "plan_candidates_per_pair": 4,
+            "plan_knot_count": 21,
+            "priority_grasp_rescue_candidates_per_seed": 256,
+            "robustness_required_passes": 45,
+            "robustness_trials": 50
+        },
+        "seed": 20260821,
+        "shared_faces": [
+            "+X"
+        ]
+    },
+    "side": "left"
+}

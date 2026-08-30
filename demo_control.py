@@ -17,9 +17,17 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 
 
 class XHandDemo:
-    def __init__(self, side: str, pose: str, report_interval: float):
+    def __init__(
+        self,
+        side: str,
+        pose: str,
+        report_interval: float,
+        *,
+        model_path: str | Path | None = None,
+    ):
         self.side = side
-        self.model = mujoco.MjModel.from_xml_path(str(SCRIPT_DIR / f"scene_{side}.xml"))
+        self.model_path = Path(model_path or SCRIPT_DIR / f"scene_{side}.xml").resolve()
+        self.model = mujoco.MjModel.from_xml_path(str(self.model_path))
         self.data = mujoco.MjData(self.model)
         self.reader = TactileReader(self.model, self.data, side)
         self.targets = {
@@ -31,6 +39,12 @@ class XHandDemo:
         self.transition_start = self.target.copy()
         self.transition_elapsed = 1.5
         self.transition_duration = 1.5
+        self.control_mode = "preset"
+        # ``launch_passive`` exposes ``data.ctrl`` directly to the Control
+        # panel.  Keep the last value written by this process so a slider edit
+        # imported by ``viewer.sync()`` can be distinguished from our own
+        # preset interpolation on the following physics step.
+        self._last_applied_ctrl = self.target.copy()
         self.report_interval = report_interval
         self.reset_requested = False
         self.taxels_visible = False
@@ -39,10 +53,37 @@ class XHandDemo:
         self.begin_pose(pose)
 
     def begin_pose(self, pose: str) -> None:
+        self.control_mode = "preset"
         self.target_name = pose
         self.transition_start = self.data.ctrl.copy()
         self.target = self.targets[pose].copy()
         self.transition_elapsed = 0.0
+        # A key callback can select a preset immediately after a Control-panel
+        # edit.  Acknowledge the current slider values as the interpolation
+        # start so they are not mistaken for a new manual edit next step.
+        self._last_applied_ctrl = self.data.ctrl.copy()
+
+    def adopt_viewer_controls(self) -> bool:
+        """Adopt Control-panel slider edits and stop preset interpolation.
+
+        The passive Viewer applies UI edits to ``data.ctrl`` during
+        ``viewer.sync()``.  Without this hand-off, :meth:`step` would overwrite
+        those edits with the selected O/P/C trajectory one frame later.
+        """
+
+        viewer_ctrl = np.asarray(self.data.ctrl, dtype=np.float64)
+        if np.array_equal(viewer_ctrl, self._last_applied_ctrl):
+            return False
+        first_manual_edit = self.control_mode != "manual"
+        self.control_mode = "manual"
+        self.target_name = "manual"
+        self.target = viewer_ctrl.copy()
+        self.transition_start = viewer_ctrl.copy()
+        self.transition_elapsed = self.transition_duration
+        self._last_applied_ctrl = viewer_ctrl.copy()
+        if first_manual_edit:
+            print("\n已切换到 Control 面板手动控制；按 O/P/C 可恢复预设轨迹。")
+        return True
 
     def key_callback(self, keycode: int) -> None:
         try:
@@ -70,14 +111,17 @@ class XHandDemo:
         self.data.ctrl[:] = self.targets["open"]
         mujoco.mj_forward(self.model, self.data)
         self.target_name = "open"
+        self.control_mode = "preset"
         self.target = self.targets["open"].copy()
         self.transition_start = self.target.copy()
         self.transition_elapsed = self.transition_duration
+        self._last_applied_ctrl = self.data.ctrl.copy()
         self.reset_requested = False
 
     def step(self) -> None:
         if self.reset_requested:
             self.reset()
+        self.adopt_viewer_controls()
         # Synchronized 1.5 s interpolation keeps every joint below the delivered
         # velocity limits and avoids striking the supported demo object.  Only
         # actuator controls are changed; joint qpos is never teleported.
@@ -90,6 +134,7 @@ class XHandDemo:
             self.target - self.transition_start
         )
         mujoco.mj_step(self.model, self.data)
+        self._last_applied_ctrl = self.data.ctrl.copy()
 
     def report(self) -> None:
         fields = []
@@ -118,24 +163,32 @@ class XHandDemo:
         print(
             "交互键: O=张开  P=捏取  C=握拳  R=重置  "
             "T=显示/隐藏600个taxel  F=接触力\n"
-            "MuJoCo 右侧 Control 面板也可直接拖动 12 个 actuator。"
+            "MuJoCo 右侧 Control 面板可直接拖动 12 个 actuator；首次拖动会"
+            "切换到手动保持模式，按 O/P/C 可恢复预设轨迹。"
         )
         next_report = time.monotonic()
         with mujoco.viewer.launch_passive(
             self.model, self.data, key_callback=self.key_callback
         ) as viewer:
-            viewer.opt.geomgroup[3] = 0
-            viewer.opt.sitegroup[4] = 0
+            with viewer.lock():
+                viewer.opt.geomgroup[3] = 0
+                viewer.opt.sitegroup[4] = 0
             while viewer.is_running():
                 started = time.monotonic()
+                # The passive Viewer owns a separate GUI thread.  Its Control
+                # sliders update data.ctrl at sync boundaries.  Consume those
+                # values before applying a command and advancing physics.
                 self.step()
-                viewer.opt.sitegroup[4] = int(self.taxels_visible)
-                viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTPOINT] = int(
-                    self.contacts_visible
-                )
-                viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTFORCE] = int(
-                    self.contacts_visible
-                )
+                # Direct Viewer-option edits do require the passive handle's
+                # mutex.  Do not hold it across sync(), which locks internally.
+                with viewer.lock():
+                    viewer.opt.sitegroup[4] = int(self.taxels_visible)
+                    viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTPOINT] = int(
+                        self.contacts_visible
+                    )
+                    viewer.opt.flags[mujoco.mjtVisFlag.mjVIS_CONTACTFORCE] = int(
+                        self.contacts_visible
+                    )
                 if self.report_interval > 0 and started >= next_report:
                     self.report()
                     next_report = started + self.report_interval

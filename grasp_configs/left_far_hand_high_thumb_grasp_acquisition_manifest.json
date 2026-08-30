@@ -1,0 +1,124 @@
+{
+  "manifest_schema_version": 1,
+  "validation_scope": "grasp_acquisition",
+  "base_config": "left_opposed_face_palm_tilted_down_far_hand_fingertip_grasp_then_lift.json",
+  "search_seed": 20260821,
+  "search_note": {
+    "objective": "First acquire a stable three-finger opposed-face grasp; manipulation deltas are fixed to zero.",
+    "strict_thresholds_unchanged": true,
+    "thumb_1p16_probe_count": 100,
+    "thumb_1p16_validated_grasp_count": 7,
+    "thumb_1p17_probe_count": 175,
+    "thumb_1p17_validated_grasp_count": 5,
+    "multi_size_high_thumb_probe_count": 224,
+    "multi_size_high_thumb_validated_grasp_count": 2,
+    "thumb_1p20_probe_count": 266,
+    "thumb_1p20_validated_grasp_count": 0,
+    "thumb_1p20_best_alignment_p95_mm": 6.25
+  },
+  "best_candidate_id": 117060,
+  "shared": {
+    "finger_down_tilt_deg": 19.9872968445099,
+    "tilt_band_center_deg": 20.0,
+    "hand_roll_deg": -2.0,
+    "hand_yaw_deg": -1.7892512430329526,
+    "grasp_targets_rad": {
+      "left_hand_thumb_rota_joint1_actuator": 0.3762493202900651,
+      "left_hand_thumb_rota_joint2_actuator": 1.0070913503882977,
+      "left_hand_index_bend_joint_actuator": -0.024299181483503213,
+      "left_hand_index_joint1_actuator": 0.6940773793455135,
+      "left_hand_index_joint2_actuator": 1.35,
+      "left_hand_mid_joint1_actuator": 0.8789227411679765,
+      "left_hand_mid_joint2_actuator": 1.1
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": 117060,
+      "label": "thumb_1p17_edge_60mm_distance_157p453mm",
+      "edge_mm": 60.0,
+      "root_cube_distance_mm": 157.453195422,
+      "cube_in_root_mm": [
+        100.58596799218645,
+        -23.86528114993421,
+        118.76203158968009
+      ],
+      "cube_yaw_deg": 27.609990189403167,
+      "thumb_bend_target_rad": 1.17
+    },
+    {
+      "candidate_id": 116060,
+      "label": "thumb_1p16_edge_60mm_distance_157p489mm",
+      "edge_mm": 60.0,
+      "root_cube_distance_mm": 157.488978301,
+      "cube_in_root_mm": [
+        100.33683804505189,
+        -24.43424920179291,
+        118.90443508704532
+      ],
+      "cube_yaw_deg": 27.375055503869344,
+      "thumb_bend_target_rad": 1.16
+    },
+    {
+      "candidate_id": 115060,
+      "label": "thumb_1p15_edge_60mm_distance_158mm",
+      "edge_mm": 60.0,
+      "root_cube_distance_mm": 158.0,
+      "cube_in_root_mm": [
+        100.10082565094056,
+        -26.0,
+        119.448
+      ],
+      "cube_yaw_deg": 26.0,
+      "thumb_bend_target_rad": 1.15
+    },
+    {
+      "candidate_id": 117061,
+      "label": "thumb_1p17_edge_61mm_distance_158mm",
+      "edge_mm": 61.0,
+      "root_cube_distance_mm": 158.0,
+      "cube_in_root_mm": [
+        99.83574157585048,
+        -27.0,
+        119.448
+      ],
+      "cube_yaw_deg": 27.0,
+      "thumb_bend_target_rad": 1.17,
+      "grasp_target_overrides_rad": {
+        "left_hand_thumb_rota_joint1_actuator": 0.35,
+        "left_hand_thumb_rota_joint2_actuator": 1.04
+      }
+    },
+    {
+      "candidate_id": 116062,
+      "label": "thumb_1p16_edge_62mm_distance_157mm",
+      "edge_mm": 62.0,
+      "root_cube_distance_mm": 157.0,
+      "cube_in_root_mm": [
+        99.15749662,
+        -27.0,
+        118.692
+      ],
+      "cube_yaw_deg": 27.0,
+      "thumb_bend_target_rad": 1.16,
+      "grasp_target_overrides_rad": {
+        "left_hand_thumb_rota_joint1_actuator": 0.35,
+        "left_hand_thumb_rota_joint2_actuator": 1.04,
+        "left_hand_index_bend_joint_actuator": -0.04
+      }
+    },
+    {
+      "candidate_id": 110064,
+      "label": "thumb_1p10_edge_64mm_distance_157mm",
+      "edge_mm": 64.0,
+      "root_cube_distance_mm": 157.0,
+      "cube_in_root_mm": [
+        96.631750122604,
+        -32.59939042,
+        119.36743531
+      ],
+      "cube_yaw_deg": 26.0,
+      "thumb_bend_target_rad": 1.1
+    }
+  ]
+}

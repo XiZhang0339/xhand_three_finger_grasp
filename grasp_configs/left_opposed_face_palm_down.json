@@ -1,0 +1,133 @@
+{
+  "schema_version": 2,
+  "experiment_id": "left_opposed_face_palm_down_lift",
+  "side": "left",
+  "description": "Initial near-miss for a fixed, palm-down left hand with exact opposed-face three-finger topology",
+  "experiment_status": {
+    "classification": "initial_near_miss",
+    "passed": false,
+    "note": "The final joint pose has the requested static nearest-face arrangement, but the current open-loop trajectory has not produced a validated dynamic lift."
+  },
+  "initial_near_miss": {
+    "search_seed": 20260821,
+    "cube_position_in_root_m": [0.05718511, -0.02627361, 0.09389486],
+    "static_nearest_faces": {
+      "thumb": "-X",
+      "index": "+X",
+      "mid": "+X"
+    },
+    "static_signed_surface_distance_m": {
+      "thumb": -0.000435,
+      "index": -0.001665,
+      "mid": 0.000162
+    },
+    "dynamic_result": {
+      "passed": false,
+      "failure_summary": "The dynamic trajectory loses the static three-finger topology and does not clear the support."
+    }
+  },
+  "hand_pose": {
+    "translation_m": [-0.034496065794079, -0.00072639, 0.12993479662294638],
+    "rpy_deg": [0.0, 75.0, 0.0]
+  },
+  "cube": {
+    "center_xy_m": [0.071, -0.027],
+    "edge_m": 0.03,
+    "mass_kg": 0.02,
+    "friction": 0.8,
+    "rpy_deg": [0.0, 0.0, 28.860765],
+    "z_offset_m": 0.0,
+    "solref_timeconst_s": 0.004
+  },
+  "scene": {
+    "support_top_z_m": 0.084,
+    "support_radius_m": 0.006,
+    "floor_z_m": -0.015
+  },
+  "control": {
+    "pregrasp_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 0.59463625,
+      "left_hand_thumb_rota_joint1_actuator": 0.3995017,
+      "left_hand_thumb_rota_joint2_actuator": 0.66769105,
+      "left_hand_index_bend_joint_actuator": -0.01043705,
+      "left_hand_index_joint1_actuator": 0.66135745,
+      "left_hand_index_joint2_actuator": 0.84784505,
+      "left_hand_mid_joint1_actuator": 0.86906105,
+      "left_hand_mid_joint2_actuator": 0.62302305
+    },
+    "final_targets_rad": {
+      "left_hand_thumb_bend_joint_actuator": 0.914825,
+      "left_hand_thumb_rota_joint1_actuator": 0.614618,
+      "left_hand_thumb_rota_joint2_actuator": 1.027217,
+      "left_hand_index_bend_joint_actuator": -0.016057,
+      "left_hand_index_joint1_actuator": 1.017473,
+      "left_hand_index_joint2_actuator": 1.304377,
+      "left_hand_mid_joint1_actuator": 1.337017,
+      "left_hand_mid_joint2_actuator": 0.958497
+    }
+  },
+  "timing": {
+    "settle_s": 0.5,
+    "pregrasp_s": 1.0,
+    "lift_s": 1.5,
+    "hold_s": 1.0
+  },
+  "acceptance": {
+    "median_lift_m": 0.01,
+    "minimum_lift_m": 0.008,
+    "height_window_s": 0.5,
+    "finger_contact_duty": 0.8,
+    "simultaneous_contact_duty": 0.7,
+    "contact_force_min_n": 0.05,
+    "touch_force_min_n": 1e-08,
+    "max_height_span_m": 0.002,
+    "max_orientation_drift_deg": 20.0,
+    "max_end_linear_speed_m_s": 0.05,
+    "max_penetration_m": 0.002,
+    "inactive_joint_abs_max_rad": 0.02,
+    "max_palm_down_angle_deg": 30.0
+  },
+  "contact_topology": {
+    "target_faces": {
+      "thumb": "-X",
+      "index": "+X",
+      "mid": "+X"
+    },
+    "surface_tolerance_m": 0.00005,
+    "edge_margin_m": 0.0005,
+    "min_normal_alignment": 0.95,
+    "target_force_fraction": 0.95,
+    "max_off_target_force_fraction": 0.05,
+    "max_material_off_target_duty": 0.01,
+    "max_material_off_target_run_s": 0.01,
+    "forbid_active_nondistal": true
+  },
+  "search": {
+    "shared_faces": ["+X", "-X", "+Y", "-Y"],
+    "seed": 20260821,
+    "budget": {
+      "palm_pitch_values_deg": [60.0, 65.0, 70.0, 75.0, 80.0],
+      "kinematic_samples_per_pitch": 50000,
+      "dynamic_candidate_count": 512,
+      "local_refine_seed_count": 8,
+      "local_refine_per_seed": 256,
+      "final_candidate_count": 16,
+      "perturbations_per_final_candidate": 16,
+      "fallback_kinematic_samples_per_pitch": 5000,
+      "fallback_candidate_count": 2048
+    }
+  },
+  "robustness": {
+    "edge_m": [0.026, 0.028, 0.03, 0.032, 0.034],
+    "mass_kg": [0.01, 0.02, 0.03, 0.05],
+    "friction": [0.4, 0.6, 0.8, 1.0, 1.2],
+    "perturbation_count": 50,
+    "required_pass_count": 45,
+    "seed": 20260821,
+    "position_xy_delta_m": [-0.0015, 0.0015],
+    "rpy_delta_deg": [-3.0, 3.0],
+    "mass_scale": [0.9, 1.1],
+    "friction_delta": [-0.1, 0.1],
+    "z_offset_delta_m": [0.0, 0.0005]
+  }
+}
